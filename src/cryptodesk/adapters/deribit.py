@@ -86,4 +86,4 @@ def collect_options(coin: str, profile: dict, get, fetched_at: str) -> list[Fact
         reason = str(e)
     except (KeyError, TypeError, ValueError):
         reason = "field absent in response"
-    return [missing(f"deribit.{coin}.opt.all.options_summary", coin, "oi_call", coin.upper(), reason, fetched_at, "deribit")]
+    return [missing(f"deribit.{coin}.opt.unknown.oi_call", coin, "oi_call", coin.upper(), reason, fetched_at, "deribit")]
