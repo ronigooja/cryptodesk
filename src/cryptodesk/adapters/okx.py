@@ -5,7 +5,7 @@ BASE = "https://www.okx.com/api/v5"
 
 
 def _row(d):
-    if d.get("code") != "0":
+    if not isinstance(d, dict) or d.get("code") != "0":
         raise KeyError("code")
     return d["data"][0]
 

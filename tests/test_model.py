@@ -53,7 +53,6 @@ def test_validate_rejects_invalid_record(changes, message, fact, registry):
 
 
 @pytest.mark.parametrize("field", ["as_of", "fetched_at"])
-@pytest.mark.xfail(strict=True, reason="model.validate checks timestamp shape, not calendar validity")
 def test_bug_validate_rejects_impossible_calendar_time(field, fact, registry):
     record = fact.to_dict() | {field: "2026-99-99T99:99:99Z"}
     assert validate(record, registry)

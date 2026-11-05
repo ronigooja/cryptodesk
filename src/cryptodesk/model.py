@@ -25,6 +25,16 @@ class Fact:
         return asdict(self)
 
 
+def valid_time(s) -> bool:
+    if not isinstance(s, str) or not TIME_RE.match(s):
+        return False
+    try:
+        datetime.strptime(s, "%Y-%m-%dT%H:%M:%SZ")
+    except ValueError:
+        return False
+    return True
+
+
 def iso(dt: datetime) -> str:
     return dt.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -65,9 +75,9 @@ def validate(d: dict, registry) -> list[str]:
             errors.append(f"{fid}: missing with value")
         if not d["reason"]:
             errors.append(f"{fid}: missing without reason")
-    if not TIME_RE.match(str(d["fetched_at"])):
+    if not valid_time(d["fetched_at"]):
         errors.append(f"{fid}: fetched_at not UTC ISO")
-    if d["as_of"] is not None and not TIME_RE.match(str(d["as_of"])):
+    if d["as_of"] is not None and not valid_time(d["as_of"]):
         errors.append(f"{fid}: as_of not UTC ISO")
     if not d["unit"]:
         errors.append(f"{fid}: unit empty")
