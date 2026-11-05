@@ -10,9 +10,9 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 
 | Key | Provider | Needs | Coins | Metrics | Phase | Status |
 |---|---|---|---|---|---|---|
-| `binance` | Binance spot and USD-M futures | none | btc, eth | `core`, `perp` | 1 | planned |
-| `okx` | OKX v5 public | none | btc, eth | spot, funding, open interest | 1 | planned |
-| `deribit` | Deribit v2 public | none | btc, eth | perp, `dvol`, `options` | 1 | planned |
+| `binance` | Binance spot and USD-M futures | none | btc, eth | `core`, `perp` | 1 | verified locally 2026-11-05; GitHub runners untested (HTTP 451 report) |
+| `okx` | OKX v5 public | none | btc, eth | spot, funding, open interest | 1 | verified locally 2026-11-05 |
+| `deribit` | Deribit v2 public | none | btc, eth | perp, `dvol`, `options` | 1 | verified locally 2026-11-05 |
 | `fred` | St. Louis Fed | free key `FRED_API_KEY` | macro | yields, fed funds | 1 | blocked: key |
 | `bls` | BLS API v2 | free key `BLS_API_KEY` | macro | payrolls, unemployment, CPI | 2 | blocked: key |
 | `treasury` | Treasury FiscalData | none | macro | refunding, auctions | 2 | planned |
