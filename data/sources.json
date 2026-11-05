@@ -1,0 +1,18 @@
+{
+  "binance": {
+    "base": "https://api.binance.com",
+    "notes": "Spot v3; USD-M futures use https://fapi.binance.com. Funding is per 8 hours."
+  },
+  "okx": {
+    "base": "https://www.okx.com/api/v5",
+    "notes": "Public spot and swap endpoints; open interest uses coin and USD fields."
+  },
+  "deribit": {
+    "base": "https://www.deribit.com/api/v2/public",
+    "notes": "Perpetual ticker, DVOL, and option book summaries; funding_8h is per 8 hours."
+  },
+  "fred": {
+    "base": "https://api.stlouisfed.org/fred",
+    "notes": "Daily DGS10, DGS2, and DFF observations; requires FRED_API_KEY from the environment."
+  }
+}
