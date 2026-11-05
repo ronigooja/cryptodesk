@@ -5,6 +5,7 @@ from pathlib import Path
 import pytest
 
 from cryptodesk import cli
+from cryptodesk.adapters.base import FetchError
 
 ROOT = Path(__file__).resolve().parents[1]
 STAMP = 1793966400000
@@ -63,8 +64,24 @@ def test_options_collect(repo):
     assert "deribit.btc.opt.2026-11-27.max_pain" in latest
 
 
-def test_macro_missing_key(repo, monkeypatch, capsys):
-    monkeypatch.delenv("FRED_API_KEY", raising=False)
+TREASURY = "Date,\"2 Yr\",\"10 Yr\"\n11/04/2026,4.58,4.90\n11/03/2026,4.61,4.95\n"
+NYFED = {"refRates": [{"effectiveDate": "2026-11-04", "type": "EFFR", "percentRate": 3.88}]}
+
+
+def test_macro_collect(repo, monkeypatch, capsys):
+    monkeypatch.setattr(cli, "make_get_text_fn", lambda: lambda url, params: TREASURY)
+    monkeypatch.setattr(cli, "make_get_fn", lambda: lambda url, params: NYFED)
+    assert cli.main(["collect", "macro"]) == 0
+    assert capsys.readouterr().out.strip() == "collect macro: facts=3 changed=3 unchanged=0 missing=0"
+    assert cli.main(["check"]) == 0
+
+
+def test_macro_failure_is_missing_not_crash(repo, monkeypatch, capsys):
+    def get(url, params):
+        raise FetchError("HTTP 503")
+
+    monkeypatch.setattr(cli, "make_get_text_fn", lambda: get)
+    monkeypatch.setattr(cli, "make_get_fn", lambda: get)
     assert cli.main(["collect", "macro"]) == 0
     assert "missing=3" in capsys.readouterr().out
     assert cli.main(["check"]) == 0
@@ -80,13 +97,3 @@ def test_check_errors_fail(repo, monkeypatch, capsys):
     monkeypatch.setattr(cli.check, "check_all", lambda *args: ["invalid fact"])
     assert cli.main(["check"]) == 1
     assert capsys.readouterr().out.strip() == "check: errors=1"
-
-
-def test_macro_secret_not_in_output_or_data(repo, monkeypatch, capsys):
-    secret = "fake-secret-do-not-store"
-    monkeypatch.setenv("FRED_API_KEY", secret)
-    monkeypatch.setattr(cli, "make_get_fn", lambda: lambda *args: {"observations": [{"date": "2026-11-06", "value": "4"}]})
-    assert cli.main(["collect", "macro"]) == 0
-    assert secret not in capsys.readouterr().out
-    for directory in (repo / "data", repo / "runs"):
-        assert all(secret not in p.read_text() for p in directory.rglob("*") if p.is_file())

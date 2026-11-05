@@ -1,12 +1,12 @@
 import argparse
-import os
 from datetime import UTC, datetime
 
 from . import check, model, profiles, registry, render, store
-from .adapters import binance, deribit, fred, okx
-from .adapters.base import make_get
+from .adapters import binance, deribit, nyfed, okx, treasury
+from .adapters.base import make_get, make_get_text
 
 make_get_fn = make_get
+make_get_text_fn = make_get_text
 
 
 def main(argv=None) -> int:
@@ -21,11 +21,11 @@ def main(argv=None) -> int:
     db = store.Store(root, registry.load(root))
     if args.command == "collect":
         started = model.iso(datetime.now(UTC))
-        get = make_get_fn()
         facts = []
         if args.group == "macro":
-            facts = fred.collect(os.environ.get("FRED_API_KEY"), get, started)
+            facts = treasury.collect(make_get_text_fn(), started) + nyfed.collect(make_get_fn(), started)
         else:
+            get = make_get_fn()
             for coin in profiles.list_coins(root):
                 profile = profiles.load(root, coin)
                 if args.group == "market":

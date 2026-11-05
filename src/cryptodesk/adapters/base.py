@@ -10,7 +10,7 @@ class FetchError(Exception):
     pass
 
 
-def make_get(timeout: float = 20.0) -> Callable:
+def _make_fetch(timeout: float, parse: Callable) -> Callable:
     client = httpx.Client(timeout=timeout, headers={"User-Agent": "cryptodesk"})
 
     def get(url: str, params: dict | None = None):
@@ -22,12 +22,24 @@ def make_get(timeout: float = 20.0) -> Callable:
             raise FetchError(f"request error {type(e).__name__}")
         if r.status_code != 200:
             raise FetchError(f"HTTP {r.status_code}")
-        try:
-            return r.json()
-        except ValueError:
-            raise FetchError("invalid JSON")
+        return parse(r)
 
     return get
+
+
+def _json(r):
+    try:
+        return r.json()
+    except ValueError:
+        raise FetchError("invalid JSON")
+
+
+def make_get(timeout: float = 20.0) -> Callable:
+    return _make_fetch(timeout, _json)
+
+
+def make_get_text(timeout: float = 20.0) -> Callable:
+    return _make_fetch(timeout, lambda r: r.text)
 
 
 @dataclass

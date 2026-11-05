@@ -13,9 +13,10 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 | `binance` | Binance spot and USD-M futures | none | btc, eth | `core`, `perp` | 1 | verified locally 2026-11-05; GitHub runners untested (HTTP 451 report) |
 | `okx` | OKX v5 public | none | btc, eth | spot, funding, open interest | 1 | verified locally 2026-11-05 |
 | `deribit` | Deribit v2 public | none | btc, eth | perp, `dvol`, `options` | 1 | verified locally 2026-11-05 |
-| `fred` | St. Louis Fed | free key `FRED_API_KEY` | macro | yields, fed funds | 1 | blocked: key |
+| `treasury` | US Treasury daily par yield curve CSV | none | macro | `us2y_yield`, `us10y_yield` (close of day) | 1 | verified locally 2026-11-05 |
+| `nyfed` | NY Fed reference rates API | none | macro | `fed_funds_effective` | 1 | verified locally 2026-11-05 |
 | `bls` | BLS API v2 | free key `BLS_API_KEY` | macro | payrolls, unemployment, CPI | 2 | blocked: key |
-| `treasury` | Treasury FiscalData | none | macro | refunding, auctions | 2 | planned |
+| `fiscaldata` | Treasury FiscalData | none | macro | refunding, auctions | 2 | planned |
 | `etf_flows` | Farside page scrape; cross-check SoSoValue | SoSoValue key, untested | btc, eth | `etf` | 2 | planned |
 | `edgar` | SEC EDGAR JSON | User-Agent header | btc, eth | filings | 2 | planned |
 | `fed_rss` | Federal Reserve RSS | none | macro | press releases | 2 | planned |

@@ -26,7 +26,7 @@ The request URL is not stored per fact. It is derived from `source` plus the met
 | Market | `<source>.<coin>.<metric>` | `binance.btc.funding_rate_8h` |
 | Option expiry | `<source>.<coin>.opt.<YYYY-MM-DD>.<metric>` | `deribit.btc.opt.2026-11-27.max_pain` |
 | Depth snapshot | `<source>.<coin>.<market>.depth_<pct>_<side>` | `bitget.jct.spot.depth_1pct_bid` |
-| Macro | `<source>.macro.<metric>` | `fred.macro.us10y_yield` |
+| Macro | `<source>.macro.<metric>` | `treasury.macro.us10y_yield` |
 
 The same metric from two sources is two facts. Never merge or average. Analysis cites both and states the difference. Fields that vary between vendors (for example circulating supply) must be kept as separate facts per vendor.
 
@@ -44,7 +44,7 @@ The same metric from two sources is two facts. Never merge or average. Analysis 
 
 - Store UTC `YYYY-MM-DDTHH:MM:SSZ`.
 - `as_of` null means the source gave no time; analysis states that caveat.
-- FRED daily series use the observation date at `00:00:00Z`.
+- Daily macro series (Treasury, NY Fed) use the observation date at `00:00:00Z`.
 - A source's local-time claims (for example "ET") are converted at ingest; DST must not be hand-computed. Convert with a timezone library.
 
 ## Storage

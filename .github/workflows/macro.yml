@@ -24,8 +24,6 @@ jobs:
           python-version: '3.14'
       - run: pip install -e '.[dev]'
       - run: cryptodesk collect macro
-        env:
-          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
       - run: cryptodesk render
       - run: cryptodesk check
       - name: Commit data
