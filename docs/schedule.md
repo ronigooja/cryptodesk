@@ -33,12 +33,13 @@ Believed (not verified): standard Linux runners are free for public repos, and s
 - Artifacts: failure-only, short retention.
 - Cache dependencies keyed on the dependency file.
 - Logs must not contain credentials. The logs are public.
-- Binance requests from hosted runners have a public HTTP 451 report; see [sources.md](sources.md#known-gaps).
+- Binance requests from hosted runners return HTTP 451 (observed); the `market` workflow passes `CRYPTODESK_PROXY`. See [sources.md](sources.md#known-gaps).
 
 ## Secrets
 
 | Name | Used by |
 |---|---|
+| `CRYPTODESK_PROXY` | market; proxy URL for `binance.com` requests only. Unset means direct. |
 | `BLS_API_KEY` | releases |
 | `SOSOVALUE_API_KEY` | etf |
 

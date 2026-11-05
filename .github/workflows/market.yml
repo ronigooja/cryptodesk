@@ -24,6 +24,8 @@ jobs:
           python-version: '3.14'
       - run: pip install -e '.[dev]'
       - run: cryptodesk collect market
+        env:
+          CRYPTODESK_PROXY: ${{ secrets.CRYPTODESK_PROXY }}
       - run: cryptodesk render
       - run: cryptodesk check
       - name: Commit data

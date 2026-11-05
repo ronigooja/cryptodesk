@@ -10,10 +10,29 @@ class FetchError(Exception):
     pass
 
 
-def _make_fetch(timeout: float, parse: Callable) -> Callable:
-    client = httpx.Client(timeout=timeout, headers={"User-Agent": "cryptodesk"})
+PROXY_ENV = "CRYPTODESK_PROXY"
+PROXIED_HOSTS = ("binance.com",)
+
+
+def _client(timeout: float, proxy: str | None = None):
+    return httpx.Client(timeout=timeout, headers={"User-Agent": "cryptodesk"}, proxy=proxy)
+
+
+def _make_fetch(timeout: float, parse: Callable, proxy: str | None = None) -> Callable:
+    direct = _client(timeout)
+    proxied = None
+    if proxy:
+        try:
+            proxied = _client(timeout, proxy)
+        except Exception:
+            proxied = None
 
     def get(url: str, params: dict | None = None):
+        host = httpx.URL(url).host
+        use_proxy = bool(proxy) and any(host == h or host.endswith("." + h) for h in PROXIED_HOSTS)
+        if use_proxy and proxied is None:
+            raise FetchError("proxy not usable")
+        client = proxied if use_proxy else direct
         try:
             r = client.get(url, params=params)
         except httpx.TimeoutException:
@@ -34,8 +53,8 @@ def _json(r):
         raise FetchError("invalid JSON")
 
 
-def make_get(timeout: float = 20.0) -> Callable:
-    return _make_fetch(timeout, _json)
+def make_get(timeout: float = 20.0, proxy: str | None = None) -> Callable:
+    return _make_fetch(timeout, _json, proxy)
 
 
 def make_get_text(timeout: float = 20.0) -> Callable:

@@ -10,7 +10,7 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 
 | Key | Provider | Needs | Coins | Metrics | Phase | Status |
 |---|---|---|---|---|---|---|
-| `binance` | Binance spot and USD-M futures | none | btc, eth | `core`, `perp` | 1 | verified locally 2026-11-05; GitHub runners untested (HTTP 451 report) |
+| `binance` | Binance spot and USD-M futures | none; `CRYPTODESK_PROXY` on GitHub runners | btc, eth | `core`, `perp` | 1 | verified locally 2026-11-05; HTTP 451 from GitHub runners without proxy (run 42094550517); proxy path pending |
 | `okx` | OKX v5 public | none | btc, eth | spot, funding, open interest | 1 | verified locally 2026-11-05 |
 | `deribit` | Deribit v2 public | none | btc, eth | perp, `dvol`, `options` | 1 | verified locally 2026-11-05 |
 | `treasury` | US Treasury daily par yield curve CSV | none | macro | `us2y_yield`, `us10y_yield` (close of day) | 1 | verified locally 2026-11-05 |
@@ -52,7 +52,7 @@ Findings from [research/2026-11-06-alt-supply-sources.md](research/2026-11-06-al
 | LTH/STH supply, realized price | No stable free source |
 | CME FedWatch probabilities | No official free API |
 | BLS RSS | Returned HTTP 403 on 2026-11-06 |
-| Binance from GitHub-hosted runners | Public report of HTTP 451; unverified here. Use a second source or accept `missing` |
+| Binance from GitHub-hosted runners | HTTP 451 on all Binance endpoints, observed 2026-11-05 (workflow run 42094550517). Mitigation: `CRYPTODESK_PROXY` routes only `binance.com` requests through a proxy; without it the facts are `missing` with reason `HTTP 451` |
 | GDELT | Returned HTTP 429; not planned |
 | Circulating supply across vendors | Definitions differ; keep per vendor |
 

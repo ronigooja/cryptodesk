@@ -80,7 +80,7 @@ def test_run_endpoint_fetch_error_marks_all_specs_without_extracting():
 def test_make_get_translates_transport_failures(monkeypatch, outcome, reason):
     class Client:
         def __init__(self, **kwargs):
-            assert kwargs == {"timeout": 3, "headers": {"User-Agent": "cryptodesk"}}
+            assert kwargs == {"timeout": 3, "headers": {"User-Agent": "cryptodesk"}, "proxy": None}
 
         def get(self, url, params):
             assert (url, params) == ("https://example.invalid", {"a": 1})
@@ -104,3 +104,78 @@ def test_make_get_decodes_json_without_network(monkeypatch):
 
     monkeypatch.setattr(base.httpx, "Client", Client)
     assert base.make_get()("unused") == {"lastPrice": "90000"}
+
+
+PROXY = "socks5://user:hunter2@203.0.113.9:1080"
+
+
+def _recording_client(monkeypatch, fail_proxy=False):
+    made = []
+
+    class Client:
+        def __init__(self, **kwargs):
+            if fail_proxy and kwargs["proxy"]:
+                raise ImportError(kwargs["proxy"])
+            self.proxy = kwargs["proxy"]
+            made.append(self)
+
+        def get(self, url, params):
+            return httpx.Response(200, json={"via": self.proxy})
+
+    monkeypatch.setattr(base.httpx, "Client", Client)
+    return made
+
+
+def test_only_binance_hosts_use_proxy(monkeypatch):
+    _recording_client(monkeypatch)
+    get = base.make_get(proxy=PROXY)
+    assert get("https://fapi.binance.com/x") == {"via": PROXY}
+    assert get("https://api.binance.com/x") == {"via": PROXY}
+    assert get("https://www.okx.com/x") == {"via": None}
+    assert get("https://www.deribit.com/x") == {"via": None}
+    assert get("https://notbinance.com/x") == {"via": None}
+
+
+def test_no_proxy_configured_is_direct(monkeypatch):
+    _recording_client(monkeypatch)
+    assert base.make_get(proxy=None)("https://fapi.binance.com/x") == {"via": None}
+    assert base.make_get(proxy="")("https://fapi.binance.com/x") == {"via": None}
+
+
+def test_unusable_proxy_is_missing_and_never_leaks_address(monkeypatch):
+    _recording_client(monkeypatch, fail_proxy=True)
+    get = base.make_get(proxy=PROXY)
+    assert get("https://www.okx.com/x") == {"via": None}
+    with pytest.raises(base.FetchError) as e:
+        get("https://fapi.binance.com/x")
+    assert str(e.value) == "proxy not usable"
+    assert "hunter2" not in str(e.value)
+
+
+def test_proxy_transport_error_reason_has_no_address(monkeypatch):
+    class Client:
+        def __init__(self, **kwargs):
+            pass
+
+        def get(self, url, params):
+            raise httpx.ProxyError(f"cannot reach {PROXY}")
+
+    monkeypatch.setattr(base.httpx, "Client", Client)
+    with pytest.raises(base.FetchError) as e:
+        base.make_get(proxy=PROXY)("https://fapi.binance.com/x")
+    assert str(e.value) == "request error ProxyError"
+    assert "hunter2" not in str(e.value)
+
+
+def test_cli_reads_proxy_from_env_only(monkeypatch):
+    from cryptodesk import cli
+
+    seen = {}
+    monkeypatch.setattr(cli, "make_get", lambda proxy=None: seen.setdefault("proxy", proxy))
+    monkeypatch.setenv(base.PROXY_ENV, PROXY)
+    cli.make_get_fn()
+    assert seen["proxy"] == PROXY
+    seen.clear()
+    monkeypatch.delenv(base.PROXY_ENV)
+    cli.make_get_fn()
+    assert seen["proxy"] is None

@@ -20,6 +20,7 @@
 | 2026-11-06 | Docs split by nature: rules in single files; events by month; research by date and write-once | Growth and staleness differ by content type |
 | 2026-11-06 | No position, leverage, entry, or stop guidance in analysis | Default assumed; the user has not confirmed or rejected it |
 | 2026-11-06 | Documentation first, then implementation; the assistant states its plan and waits for "go" before changes | User instruction after an unrequested early implementation, which was deleted |
+| 2026-11-06 | Binance requests may go through a proxy configured by `CRYPTODESK_PROXY`; only `binance.com` hosts use it | Binance returns HTTP 451 to GitHub runners. The proxy URL holds credentials, so it lives only in Secrets or the local environment. |
 
 ## Triggers to revisit
 

@@ -1,11 +1,16 @@
 import argparse
+import os
 from datetime import UTC, datetime
 
 from . import check, model, profiles, registry, render, store
 from .adapters import binance, deribit, nyfed, okx, treasury
-from .adapters.base import make_get, make_get_text
+from .adapters.base import PROXY_ENV, make_get, make_get_text
 
-make_get_fn = make_get
+
+def make_get_fn():
+    return make_get(proxy=os.environ.get(PROXY_ENV) or None)
+
+
 make_get_text_fn = make_get_text
 
 
