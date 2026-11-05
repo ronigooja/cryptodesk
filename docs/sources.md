@@ -10,7 +10,7 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 
 | Key | Provider | Needs | Coins | Metrics | Phase | Status |
 |---|---|---|---|---|---|---|
-| `binance` | Binance spot and USD-M futures | none; `CRYPTODESK_PROXY` on GitHub runners | btc, eth | `core`, `perp` | 1 | verified locally 2026-11-05; HTTP 451 from GitHub runners without proxy (run 42094550517); proxy path pending |
+| `binance` | Binance spot and USD-M futures | none; `CRYPTODESK_PROXY` on GitHub runners | btc, eth | `core`, `perp` | 1 | verified locally 2026-11-05; HTTP 451 from GitHub runners without proxy (run 42094550517); verified on a runner through `CRYPTODESK_PROXY` (run 42095806410) |
 | `okx` | OKX v5 public | none | btc, eth | spot, funding, open interest | 1 | verified locally 2026-11-05 |
 | `deribit` | Deribit v2 public | none | btc, eth | perp, `dvol`, `options` | 1 | verified locally 2026-11-05 |
 | `treasury` | US Treasury daily par yield curve CSV | none | macro | `us2y_yield`, `us10y_yield` (close of day) | 1 | verified locally 2026-11-05 |
@@ -61,5 +61,5 @@ Findings from [research/2026-11-06-alt-supply-sources.md](research/2026-11-06-al
 | Metric | Compared | Rule |
 |---|---|---|
 | spot price | binance, okx | Record both. Analysis notes a gap above 0.5%. |
-| funding rate | binance, okx, deribit | Record all; normalize interval. |
+| funding rate | binance, okx, deribit | Record all; normalize interval. Intervals checked 2026-11-05: Binance and OKX BTC and ETH perps settle every 8 h (`fundingInfo`, OKX `nextFundingTime` minus `fundingTime`). Deribit is read from its `funding_8h` field; its computation was not checked. The adapters do not re-check the interval at run time. |
 | circulating supply | all vendors | Record all; analysis states the spread. |
