@@ -1,0 +1,14 @@
+class = "major"
+modules = ["core", "perp", "options"]
+
+[binance]
+spot = "BTCUSDT"
+perp = "BTCUSDT"
+
+[okx]
+spot = "BTC-USDT"
+swap = "BTC-USDT-SWAP"
+
+[deribit]
+currency = "BTC"
+perp = "BTC-PERPETUAL"
