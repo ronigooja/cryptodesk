@@ -2,8 +2,9 @@ name: Option facts
 
 on:
   workflow_dispatch:
-  # cron (disabled): 22 */4 * * *
-  # cron (disabled): 30 7 * * *
+  schedule:
+    - cron: '22 */4 * * *'
+    - cron: '30 7 * * *'
 
 permissions:
   contents: write

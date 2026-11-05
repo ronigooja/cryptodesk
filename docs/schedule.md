@@ -7,7 +7,7 @@ One workflow per group, each with its own cron. All cron times are UTC. Schedule
 | Group | Contents | Cadence | Cron (UTC) | Phase |
 |---|---|---|---|---|
 | `market` | binance, okx, deribit ticker and DVOL | hourly | `7 * * * *` | 1 |
-| `options` | deribit option open interest and max pain | every 4 h, plus 07:30 on days with a Deribit expiry | `22 */4 * * *`, `30 7 * * *` | 1 |
+| `options` | deribit option open interest and max pain | every 4 h, plus 07:30 every day (not limited to expiry days) | `22 */4 * * *`, `30 7 * * *` | 1 |
 | `macro` | Treasury yields, NY Fed EFFR | weekdays after US close | `45 22 * * 1-5` | 1 |
 | `etf` | ETF flows and holdings | three runs per US trading day | `10 22 * * 1-5`, `10 4 * * 2-6`, `10 10 * * 2-6` | 2 |
 | `releases` | BLS and Treasury releases | 5 minutes after each time in the event calendar | generated from [events/](events/) | 2 |
@@ -27,7 +27,7 @@ Rules:
 
 ## Actions
 
-Believed (not verified): standard Linux runners are free for public repos, and scheduled workflows in a public repo are disabled after 60 days without repository activity. Verify both before enabling schedules. If the repo goes private, re-check minute limits.
+Schedules enabled 2026-11-05 for `market`, `options`, `macro`. Believed (not verified): standard Linux runners are free for public repos, and scheduled workflows in a public repo are disabled after 60 days without repository activity. Verify both before enabling schedules. If the repo goes private, re-check minute limits.
 
 - Use Linux runners only.
 - Artifacts: failure-only, short retention.

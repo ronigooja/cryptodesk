@@ -2,7 +2,8 @@ name: Market facts
 
 on:
   workflow_dispatch:
-  # cron (disabled): 7 * * * *
+  schedule:
+    - cron: '7 * * * *'
 
 permissions:
   contents: write

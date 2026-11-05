@@ -2,7 +2,8 @@ name: Macro facts
 
 on:
   workflow_dispatch:
-  # cron (disabled): 45 22 * * 1-5
+  schedule:
+    - cron: '45 22 * * 1-5'
 
 permissions:
   contents: write
