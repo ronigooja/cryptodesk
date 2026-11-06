@@ -22,6 +22,7 @@
 | 2026-11-06 | Documentation first, then implementation; the assistant states its plan and waits for "go" before changes | User instruction after an unrequested early implementation, which was deleted |
 | 2026-11-06 | Binance requests may go through a proxy configured by `CRYPTODESK_PROXY`; only `binance.com` hosts use it | Binance returns HTTP 451 to GitHub runners. The proxy URL holds credentials, so it lives only in Secrets or the local environment. |
 | 2026-11-06 | Schedules enabled for `market`, `options`, `macro`; the Actions free-tier and 60-day inactivity assumptions were not verified | User instruction to enable without checking |
+| 2026-11-06 | Dispatch workflows from a host cron through the GitHub API; removed the `schedule` trigger | `schedule` ran about 7 times in 24 h against about 30 expected, with multi-hour delays. GitHub documents delay and dropping under load. |
 
 ## Triggers to revisit
 

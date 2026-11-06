@@ -1,12 +1,12 @@
 # Schedule
 
-One workflow per group, each with its own cron. All cron times are UTC. Scheduled runs can be delayed; nothing depends on exact minutes.
+One workflow per group. Workflows run on `workflow_dispatch` only. An external scheduler (the host's cron) dispatches them; GitHub's own `schedule` trigger is not used because it was observed to be delayed and to drop runs. Cron times below are UTC and are the times the scheduler dispatches. Dispatch calls the GitHub API with a token stored only on the scheduler host.
 
 ## Groups
 
 | Group | Contents | Cadence | Cron (UTC) | Phase |
 |---|---|---|---|---|
-| `market` | binance, okx, deribit ticker and DVOL | hourly | `7 * * * *` | 1 |
+| `market` | binance, okx, deribit ticker and DVOL | hourly | `3 * * * *` | 1 |
 | `options` | deribit option open interest and max pain | every 4 h, plus 07:30 every day (not limited to expiry days) | `22 */4 * * *`, `30 7 * * *` | 1 |
 | `macro` | Treasury yields, NY Fed EFFR | weekdays after US close | `45 22 * * 1-5` | 1 |
 | `etf` | ETF flows and holdings | three runs per US trading day | `10 22 * * 1-5`, `10 4 * * 2-6`, `10 10 * * 2-6` | 2 |
@@ -27,7 +27,7 @@ Rules:
 
 ## Actions
 
-Schedules enabled 2026-11-05 for `market`, `options`, `macro`. Believed (not verified): standard Linux runners are free for public repos, and scheduled workflows in a public repo are disabled after 60 days without repository activity. Verify both before enabling schedules. If the repo goes private, re-check minute limits.
+Per GitHub Docs (read 2026-11-06): `schedule` events can be delayed, and dropped under high load, especially at the start of each hour; in a public repo scheduled workflows are disabled after 60 days without repository activity. Not verified: standard Linux runners are free for public repos. If the repo goes private, re-check minute limits.
 
 - Use Linux runners only.
 - Artifacts: failure-only, short retention.
