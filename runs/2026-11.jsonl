@@ -8,3 +8,4 @@
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-06T07:52:49Z", "unchanged": 0}
 {"changed": 56, "errors": [], "facts": 72, "group": "options", "missing": 0, "started": "2026-11-06T12:15:36Z", "unchanged": 16}
 {"changed": 50, "errors": [], "facts": 72, "group": "options", "missing": 0, "started": "2026-11-06T15:15:50Z", "unchanged": 22}
+{"changed": 36, "errors": ["binance: request error ConnectError"], "facts": 36, "group": "market", "missing": 18, "started": "2026-11-06T15:53:07Z", "unchanged": 0}
