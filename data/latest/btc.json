@@ -183,7 +183,7 @@
  },
  "deribit.btc.opt.2026-11-07.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-06T15:15:50Z",
   "id": "deribit.btc.opt.2026-11-07.max_pain",
@@ -196,33 +196,33 @@
  },
  "deribit.btc.opt.2026-11-07.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-07.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 3740.7
+  "value": 3746.8
  },
  "deribit.btc.opt.2026-11-07.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-07.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 2161.9
+  "value": 2161.5
  },
  "deribit.btc.opt.2026-11-08.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-07T00:22:19Z",
   "id": "deribit.btc.opt.2026-11-08.max_pain",
@@ -235,33 +235,33 @@
  },
  "deribit.btc.opt.2026-11-08.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-08.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 1212.6
+  "value": 1218.5
  },
  "deribit.btc.opt.2026-11-08.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-08.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 1246.8999999999999
+  "value": 1263.3999999999999
  },
  "deribit.btc.opt.2026-11-09.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-07T00:22:19Z",
   "id": "deribit.btc.opt.2026-11-09.max_pain",
@@ -274,33 +274,33 @@
  },
  "deribit.btc.opt.2026-11-09.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-09.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 6716.5
+  "value": 6721.900000000001
  },
  "deribit.btc.opt.2026-11-09.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-09.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 759.0
+  "value": 766.8
  },
  "deribit.btc.opt.2026-11-10.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-07T04:22:18Z",
   "id": "deribit.btc.opt.2026-11-10.max_pain",
@@ -313,33 +313,33 @@
  },
  "deribit.btc.opt.2026-11-10.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-10.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 372.8
+  "value": 372.9
  },
  "deribit.btc.opt.2026-11-10.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-10.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 344.7
+  "value": 388.5
  },
  "deribit.btc.opt.2026-11-13.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-05T19:58:39Z",
   "id": "deribit.btc.opt.2026-11-13.max_pain",
@@ -352,33 +352,33 @@
  },
  "deribit.btc.opt.2026-11-13.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-13.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 19800.100000000002
+  "value": 19814.4
  },
  "deribit.btc.opt.2026-11-13.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-13.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 13521.800000000001
+  "value": 13525.4
  },
  "deribit.btc.opt.2026-11-20.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-06T20:22:21Z",
   "id": "deribit.btc.opt.2026-11-20.max_pain",
@@ -391,33 +391,33 @@
  },
  "deribit.btc.opt.2026-11-20.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-20.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 3294.6
+  "value": 3342.9
  },
  "deribit.btc.opt.2026-11-20.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-20.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 2768.5
+  "value": 2781.6
  },
  "deribit.btc.opt.2026-11-27.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-05T19:58:39Z",
   "id": "deribit.btc.opt.2026-11-27.max_pain",
@@ -430,33 +430,33 @@
  },
  "deribit.btc.opt.2026-11-27.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-27.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 38796.7
+  "value": 38760.6
  },
  "deribit.btc.opt.2026-11-27.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-11-27.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 32709.8
+  "value": 32743.3
  },
  "deribit.btc.opt.2026-12-25.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-05T19:58:39Z",
   "id": "deribit.btc.opt.2026-12-25.max_pain",
@@ -469,20 +469,20 @@
  },
  "deribit.btc.opt.2026-12-25.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2026-12-25.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 83698.9
+  "value": 83699.9
  },
  "deribit.btc.opt.2026-12-25.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-07T04:22:18Z",
   "id": "deribit.btc.opt.2026-12-25.oi_put",
@@ -495,7 +495,7 @@
  },
  "deribit.btc.opt.2027-01-29.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-05T19:58:39Z",
   "id": "deribit.btc.opt.2027-01-29.max_pain",
@@ -508,33 +508,33 @@
  },
  "deribit.btc.opt.2027-01-29.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2027-01-29.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 2809.8
+  "value": 2811.4
  },
  "deribit.btc.opt.2027-01-29.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2027-01-29.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 2848.1
+  "value": 2852.9
  },
  "deribit.btc.opt.2027-03-26.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-05T19:58:39Z",
   "id": "deribit.btc.opt.2027-03-26.max_pain",
@@ -547,7 +547,7 @@
  },
  "deribit.btc.opt.2027-03-26.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-07T04:22:18Z",
   "id": "deribit.btc.opt.2027-03-26.oi_call",
@@ -560,7 +560,7 @@
  },
  "deribit.btc.opt.2027-03-26.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-06T20:22:21Z",
   "id": "deribit.btc.opt.2027-03-26.oi_put",
@@ -573,7 +573,7 @@
  },
  "deribit.btc.opt.2027-06-25.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-05T19:58:39Z",
   "id": "deribit.btc.opt.2027-06-25.max_pain",
@@ -586,7 +586,7 @@
  },
  "deribit.btc.opt.2027-06-25.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-06T20:22:21Z",
   "id": "deribit.btc.opt.2027-06-25.oi_call",
@@ -599,7 +599,7 @@
  },
  "deribit.btc.opt.2027-06-25.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-06T20:22:21Z",
   "id": "deribit.btc.opt.2027-06-25.oi_put",
@@ -612,7 +612,7 @@
  },
  "deribit.btc.opt.2027-09-24.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-05T19:58:39Z",
   "id": "deribit.btc.opt.2027-09-24.max_pain",
@@ -625,20 +625,20 @@
  },
  "deribit.btc.opt.2027-09-24.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
-  "fetched_at": "2026-11-07T04:22:18Z",
+  "fetched_at": "2026-11-07T07:30:18Z",
   "id": "deribit.btc.opt.2027-09-24.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "BTC",
-  "value": 4839.0
+  "value": 4863.2
  },
  "deribit.btc.opt.2027-09-24.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-07T04:22:18Z",
+  "checked_at": "2026-11-07T07:30:18Z",
   "coin": "btc",
   "fetched_at": "2026-11-07T00:22:19Z",
   "id": "deribit.btc.opt.2027-09-24.oi_put",
