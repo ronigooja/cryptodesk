@@ -36,3 +36,4 @@
 {"changed": 18, "errors": ["binance: request error ConnectError"], "facts": 36, "group": "market", "missing": 18, "started": "2026-11-07T11:03:15Z", "unchanged": 18}
 {"changed": 18, "errors": ["binance: request error ConnectError"], "facts": 36, "group": "market", "missing": 18, "started": "2026-11-07T12:03:16Z", "unchanged": 18}
 {"changed": 42, "errors": [], "facts": 72, "group": "options", "missing": 0, "started": "2026-11-07T12:22:17Z", "unchanged": 30}
+{"changed": 18, "errors": ["binance: request error ConnectError"], "facts": 36, "group": "market", "missing": 18, "started": "2026-11-07T13:03:18Z", "unchanged": 18}
