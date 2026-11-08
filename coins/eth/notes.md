@@ -25,40 +25,40 @@ Generated from `data/latest`. Do not edit.
 | `deribit.eth.opt.2026-11-08.oi_call` | ok | 14925.0 | ETH |  | 2026-11-08T07:30:18Z | stale |
 | `deribit.eth.opt.2026-11-08.oi_put` | ok | 13979.0 | ETH |  | 2026-11-08T07:30:18Z | stale |
 | `deribit.eth.opt.2026-11-09.max_pain` | ok | 2260.0 | USD |  | 2026-11-06T12:15:36Z |  |
-| `deribit.eth.opt.2026-11-09.oi_call` | ok | 16281.0 | ETH |  | 2026-11-08T12:22:15Z |  |
-| `deribit.eth.opt.2026-11-09.oi_put` | ok | 25041.0 | ETH |  | 2026-11-08T12:22:15Z |  |
+| `deribit.eth.opt.2026-11-09.oi_call` | ok | 16381.0 | ETH |  | 2026-11-08T16:22:13Z |  |
+| `deribit.eth.opt.2026-11-09.oi_put` | ok | 25025.0 | ETH |  | 2026-11-08T16:22:13Z |  |
 | `deribit.eth.opt.2026-11-10.max_pain` | ok | 2240.0 | USD |  | 2026-11-08T04:22:18Z |  |
-| `deribit.eth.opt.2026-11-10.oi_call` | ok | 4084.0 | ETH |  | 2026-11-08T12:22:15Z |  |
-| `deribit.eth.opt.2026-11-10.oi_put` | ok | 4520.0 | ETH |  | 2026-11-08T12:22:15Z |  |
+| `deribit.eth.opt.2026-11-10.oi_call` | ok | 5610.0 | ETH |  | 2026-11-08T16:22:13Z |  |
+| `deribit.eth.opt.2026-11-10.oi_put` | ok | 4537.0 | ETH |  | 2026-11-08T16:22:13Z |  |
 | `deribit.eth.opt.2026-11-11.max_pain` | ok | 2160.0 | USD |  | 2026-11-07T20:22:14Z |  |
 | `deribit.eth.opt.2026-11-11.oi_call` | ok | 1446.0 | ETH |  | 2026-11-08T12:22:15Z |  |
-| `deribit.eth.opt.2026-11-11.oi_put` | ok | 213.0 | ETH |  | 2026-11-08T12:22:15Z |  |
+| `deribit.eth.opt.2026-11-11.oi_put` | ok | 216.0 | ETH |  | 2026-11-08T16:22:13Z |  |
 | `deribit.eth.opt.2026-11-12.max_pain` | ok | 2200.0 | USD |  | 2026-11-08T12:22:15Z |  |
-| `deribit.eth.opt.2026-11-12.oi_call` | ok | 165.0 | ETH |  | 2026-11-08T12:22:15Z |  |
-| `deribit.eth.opt.2026-11-12.oi_put` | ok | 41.0 | ETH |  | 2026-11-08T12:22:15Z |  |
+| `deribit.eth.opt.2026-11-12.oi_call` | ok | 214.0 | ETH |  | 2026-11-08T16:22:13Z |  |
+| `deribit.eth.opt.2026-11-12.oi_put` | ok | 50.0 | ETH |  | 2026-11-08T16:22:13Z |  |
 | `deribit.eth.opt.2026-11-13.max_pain` | ok | 2250.0 | USD |  | 2026-11-06T12:15:36Z |  |
-| `deribit.eth.opt.2026-11-13.oi_call` | ok | 40308.0 | ETH |  | 2026-11-08T12:22:15Z |  |
-| `deribit.eth.opt.2026-11-13.oi_put` | ok | 86299.0 | ETH |  | 2026-11-08T12:22:15Z |  |
+| `deribit.eth.opt.2026-11-13.oi_call` | ok | 40743.0 | ETH |  | 2026-11-08T16:22:13Z |  |
+| `deribit.eth.opt.2026-11-13.oi_put` | ok | 86298.0 | ETH |  | 2026-11-08T16:22:13Z |  |
 | `deribit.eth.opt.2026-11-20.max_pain` | ok | 2300.0 | USD |  | 2026-11-06T12:15:36Z |  |
-| `deribit.eth.opt.2026-11-20.oi_call` | ok | 22550.0 | ETH |  | 2026-11-08T12:22:15Z |  |
-| `deribit.eth.opt.2026-11-20.oi_put` | ok | 15226.0 | ETH |  | 2026-11-08T12:22:15Z |  |
+| `deribit.eth.opt.2026-11-20.oi_call` | ok | 22522.0 | ETH |  | 2026-11-08T16:22:13Z |  |
+| `deribit.eth.opt.2026-11-20.oi_put` | ok | 15239.0 | ETH |  | 2026-11-08T16:22:13Z |  |
 | `deribit.eth.opt.2026-11-27.max_pain` | ok | 2400.0 | USD |  | 2026-11-06T20:22:21Z |  |
-| `deribit.eth.opt.2026-11-27.oi_call` | ok | 156846.0 | ETH |  | 2026-11-08T12:22:15Z |  |
+| `deribit.eth.opt.2026-11-27.oi_call` | ok | 156894.0 | ETH |  | 2026-11-08T16:22:13Z |  |
 | `deribit.eth.opt.2026-11-27.oi_put` | ok | 82249.0 | ETH |  | 2026-11-08T04:22:18Z |  |
 | `deribit.eth.opt.2026-12-25.max_pain` | ok | 2200.0 | USD |  | 2026-11-05T19:58:39Z |  |
-| `deribit.eth.opt.2026-12-25.oi_call` | ok | 452744.0 | ETH |  | 2026-11-08T12:22:15Z |  |
+| `deribit.eth.opt.2026-12-25.oi_call` | ok | 452745.0 | ETH |  | 2026-11-08T16:22:13Z |  |
 | `deribit.eth.opt.2026-12-25.oi_put` | ok | 175558.0 | ETH |  | 2026-11-08T00:22:16Z |  |
 | `deribit.eth.opt.2027-01-29.max_pain` | ok | 2400.0 | USD |  | 2026-11-05T19:58:39Z |  |
-| `deribit.eth.opt.2027-01-29.oi_call` | ok | 12620.0 | ETH |  | 2026-11-08T08:22:20Z |  |
+| `deribit.eth.opt.2027-01-29.oi_call` | ok | 12622.0 | ETH |  | 2026-11-08T16:22:13Z |  |
 | `deribit.eth.opt.2027-01-29.oi_put` | ok | 17512.0 | ETH |  | 2026-11-08T12:22:15Z |  |
 | `deribit.eth.opt.2027-03-26.max_pain` | ok | 2200.0 | USD |  | 2026-11-05T19:58:39Z |  |
 | `deribit.eth.opt.2027-03-26.oi_call` | ok | 167275.0 | ETH |  | 2026-11-07T20:22:14Z |  |
-| `deribit.eth.opt.2027-03-26.oi_put` | ok | 58904.0 | ETH |  | 2026-11-08T12:22:15Z |  |
+| `deribit.eth.opt.2027-03-26.oi_put` | ok | 58902.0 | ETH |  | 2026-11-08T16:22:13Z |  |
 | `deribit.eth.opt.2027-06-25.max_pain` | ok | 2400.0 | USD |  | 2026-11-05T19:58:39Z |  |
-| `deribit.eth.opt.2027-06-25.oi_call` | ok | 54020.0 | ETH |  | 2026-11-07T20:22:14Z |  |
+| `deribit.eth.opt.2027-06-25.oi_call` | ok | 54022.0 | ETH |  | 2026-11-08T16:22:13Z |  |
 | `deribit.eth.opt.2027-06-25.oi_put` | ok | 34349.0 | ETH |  | 2026-11-08T08:22:20Z |  |
 | `deribit.eth.opt.2027-09-24.max_pain` | ok | 2800.0 | USD |  | 2026-11-05T19:58:39Z |  |
-| `deribit.eth.opt.2027-09-24.oi_call` | ok | 19604.0 | ETH |  | 2026-11-07T16:22:14Z |  |
+| `deribit.eth.opt.2027-09-24.oi_call` | ok | 19607.0 | ETH |  | 2026-11-08T16:22:13Z |  |
 | `deribit.eth.opt.2027-09-24.oi_put` | ok | 13069.0 | ETH |  | 2026-11-08T08:22:20Z |  |
 | `deribit.eth.perp_mark_price` | ok | 2240.32 | USD | 2026-11-08T16:03:24Z | 2026-11-08T16:03:17Z |  |
 | `okx.eth.funding_rate_8h` | ok | 1.9601247088e-05 | fraction | 2026-11-08T16:02:15Z | 2026-11-08T16:03:17Z |  |
