@@ -126,3 +126,4 @@
 {"changed": 18, "errors": ["binance: request error ProxyError"], "facts": 36, "group": "market", "missing": 18, "started": "2026-11-10T08:03:22Z", "unchanged": 18}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-10T08:21:01Z", "unchanged": 0}
 {"changed": 38, "errors": [], "facts": 66, "group": "options", "missing": 0, "started": "2026-11-10T08:22:16Z", "unchanged": 28}
+{"changed": 36, "errors": ["deribit: HTTP 503"], "facts": 36, "group": "market", "missing": 6, "started": "2026-11-10T09:03:13Z", "unchanged": 0}
