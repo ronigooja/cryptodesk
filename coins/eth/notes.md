@@ -13,6 +13,9 @@ Generated from `data/latest`. Do not edit.
 | `binance.eth.spot_price` | ok | 2063.34 | USDT | 2026-11-10T21:03:26Z | 2026-11-10T21:03:21Z |  |
 | `binance.eth.top_ls_account_ratio` | ok | 3.8031 | ratio | 2026-11-10T21:00:00Z | 2026-11-10T21:03:21Z |  |
 | `binance.eth.top_ls_position_ratio` | ok | 1.8412 | ratio | 2026-11-10T21:00:00Z | 2026-11-10T21:03:21Z |  |
+| `coinmetrics.eth.active_addresses` | ok | 807775.0 | count | 2026-11-09T00:00:00Z | 2026-11-10T22:00:31Z |  |
+| `coinmetrics.eth.fees_total` | ok | 156.85201443770063 | ETH | 2026-11-09T00:00:00Z | 2026-11-10T22:00:31Z |  |
+| `coinmetrics.eth.mvrv` | ok | 0.9721405619514111 | ratio | 2026-11-09T00:00:00Z | 2026-11-10T22:00:31Z |  |
 | `deribit.eth.dvol` | ok | 55.85 | percent | 2026-11-10T21:00:00Z | 2026-11-10T21:03:21Z |  |
 | `deribit.eth.funding_rate_8h` | ok | -8e-06 | fraction | 2026-11-10T21:03:28Z | 2026-11-10T21:03:21Z |  |
 | `deribit.eth.opt.2026-11-06.max_pain` | ok | 2350.0 | USD |  | 2026-11-05T19:58:39Z | stale |

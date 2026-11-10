@@ -13,6 +13,9 @@ Generated from `data/latest`. Do not edit.
 | `binance.btc.spot_price` | ok | 73946.36 | USDT | 2026-11-10T21:03:23Z | 2026-11-10T21:03:21Z |  |
 | `binance.btc.top_ls_account_ratio` | ok | 3.4883 | ratio | 2026-11-10T21:00:00Z | 2026-11-10T21:03:21Z |  |
 | `binance.btc.top_ls_position_ratio` | ok | 2.2164 | ratio | 2026-11-10T21:00:00Z | 2026-11-10T21:03:21Z |  |
+| `coinmetrics.btc.active_addresses` | ok | 676220.0 | count | 2026-11-09T00:00:00Z | 2026-11-10T22:00:31Z |  |
+| `coinmetrics.btc.fees_total` | ok | 2.6825373 | BTC | 2026-11-09T00:00:00Z | 2026-11-10T22:00:31Z |  |
+| `coinmetrics.btc.mvrv` | ok | 1.3937829711692236 | ratio | 2026-11-09T00:00:00Z | 2026-11-10T22:00:31Z |  |
 | `deribit.btc.dvol` | ok | 39.71 | percent | 2026-11-10T21:00:00Z | 2026-11-10T21:03:21Z |  |
 | `deribit.btc.funding_rate_8h` | ok | 1.278e-05 | fraction | 2026-11-10T21:03:26Z | 2026-11-10T21:03:21Z |  |
 | `deribit.btc.opt.2026-11-06.max_pain` | ok | 79000.0 | USD |  | 2026-11-05T19:58:39Z | stale |
@@ -64,6 +67,9 @@ Generated from `data/latest`. Do not edit.
 | `deribit.btc.opt.2027-09-24.oi_call` | ok | 5040.5 | BTC |  | 2026-11-10T20:22:16Z |  |
 | `deribit.btc.opt.2027-09-24.oi_put` | ok | 3843.9 | BTC |  | 2026-11-10T20:22:16Z |  |
 | `deribit.btc.perp_mark_price` | ok | 73897.45 | USD | 2026-11-10T21:03:26Z | 2026-11-10T21:03:21Z |  |
+| `mempool.btc.difficulty` | ok | 148364561003867.4 | number |  | 2026-11-10T22:00:31Z |  |
+| `mempool.btc.fee_fastest` | ok | 4.0 | sat/vB |  | 2026-11-10T22:00:31Z |  |
+| `mempool.btc.hashrate` | ok | 9.620535270006561e+20 | H/s |  | 2026-11-10T22:00:31Z |  |
 | `okx.btc.funding_rate_8h` | ok | 9.08538053795e-05 | fraction | 2026-11-10T21:03:16Z | 2026-11-10T21:03:21Z |  |
 | `okx.btc.high_24h` | ok | 75443.5 | USDT | 2026-11-10T21:03:25Z | 2026-11-10T21:03:21Z |  |
 | `okx.btc.low_24h` | ok | 72727.3 | USDT | 2026-11-10T21:03:25Z | 2026-11-10T21:03:21Z |  |

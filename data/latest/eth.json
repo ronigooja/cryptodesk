@@ -116,6 +116,45 @@
   "unit": "ratio",
   "value": 1.8412
  },
+ "coinmetrics.eth.active_addresses": {
+  "as_of": "2026-11-09T00:00:00Z",
+  "checked_at": "2026-11-10T22:00:31Z",
+  "coin": "eth",
+  "fetched_at": "2026-11-10T22:00:31Z",
+  "id": "coinmetrics.eth.active_addresses",
+  "metric": "active_addresses",
+  "reason": null,
+  "source": "coinmetrics",
+  "status": "ok",
+  "unit": "count",
+  "value": 807775.0
+ },
+ "coinmetrics.eth.fees_total": {
+  "as_of": "2026-11-09T00:00:00Z",
+  "checked_at": "2026-11-10T22:00:31Z",
+  "coin": "eth",
+  "fetched_at": "2026-11-10T22:00:31Z",
+  "id": "coinmetrics.eth.fees_total",
+  "metric": "fees_total",
+  "reason": null,
+  "source": "coinmetrics",
+  "status": "ok",
+  "unit": "ETH",
+  "value": 156.85201443770063
+ },
+ "coinmetrics.eth.mvrv": {
+  "as_of": "2026-11-09T00:00:00Z",
+  "checked_at": "2026-11-10T22:00:31Z",
+  "coin": "eth",
+  "fetched_at": "2026-11-10T22:00:31Z",
+  "id": "coinmetrics.eth.mvrv",
+  "metric": "mvrv",
+  "reason": null,
+  "source": "coinmetrics",
+  "status": "ok",
+  "unit": "ratio",
+  "value": 0.9721405619514111
+ },
  "deribit.eth.dvol": {
   "as_of": "2026-11-10T21:00:00Z",
   "checked_at": "2026-11-10T21:03:21Z",
