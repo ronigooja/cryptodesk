@@ -117,3 +117,4 @@
 {"changed": 18, "errors": ["binance: request error ProxyError"], "facts": 36, "group": "market", "missing": 18, "started": "2026-11-10T01:03:18Z", "unchanged": 18}
 {"changed": 18, "errors": ["binance: request error ProxyError"], "facts": 36, "group": "market", "missing": 18, "started": "2026-11-10T02:03:19Z", "unchanged": 18}
 {"changed": 18, "errors": ["binance: request error ProxyError"], "facts": 36, "group": "market", "missing": 18, "started": "2026-11-10T03:03:16Z", "unchanged": 18}
+{"changed": 18, "errors": ["binance: request error ProxyError"], "facts": 36, "group": "market", "missing": 18, "started": "2026-11-10T04:03:19Z", "unchanged": 18}
