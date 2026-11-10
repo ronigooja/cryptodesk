@@ -300,46 +300,46 @@
  },
  "deribit.eth.opt.2026-11-10.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T16:22:16Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-10.max_pain",
   "metric": "max_pain",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "USD",
-  "value": 2160.0
+  "value": 2140.0
  },
  "deribit.eth.opt.2026-11-10.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-10.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 21328.0
+  "value": 21290.0
  },
  "deribit.eth.opt.2026-11-10.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-10.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 13494.0
+  "value": 13787.0
  },
  "deribit.eth.opt.2026-11-11.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-09T16:22:16Z",
   "id": "deribit.eth.opt.2026-11-11.max_pain",
@@ -352,33 +352,33 @@
  },
  "deribit.eth.opt.2026-11-11.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-11.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 7755.0
+  "value": 8995.0
  },
  "deribit.eth.opt.2026-11-11.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-11.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 11975.0
+  "value": 12503.0
  },
  "deribit.eth.opt.2026-11-12.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-09T20:22:18Z",
   "id": "deribit.eth.opt.2026-11-12.max_pain",
@@ -391,33 +391,33 @@
  },
  "deribit.eth.opt.2026-11-12.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-12.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 4876.0
+  "value": 4912.0
  },
  "deribit.eth.opt.2026-11-12.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-12.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 6562.0
+  "value": 6566.0
  },
  "deribit.eth.opt.2026-11-13.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-06T12:15:36Z",
   "id": "deribit.eth.opt.2026-11-13.max_pain",
@@ -430,33 +430,33 @@
  },
  "deribit.eth.opt.2026-11-13.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-13.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 45279.0
+  "value": 45295.0
  },
  "deribit.eth.opt.2026-11-13.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-13.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 90955.0
+  "value": 91360.0
  },
  "deribit.eth.opt.2026-11-20.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-09T20:22:18Z",
   "id": "deribit.eth.opt.2026-11-20.max_pain",
@@ -469,33 +469,33 @@
  },
  "deribit.eth.opt.2026-11-20.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-20.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 27717.0
+  "value": 27742.0
  },
  "deribit.eth.opt.2026-11-20.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-20.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 19042.0
+  "value": 19554.0
  },
  "deribit.eth.opt.2026-11-27.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-06T20:22:21Z",
   "id": "deribit.eth.opt.2026-11-27.max_pain",
@@ -508,33 +508,33 @@
  },
  "deribit.eth.opt.2026-11-27.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-27.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 165989.0
+  "value": 166338.0
  },
  "deribit.eth.opt.2026-11-27.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-11-27.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 84515.0
+  "value": 84410.0
  },
  "deribit.eth.opt.2026-12-25.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-05T19:58:39Z",
   "id": "deribit.eth.opt.2026-12-25.max_pain",
@@ -547,33 +547,33 @@
  },
  "deribit.eth.opt.2026-12-25.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-12-25.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 463471.0
+  "value": 464329.0
  },
  "deribit.eth.opt.2026-12-25.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2026-12-25.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 181827.0
+  "value": 181828.0
  },
  "deribit.eth.opt.2027-01-29.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-05T19:58:39Z",
   "id": "deribit.eth.opt.2027-01-29.max_pain",
@@ -586,33 +586,33 @@
  },
  "deribit.eth.opt.2027-01-29.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2027-01-29.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 14701.0
+  "value": 15629.0
  },
  "deribit.eth.opt.2027-01-29.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2027-01-29.oi_put",
   "metric": "oi_put",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 18270.0
+  "value": 18501.0
  },
  "deribit.eth.opt.2027-03-26.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-05T19:58:39Z",
   "id": "deribit.eth.opt.2027-03-26.max_pain",
@@ -625,20 +625,20 @@
  },
  "deribit.eth.opt.2027-03-26.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
-  "fetched_at": "2026-11-09T20:22:18Z",
+  "fetched_at": "2026-11-10T00:22:17Z",
   "id": "deribit.eth.opt.2027-03-26.oi_call",
   "metric": "oi_call",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "ETH",
-  "value": 167514.0
+  "value": 167530.0
  },
  "deribit.eth.opt.2027-03-26.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-09T20:22:18Z",
   "id": "deribit.eth.opt.2027-03-26.oi_put",
@@ -651,7 +651,7 @@
  },
  "deribit.eth.opt.2027-06-25.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-05T19:58:39Z",
   "id": "deribit.eth.opt.2027-06-25.max_pain",
@@ -664,7 +664,7 @@
  },
  "deribit.eth.opt.2027-06-25.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-09T20:22:18Z",
   "id": "deribit.eth.opt.2027-06-25.oi_call",
@@ -677,7 +677,7 @@
  },
  "deribit.eth.opt.2027-06-25.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-09T20:22:18Z",
   "id": "deribit.eth.opt.2027-06-25.oi_put",
@@ -690,7 +690,7 @@
  },
  "deribit.eth.opt.2027-09-24.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-09T00:22:15Z",
   "id": "deribit.eth.opt.2027-09-24.max_pain",
@@ -703,7 +703,7 @@
  },
  "deribit.eth.opt.2027-09-24.oi_call": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-09T20:22:18Z",
   "id": "deribit.eth.opt.2027-09-24.oi_call",
@@ -716,7 +716,7 @@
  },
  "deribit.eth.opt.2027-09-24.oi_put": {
   "as_of": null,
-  "checked_at": "2026-11-09T20:22:18Z",
+  "checked_at": "2026-11-10T00:22:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-09T20:22:18Z",
   "id": "deribit.eth.opt.2027-09-24.oi_put",
