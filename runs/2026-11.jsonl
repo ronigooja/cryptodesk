@@ -145,3 +145,4 @@
 {"changed": 12, "errors": [], "facts": 12, "group": "onchain", "missing": 0, "started": "2026-11-10T22:00:31Z", "unchanged": 0}
 {"changed": 21, "errors": [], "facts": 21, "group": "flows", "missing": 0, "started": "2026-11-10T22:00:49Z", "unchanged": 0}
 {"changed": 0, "errors": [], "facts": 21, "group": "flows", "missing": 0, "started": "2026-11-10T22:01:42Z", "unchanged": 21}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-10T22:03:16Z", "unchanged": 0}
