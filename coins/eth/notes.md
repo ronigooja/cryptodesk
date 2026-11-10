@@ -13,6 +13,9 @@ Generated from `data/latest`. Do not edit.
 | `binance.eth.spot_price` | ok | 2063.34 | USDT | 2026-11-10T21:03:26Z | 2026-11-10T21:03:21Z |  |
 | `binance.eth.top_ls_account_ratio` | ok | 3.8031 | ratio | 2026-11-10T21:00:00Z | 2026-11-10T21:03:21Z |  |
 | `binance.eth.top_ls_position_ratio` | ok | 1.8412 | ratio | 2026-11-10T21:00:00Z | 2026-11-10T21:03:21Z |  |
+| `cftc.eth.cot_asset_mgr_net` | ok | -1825 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
+| `cftc.eth.cot_lev_money_net` | ok | -3699 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
+| `cftc.eth.cot_open_interest` | ok | 22869 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `coinmetrics.eth.active_addresses` | ok | 807775.0 | count | 2026-11-09T00:00:00Z | 2026-11-10T22:00:31Z |  |
 | `coinmetrics.eth.fees_total` | ok | 156.85201443770063 | ETH | 2026-11-09T00:00:00Z | 2026-11-10T22:00:31Z |  |
 | `coinmetrics.eth.mvrv` | ok | 0.9721405619514111 | ratio | 2026-11-09T00:00:00Z | 2026-11-10T22:00:31Z |  |

@@ -116,6 +116,45 @@
   "unit": "ratio",
   "value": 1.8412
  },
+ "cftc.eth.cot_asset_mgr_net": {
+  "as_of": "2026-11-03T00:00:00Z",
+  "checked_at": "2026-11-10T22:00:49Z",
+  "coin": "eth",
+  "fetched_at": "2026-11-10T22:00:49Z",
+  "id": "cftc.eth.cot_asset_mgr_net",
+  "metric": "cot_asset_mgr_net",
+  "reason": null,
+  "source": "cftc",
+  "status": "ok",
+  "unit": "contracts",
+  "value": -1825
+ },
+ "cftc.eth.cot_lev_money_net": {
+  "as_of": "2026-11-03T00:00:00Z",
+  "checked_at": "2026-11-10T22:00:49Z",
+  "coin": "eth",
+  "fetched_at": "2026-11-10T22:00:49Z",
+  "id": "cftc.eth.cot_lev_money_net",
+  "metric": "cot_lev_money_net",
+  "reason": null,
+  "source": "cftc",
+  "status": "ok",
+  "unit": "contracts",
+  "value": -3699
+ },
+ "cftc.eth.cot_open_interest": {
+  "as_of": "2026-11-03T00:00:00Z",
+  "checked_at": "2026-11-10T22:00:49Z",
+  "coin": "eth",
+  "fetched_at": "2026-11-10T22:00:49Z",
+  "id": "cftc.eth.cot_open_interest",
+  "metric": "cot_open_interest",
+  "reason": null,
+  "source": "cftc",
+  "status": "ok",
+  "unit": "contracts",
+  "value": 22869
+ },
  "coinmetrics.eth.active_addresses": {
   "as_of": "2026-11-09T00:00:00Z",
   "checked_at": "2026-11-10T22:00:31Z",
