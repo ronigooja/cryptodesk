@@ -3,7 +3,7 @@ import os
 from datetime import UTC, datetime
 
 from . import check, model, profiles, registry, render, store
-from .adapters import binance, deribit, nyfed, okx, treasury
+from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, mempool, nyfed, okx, treasury
 from .adapters.base import PROXY_ENV, make_get, make_get_text
 
 
@@ -18,7 +18,7 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(prog="cryptodesk")
     commands = parser.add_subparsers(dest="command", required=True)
     collect = commands.add_parser("collect")
-    collect.add_argument("group", choices=("market", "options", "macro"))
+    collect.add_argument("group", choices=("market", "options", "macro", "onchain", "flows"))
     commands.add_parser("render")
     commands.add_parser("check")
     args = parser.parse_args(argv)
@@ -29,6 +29,18 @@ def main(argv=None) -> int:
         facts = []
         if args.group == "macro":
             facts = treasury.collect(make_get_text_fn(), started) + nyfed.collect(make_get_fn(), started)
+        elif args.group == "onchain":
+            get = make_get_fn()
+            facts = defillama.collect(None, get, started)
+            for coin in profiles.list_coins(root):
+                facts.extend(coinmetrics.collect(coin, get, started))
+                facts.extend(mempool.collect(coin, get, started))
+        elif args.group == "flows":
+            facts = etf.collect(make_get_text_fn(), started)
+            get = make_get_fn()
+            for coin in profiles.list_coins(root):
+                if coin in cftc.MARKETS:
+                    facts.extend(cftc.collect(coin, profiles.load(root, coin), get, started))
         else:
             get = make_get_fn()
             for coin in profiles.list_coins(root):

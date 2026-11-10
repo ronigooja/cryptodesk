@@ -97,3 +97,53 @@ def test_check_errors_fail(repo, monkeypatch, capsys):
     monkeypatch.setattr(cli.check, "check_all", lambda *args: ["invalid fact"])
     assert cli.main(["check"]) == 1
     assert capsys.readouterr().out.strip() == "check: errors=1"
+
+
+COINMETRICS = {"data": [{"asset": "btc", "time": "2026-11-09T00:00:00.000000000Z",
+                         "CapMVRVCur": "1.39", "AdrActCnt": "676220", "FeeTotNtv": "2.68"},
+                        {"asset": "eth", "time": "2026-11-09T00:00:00.000000000Z",
+                         "CapMVRVCur": "0.97", "AdrActCnt": "807775", "FeeTotNtv": "156.85"}]}
+MEMPOOL_HASH = {"currentHashrate": 9.6e20, "currentDifficulty": 1.48e14}
+MEMPOOL_FEE = {"fastestFee": 3}
+LLAMA = {"peggedAssets": [{"symbol": "USDT", "pegType": "peggedUSD", "circulating": {"peggedUSD": 100.0}},
+                          {"symbol": "USDC", "pegType": "peggedUSD", "circulating": {"peggedUSD": 50.0}}]}
+CFTC_ROW = {"report_date_as_yyyy_mm_dd": "2026-11-03T00:00:00.000", "open_interest_all": "100",
+            "asset_mgr_positions_long": "10", "asset_mgr_positions_short": "4",
+            "lev_money_positions_long": "3", "lev_money_positions_short": "9"}
+BITBO = ("<h1>Bitcoin ETF Flow (US$m)</h1><table><tr><th>Date</th><th>IBIT</th><th>Total</th></tr>"
+         "<tr><td>Nov 09, 2026</td><td>-210.5</td><td>-198.6</td></tr></table>")
+
+
+def fake_get_more(url, params):
+    if "coinmetrics" in url:
+        return {"data": [r for r in COINMETRICS["data"] if r["asset"] == params["assets"]]}
+    if url.endswith("/mining/hashrate/3d"):
+        return MEMPOOL_HASH
+    if url.endswith("/fees/recommended"):
+        return MEMPOOL_FEE
+    if "stablecoins.llama.fi" in url:
+        return LLAMA
+    if "cftc.gov" in url:
+        return [CFTC_ROW]
+    pytest.fail(f"unexpected fake endpoint: {url}")
+
+
+def test_onchain_collect_and_check(repo, monkeypatch, capsys):
+    monkeypatch.setattr(cli, "make_get_fn", lambda: fake_get_more)
+    assert cli.main(["collect", "onchain"]) == 0
+    assert capsys.readouterr().out.strip() == "collect onchain: facts=12 changed=12 unchanged=0 missing=0"
+    assert cli.main(["check"]) == 0
+    latest = json.loads((repo / "data" / "latest" / "macro.json").read_text())
+    assert latest["defillama.macro.stablecoin_supply_usd"]["value"] == 150.0
+
+
+def test_flows_collect_and_check(repo, monkeypatch, capsys):
+    monkeypatch.setattr(cli, "make_get_fn", lambda: fake_get_more)
+    monkeypatch.setattr(cli, "make_get_text_fn", lambda: lambda url, params: BITBO)
+    assert cli.main(["collect", "flows"]) == 0
+    assert "missing=" in capsys.readouterr().out
+    assert cli.main(["check"]) == 0
+    btc = json.loads((repo / "data" / "latest" / "btc.json").read_text())
+    assert btc["bitbo.btc.etf_flow_total"]["value"] == -198.6 * 1_000_000
+    assert btc["cftc.btc.cot_lev_money_net"]["value"] == -6
+    assert json.loads((repo / "data" / "latest" / "eth.json").read_text())["cftc.eth.cot_asset_mgr_net"]["value"] == 6

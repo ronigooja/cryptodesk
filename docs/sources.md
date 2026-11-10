@@ -17,14 +17,15 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 | `nyfed` | NY Fed reference rates API | none | macro | `fed_funds_effective` | 1 | verified locally 2026-11-05 |
 | `bls` | BLS API v2 | free key `BLS_API_KEY` | macro | payrolls, unemployment, CPI | 2 | blocked: key |
 | `fiscaldata` | Treasury FiscalData | none | macro | refunding, auctions | 2 | planned |
-| `etf_flows` | Farside page scrape; cross-check SoSoValue | SoSoValue key, untested | btc, eth | `etf` | 2 | planned |
+| `bitbo` | Bitbo ETF flow table (HTML, US$m) | none | btc | `etf_flow_total`, `etf_flow_<fund>` | 2 | verified locally 2026-11-11; btc only |
+| `etf_flows` | Farside and SoSoValue | SoSoValue key | btc, eth | `etf` cross-check, ETH ETF flows | 2 | blocked: Cloudflare returns 403 to scripts, also through the proxy (2026-11-11) |
 | `edgar` | SEC EDGAR JSON | User-Agent header | btc, eth | filings | 2 | planned |
 | `fed_rss` | Federal Reserve RSS | none | macro | press releases | 2 | planned |
-| `coinmetrics` | Coin Metrics Community | none | btc, eth | MVRV, market cap, supply | 3 | planned |
-| `mempool` | mempool.space | none; rate limited | btc | hashrate, difficulty, fees | 3 | planned |
-| `defillama` | DefiLlama free API | none | eth | stablecoins, fees | 3 | planned |
-| `beacon` | beaconcha.in | none | eth | staking queues | 3 | planned |
-| `cftc_cot` | CFTC Socrata | none | btc, eth | futures positioning | 3 | planned |
+| `coinmetrics` | Coin Metrics Community | none | btc, eth | `mvrv`, `active_addresses`, `fees_total` | 3 | verified locally 2026-11-11 |
+| `mempool` | mempool.space | none; rate limited | btc | `hashrate`, `difficulty`, `fee_fastest` | 3 | verified locally 2026-11-11 |
+| `defillama` | DefiLlama stablecoins API | none | macro | `stablecoin_supply_usd`, `usdt_supply_usd`, `usdc_supply_usd` | 3 | verified locally 2026-11-11 |
+| `beacon` | beaconcha.in | API key | eth | staking queues | 3 | blocked: key (HTTP 401 on 2026-11-11) |
+| `cftc` | CFTC Socrata, dataset `gpe5-46if` (futures only) | none | btc, eth | `cot_open_interest`, `cot_asset_mgr_net`, `cot_lev_money_net` | 3 | verified locally 2026-11-11; exact CME contract names |
 
 ## Registry: altcoin (phase 4)
 
@@ -47,7 +48,10 @@ Findings from [research/2026-11-06-alt-supply-sources.md](research/2026-11-06-al
 | Gap | State |
 |---|---|
 | Market-wide liquidations (long and short) | No free complete source |
-| Farside ETF flows | No official API |
+| ETH spot ETF flows | No free source usable by script: Farside returns 403, Bitbo's ETH page is a soft 404 (2026-11-11) |
+| Farside ETF flows | No official API; Cloudflare blocks scripts |
+| ETF flow disagreement | Bitbo and Farside disagree on 2026-11-09: total -198.6m vs -201.0m, IBIT -210.5m vs -213.2m (US$m). Cause not found. Only Bitbo is collected |
+| Stablecoin total | Sum of DefiLlama per-asset USD-pegged supply was 292.894B; DefiLlama's chart total was 292.440B (0.155% apart) on 2026-11-11. Cause not found |
 | DefiLlama ETF endpoints | Paid |
 | LTH/STH supply, realized price | No stable free source |
 | CME FedWatch probabilities | No official free API |
