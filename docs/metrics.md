@@ -56,6 +56,16 @@ Fields: name, unit, meaning, staleness limit (value older than this at analysis 
 | `pool_volume_24h_usd` | USD | DEX pool 24h volume | 3 h | snapshot |
 | `us10y_yield`, `us2y_yield` | percent | Treasury yields | 48 h | series |
 | `fed_funds_effective` | percent | Effective fed funds rate | 48 h | series |
+| `mvrv` | ratio | Market value to realized value (Coin Metrics `CapMVRVCur`) | 48 h | series |
+| `active_addresses` | count | Daily active addresses (Coin Metrics `AdrActCnt`) | 48 h | series |
+| `fees_total` | base coin | Daily total fees (Coin Metrics `FeeTotNtv`) | 48 h | series |
+| `hashrate` | H/s | Current Bitcoin network hashrate | 3 h | series |
+| `difficulty` | number | Current Bitcoin mining difficulty | 48 h | series |
+| `fee_fastest` | sat/vB | Recommended fastest-confirmation fee rate | 3 h | series |
+| `stablecoin_supply_usd` | USD | Total pegged-USD stablecoin circulating supply (DefiLlama), pseudo-coin `macro` | 48 h | series |
+| `usdt_supply_usd`, `usdc_supply_usd` | USD | Circulating supply of one stablecoin (DefiLlama), pseudo-coin `macro` | 48 h | series |
+| `cot_open_interest` | contracts | CFTC futures open interest for the CME contract | 216 h | series |
+| `cot_asset_mgr_net`, `cot_lev_money_net` | contracts | Long minus short for that trader group, CME futures | 216 h | series |
 
 Metrics planned for later phases (payrolls, CPI, exchange balances, MVRV, staking queues, treasury holdings) are added when their phase starts.
 
