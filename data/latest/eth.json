@@ -156,43 +156,43 @@
   "value": 22869
  },
  "coinmetrics.eth.active_addresses": {
-  "as_of": "2026-11-09T00:00:00Z",
-  "checked_at": "2026-11-10T22:00:31Z",
+  "as_of": "2026-11-10T00:00:00Z",
+  "checked_at": "2026-11-11T01:30:19Z",
   "coin": "eth",
-  "fetched_at": "2026-11-10T22:00:31Z",
+  "fetched_at": "2026-11-11T01:30:19Z",
   "id": "coinmetrics.eth.active_addresses",
   "metric": "active_addresses",
   "reason": null,
   "source": "coinmetrics",
   "status": "ok",
   "unit": "count",
-  "value": 807775.0
+  "value": 885694.0
  },
  "coinmetrics.eth.fees_total": {
-  "as_of": "2026-11-09T00:00:00Z",
-  "checked_at": "2026-11-10T22:00:31Z",
+  "as_of": "2026-11-10T00:00:00Z",
+  "checked_at": "2026-11-11T01:30:19Z",
   "coin": "eth",
-  "fetched_at": "2026-11-10T22:00:31Z",
+  "fetched_at": "2026-11-11T01:30:19Z",
   "id": "coinmetrics.eth.fees_total",
   "metric": "fees_total",
   "reason": null,
   "source": "coinmetrics",
   "status": "ok",
   "unit": "ETH",
-  "value": 156.85201443770063
+  "value": 164.10568294001507
  },
  "coinmetrics.eth.mvrv": {
-  "as_of": "2026-11-09T00:00:00Z",
-  "checked_at": "2026-11-10T22:00:31Z",
+  "as_of": null,
+  "checked_at": "2026-11-11T01:30:19Z",
   "coin": "eth",
-  "fetched_at": "2026-11-10T22:00:31Z",
+  "fetched_at": "2026-11-11T01:30:19Z",
   "id": "coinmetrics.eth.mvrv",
   "metric": "mvrv",
-  "reason": null,
+  "reason": "field absent in response",
   "source": "coinmetrics",
-  "status": "ok",
+  "status": "missing",
   "unit": "ratio",
-  "value": 0.9721405619514111
+  "value": null
  },
  "deribit.eth.dvol": {
   "as_of": "2026-11-11T01:00:00Z",
