@@ -4,15 +4,15 @@ Generated from `data/latest`. Do not edit.
 
 | Fact | Status | Value | Unit | as_of | fetched_at | Note |
 |---|---|---|---|---|---|---|
-| `binance.btc.change_24h_pct` | ok | -1.519 | percent | 2026-11-11T03:03:17Z | 2026-11-11T03:03:15Z |  |
-| `binance.btc.funding_rate_8h` | ok | 0.0001 | fraction | 2026-11-11T03:03:18Z | 2026-11-11T03:03:15Z |  |
-| `binance.btc.high_24h` | ok | 74996.01 | USDT | 2026-11-11T03:03:17Z | 2026-11-11T03:03:15Z |  |
-| `binance.btc.low_24h` | ok | 72727.27 | USDT | 2026-11-11T03:03:17Z | 2026-11-11T03:03:15Z |  |
-| `binance.btc.open_interest` | ok | 100207.049 | BTC | 2026-11-11T03:03:11Z | 2026-11-11T03:03:15Z |  |
-| `binance.btc.perp_mark_price` | ok | 73652.4 | USDT | 2026-11-11T03:03:18Z | 2026-11-11T03:03:15Z |  |
-| `binance.btc.spot_price` | ok | 73677.33 | USDT | 2026-11-11T03:03:17Z | 2026-11-11T03:03:15Z |  |
-| `binance.btc.top_ls_account_ratio` | ok | 3.2827 | ratio | 2026-11-11T03:00:00Z | 2026-11-11T03:03:15Z |  |
-| `binance.btc.top_ls_position_ratio` | ok | 2.2254 | ratio | 2026-11-11T03:00:00Z | 2026-11-11T03:03:15Z |  |
+| `binance.btc.change_24h_pct` | ok | -1.014 | percent | 2026-11-11T04:03:17Z | 2026-11-11T04:03:16Z |  |
+| `binance.btc.funding_rate_8h` | ok | 0.0001 | fraction | 2026-11-11T04:03:18Z | 2026-11-11T04:03:16Z |  |
+| `binance.btc.high_24h` | ok | 74996.01 | USDT | 2026-11-11T04:03:17Z | 2026-11-11T04:03:16Z |  |
+| `binance.btc.low_24h` | ok | 72727.27 | USDT | 2026-11-11T04:03:17Z | 2026-11-11T04:03:16Z |  |
+| `binance.btc.open_interest` | ok | 100236.347 | BTC | 2026-11-11T04:03:13Z | 2026-11-11T04:03:16Z |  |
+| `binance.btc.perp_mark_price` | ok | 73795.34369565 | USDT | 2026-11-11T04:03:18Z | 2026-11-11T04:03:16Z |  |
+| `binance.btc.spot_price` | ok | 73830.01 | USDT | 2026-11-11T04:03:17Z | 2026-11-11T04:03:16Z |  |
+| `binance.btc.top_ls_account_ratio` | ok | 3.2301 | ratio | 2026-11-11T04:00:00Z | 2026-11-11T04:03:16Z |  |
+| `binance.btc.top_ls_position_ratio` | ok | 2.2119 | ratio | 2026-11-11T04:00:00Z | 2026-11-11T04:03:16Z |  |
 | `bitbo.btc.etf_flow_arkb` | ok | -9800000.0 | USD | 2026-11-09T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `bitbo.btc.etf_flow_bita` | ok | 0.0 | USD | 2026-11-09T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `bitbo.btc.etf_flow_bitb` | ok | 0.0 | USD | 2026-11-09T00:00:00Z | 2026-11-10T22:00:49Z |  |
@@ -34,8 +34,8 @@ Generated from `data/latest`. Do not edit.
 | `coinmetrics.btc.active_addresses` | ok | 702844.0 | count | 2026-11-10T00:00:00Z | 2026-11-11T01:30:19Z |  |
 | `coinmetrics.btc.fees_total` | ok | 2.77572165 | BTC | 2026-11-10T00:00:00Z | 2026-11-11T01:30:19Z |  |
 | `coinmetrics.btc.mvrv` | missing |  | ratio |  | 2026-11-11T01:30:19Z | field absent in response |
-| `deribit.btc.dvol` | ok | 40.19 | percent | 2026-11-11T03:00:00Z | 2026-11-11T03:03:15Z |  |
-| `deribit.btc.funding_rate_8h` | ok | 3.269e-05 | fraction | 2026-11-11T03:03:20Z | 2026-11-11T03:03:15Z |  |
+| `deribit.btc.dvol` | ok | 39.5 | percent | 2026-11-11T04:00:00Z | 2026-11-11T04:03:16Z |  |
+| `deribit.btc.funding_rate_8h` | ok | 3.628e-05 | fraction | 2026-11-11T04:03:20Z | 2026-11-11T04:03:16Z |  |
 | `deribit.btc.opt.2026-11-06.max_pain` | ok | 79000.0 | USD |  | 2026-11-05T19:58:39Z | stale |
 | `deribit.btc.opt.2026-11-06.oi_call` | ok | 25269.6 | BTC |  | 2026-11-06T00:59:33Z | stale |
 | `deribit.btc.opt.2026-11-06.oi_put` | ok | 9445.5 | BTC |  | 2026-11-06T00:59:33Z | stale |
@@ -84,13 +84,13 @@ Generated from `data/latest`. Do not edit.
 | `deribit.btc.opt.2027-09-24.max_pain` | ok | 84000.0 | USD |  | 2026-11-05T19:58:39Z |  |
 | `deribit.btc.opt.2027-09-24.oi_call` | ok | 5044.0 | BTC |  | 2026-11-11T00:22:18Z |  |
 | `deribit.btc.opt.2027-09-24.oi_put` | ok | 3844.9 | BTC |  | 2026-11-11T00:22:18Z |  |
-| `deribit.btc.perp_mark_price` | ok | 73604.82 | USD | 2026-11-11T03:03:20Z | 2026-11-11T03:03:15Z |  |
+| `deribit.btc.perp_mark_price` | ok | 73752.66 | USD | 2026-11-11T04:03:20Z | 2026-11-11T04:03:16Z |  |
 | `mempool.btc.difficulty` | ok | 148364561003867.4 | number |  | 2026-11-10T22:00:31Z |  |
 | `mempool.btc.fee_fastest` | ok | 2.0 | sat/vB |  | 2026-11-11T01:30:19Z |  |
 | `mempool.btc.hashrate` | ok | 9.530308627808721e+20 | H/s |  | 2026-11-11T01:30:19Z |  |
-| `okx.btc.funding_rate_8h` | ok | 0.0001 | fraction | 2026-11-11T03:03:08Z | 2026-11-11T03:03:15Z |  |
-| `okx.btc.high_24h` | ok | 75000.0 | USDT | 2026-11-11T03:03:19Z | 2026-11-11T03:03:15Z |  |
-| `okx.btc.low_24h` | ok | 72727.3 | USDT | 2026-11-11T03:03:19Z | 2026-11-11T03:03:15Z |  |
-| `okx.btc.open_interest` | ok | 35883.08620000012 | BTC | 2026-11-11T03:03:19Z | 2026-11-11T03:03:15Z |  |
-| `okx.btc.open_interest_usd` | ok | 2642789298.630009 | USD | 2026-11-11T03:03:19Z | 2026-11-11T03:03:15Z |  |
-| `okx.btc.spot_price` | ok | 73683.6 | USDT | 2026-11-11T03:03:19Z | 2026-11-11T03:03:15Z |  |
+| `okx.btc.funding_rate_8h` | ok | 0.0001 | fraction | 2026-11-11T04:02:06Z | 2026-11-11T04:03:16Z |  |
+| `okx.btc.high_24h` | ok | 75000.0 | USDT | 2026-11-11T04:03:19Z | 2026-11-11T04:03:16Z |  |
+| `okx.btc.low_24h` | ok | 72727.3 | USDT | 2026-11-11T04:03:19Z | 2026-11-11T04:03:16Z |  |
+| `okx.btc.open_interest` | ok | 35931.55490000013 | BTC | 2026-11-11T04:03:20Z | 2026-11-11T04:03:16Z |  |
+| `okx.btc.open_interest_usd` | ok | 2651752344.7754993 | USD | 2026-11-11T04:03:20Z | 2026-11-11T04:03:16Z |  |
+| `okx.btc.spot_price` | ok | 73828.1 | USDT | 2026-11-11T04:03:19Z | 2026-11-11T04:03:16Z |  |
