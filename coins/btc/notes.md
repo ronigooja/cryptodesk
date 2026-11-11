@@ -25,9 +25,9 @@ Generated from `data/latest`. Do not edit.
 | `bitbo.btc.etf_flow_fbtc` | ok | 0.0 | USD | 2026-11-09T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `bitbo.btc.etf_flow_gbtc` | ok | 0.0 | USD | 2026-11-09T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `bitbo.btc.etf_flow_hodl` | ok | -100000.0 | USD | 2026-11-09T00:00:00Z | 2026-11-10T22:00:49Z |  |
-| `bitbo.btc.etf_flow_ibit` | ok | -210400000.0 | USD | 2026-11-09T00:00:00Z | 2026-11-10T22:00:49Z |  |
-| `bitbo.btc.etf_flow_msbt` | ok | 21800000.0 | USD | 2026-11-09T00:00:00Z | 2026-11-10T22:00:49Z |  |
-| `bitbo.btc.etf_flow_total` | ok | -198500000.0 | USD | 2026-11-09T00:00:00Z | 2026-11-10T22:00:49Z |  |
+| `bitbo.btc.etf_flow_ibit` | ok | -211000000.0 | USD | 2026-11-09T00:00:00Z | 2026-11-11T11:10:15Z |  |
+| `bitbo.btc.etf_flow_msbt` | ok | 21900000.0 | USD | 2026-11-09T00:00:00Z | 2026-11-11T11:10:15Z |  |
+| `bitbo.btc.etf_flow_total` | ok | -199000000.0 | USD | 2026-11-09T00:00:00Z | 2026-11-11T11:10:15Z |  |
 | `cftc.btc.cot_asset_mgr_net` | ok | 2403 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `cftc.btc.cot_lev_money_net` | ok | -2591 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `cftc.btc.cot_open_interest` | ok | 17527 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
