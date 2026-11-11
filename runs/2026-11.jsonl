@@ -153,3 +153,4 @@
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-11T01:03:18Z", "unchanged": 0}
 {"changed": 11, "errors": ["coinmetrics: field absent in response"], "facts": 12, "group": "onchain", "missing": 2, "started": "2026-11-11T01:30:19Z", "unchanged": 1}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-11T02:03:20Z", "unchanged": 0}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-11T03:03:15Z", "unchanged": 0}
