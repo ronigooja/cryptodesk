@@ -40,7 +40,7 @@
  },
  "nyfed.macro.fed_funds_effective": {
   "as_of": "2026-11-09T00:00:00Z",
-  "checked_at": "2026-11-10T22:45:17Z",
+  "checked_at": "2026-11-11T22:45:18Z",
   "coin": "macro",
   "fetched_at": "2026-11-10T22:45:17Z",
   "id": "nyfed.macro.fed_funds_effective",
@@ -53,7 +53,7 @@
  },
  "treasury.macro.us10y_yield": {
   "as_of": "2026-11-10T00:00:00Z",
-  "checked_at": "2026-11-10T22:45:17Z",
+  "checked_at": "2026-11-11T22:45:18Z",
   "coin": "macro",
   "fetched_at": "2026-11-10T22:45:17Z",
   "id": "treasury.macro.us10y_yield",
@@ -66,7 +66,7 @@
  },
  "treasury.macro.us2y_yield": {
   "as_of": "2026-11-10T00:00:00Z",
-  "checked_at": "2026-11-10T22:45:17Z",
+  "checked_at": "2026-11-11T22:45:18Z",
   "coin": "macro",
   "fetched_at": "2026-11-10T22:45:17Z",
   "id": "treasury.macro.us2y_yield",
