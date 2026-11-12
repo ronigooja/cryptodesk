@@ -16,8 +16,8 @@ Generated from `data/latest`. Do not edit.
 | `cftc.eth.cot_asset_mgr_net` | ok | -1825 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `cftc.eth.cot_lev_money_net` | ok | -3699 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `cftc.eth.cot_open_interest` | ok | 22869 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
-| `coinmetrics.eth.active_addresses` | ok | 885694.0 | count | 2026-11-10T00:00:00Z | 2026-11-11T01:30:19Z |  |
-| `coinmetrics.eth.fees_total` | ok | 164.10568294001507 | ETH | 2026-11-10T00:00:00Z | 2026-11-11T01:30:19Z |  |
+| `coinmetrics.eth.active_addresses` | ok | 797965.0 | count | 2026-11-11T00:00:00Z | 2026-11-12T01:30:22Z |  |
+| `coinmetrics.eth.fees_total` | ok | 125.27243861594162 | ETH | 2026-11-11T00:00:00Z | 2026-11-12T01:30:22Z |  |
 | `coinmetrics.eth.mvrv` | missing |  | ratio |  | 2026-11-11T01:30:19Z | field absent in response |
 | `deribit.eth.dvol` | ok | 54.68 | percent | 2026-11-12T01:00:00Z | 2026-11-12T01:03:21Z |  |
 | `deribit.eth.funding_rate_8h` | ok | 7.9e-05 | fraction | 2026-11-12T01:03:28Z | 2026-11-12T01:03:21Z |  |

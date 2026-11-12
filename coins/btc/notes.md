@@ -31,8 +31,8 @@ Generated from `data/latest`. Do not edit.
 | `cftc.btc.cot_asset_mgr_net` | ok | 2403 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `cftc.btc.cot_lev_money_net` | ok | -2591 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `cftc.btc.cot_open_interest` | ok | 17527 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
-| `coinmetrics.btc.active_addresses` | ok | 702844.0 | count | 2026-11-10T00:00:00Z | 2026-11-11T01:30:19Z |  |
-| `coinmetrics.btc.fees_total` | ok | 2.77572165 | BTC | 2026-11-10T00:00:00Z | 2026-11-11T01:30:19Z |  |
+| `coinmetrics.btc.active_addresses` | ok | 645477.0 | count | 2026-11-11T00:00:00Z | 2026-11-12T01:30:22Z |  |
+| `coinmetrics.btc.fees_total` | ok | 3.16499597 | BTC | 2026-11-11T00:00:00Z | 2026-11-12T01:30:22Z |  |
 | `coinmetrics.btc.mvrv` | missing |  | ratio |  | 2026-11-11T01:30:19Z | field absent in response |
 | `deribit.btc.dvol` | ok | 38.74 | percent | 2026-11-12T01:00:00Z | 2026-11-12T01:03:21Z |  |
 | `deribit.btc.funding_rate_8h` | ok | 1.853e-05 | fraction | 2026-11-12T01:03:25Z | 2026-11-12T01:03:21Z |  |
@@ -89,8 +89,8 @@ Generated from `data/latest`. Do not edit.
 | `deribit.btc.opt.2027-09-24.oi_put` | ok | 3864.5 | BTC |  | 2026-11-12T00:22:27Z |  |
 | `deribit.btc.perp_mark_price` | ok | 73855.17 | USD | 2026-11-12T01:03:25Z | 2026-11-12T01:03:21Z |  |
 | `mempool.btc.difficulty` | ok | 148364561003867.4 | number |  | 2026-11-10T22:00:31Z |  |
-| `mempool.btc.fee_fastest` | ok | 2.0 | sat/vB |  | 2026-11-11T01:30:19Z | stale |
-| `mempool.btc.hashrate` | ok | 9.530308627808721e+20 | H/s |  | 2026-11-11T01:30:19Z | stale |
+| `mempool.btc.fee_fastest` | ok | 2.0 | sat/vB |  | 2026-11-11T01:30:19Z |  |
+| `mempool.btc.hashrate` | ok | 9.554933685951705e+20 | H/s |  | 2026-11-12T01:30:22Z |  |
 | `okx.btc.funding_rate_8h` | ok | 6.57845027988e-05 | fraction | 2026-11-12T01:03:11Z | 2026-11-12T01:03:21Z |  |
 | `okx.btc.high_24h` | ok | 74803.3 | USDT | 2026-11-12T01:03:24Z | 2026-11-12T01:03:21Z |  |
 | `okx.btc.low_24h` | ok | 73221.4 | USDT | 2026-11-12T01:03:24Z | 2026-11-12T01:03:21Z |  |
