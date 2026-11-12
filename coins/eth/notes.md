@@ -4,23 +4,23 @@ Generated from `data/latest`. Do not edit.
 
 | Fact | Status | Value | Unit | as_of | fetched_at | Note |
 |---|---|---|---|---|---|---|
-| `binance.eth.change_24h_pct` | ok | -0.714 | percent | 2026-11-12T09:03:21Z | 2026-11-12T09:03:15Z |  |
-| `binance.eth.funding_rate_8h` | ok | 4.609e-05 | fraction | 2026-11-12T09:03:21Z | 2026-11-12T09:03:15Z |  |
-| `binance.eth.high_24h` | ok | 2103.78 | USDT | 2026-11-12T09:03:21Z | 2026-11-12T09:03:15Z |  |
-| `binance.eth.low_24h` | ok | 2035.83 | USDT | 2026-11-12T09:03:21Z | 2026-11-12T09:03:15Z |  |
-| `binance.eth.open_interest` | ok | 2310939.73 | ETH | 2026-11-12T09:03:16Z | 2026-11-12T09:03:15Z |  |
-| `binance.eth.perp_mark_price` | ok | 2045.60389147 | USDT | 2026-11-12T09:03:21Z | 2026-11-12T09:03:15Z |  |
-| `binance.eth.spot_price` | ok | 2046.4 | USDT | 2026-11-12T09:03:21Z | 2026-11-12T09:03:15Z |  |
-| `binance.eth.top_ls_account_ratio` | ok | 3.1841 | ratio | 2026-11-12T09:00:00Z | 2026-11-12T09:03:15Z |  |
-| `binance.eth.top_ls_position_ratio` | ok | 1.8466 | ratio | 2026-11-12T09:00:00Z | 2026-11-12T09:03:15Z |  |
+| `binance.eth.change_24h_pct` | ok | -0.438 | percent | 2026-11-12T10:03:23Z | 2026-11-12T10:03:18Z |  |
+| `binance.eth.funding_rate_8h` | ok | 4.203e-05 | fraction | 2026-11-12T10:03:23Z | 2026-11-12T10:03:18Z |  |
+| `binance.eth.high_24h` | ok | 2103.78 | USDT | 2026-11-12T10:03:23Z | 2026-11-12T10:03:18Z |  |
+| `binance.eth.low_24h` | ok | 2035.83 | USDT | 2026-11-12T10:03:23Z | 2026-11-12T10:03:18Z |  |
+| `binance.eth.open_interest` | ok | 2318778.645 | ETH | 2026-11-12T10:03:20Z | 2026-11-12T10:03:18Z |  |
+| `binance.eth.perp_mark_price` | ok | 2046.66455894 | USDT | 2026-11-12T10:03:23Z | 2026-11-12T10:03:18Z |  |
+| `binance.eth.spot_price` | ok | 2047.25 | USDT | 2026-11-12T10:03:23Z | 2026-11-12T10:03:18Z |  |
+| `binance.eth.top_ls_account_ratio` | ok | 3.2141 | ratio | 2026-11-12T10:00:00Z | 2026-11-12T10:03:18Z |  |
+| `binance.eth.top_ls_position_ratio` | ok | 1.8615 | ratio | 2026-11-12T10:00:00Z | 2026-11-12T10:03:18Z |  |
 | `cftc.eth.cot_asset_mgr_net` | ok | -1825 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `cftc.eth.cot_lev_money_net` | ok | -3699 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `cftc.eth.cot_open_interest` | ok | 22869 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `coinmetrics.eth.active_addresses` | ok | 797965.0 | count | 2026-11-11T00:00:00Z | 2026-11-12T01:30:22Z |  |
 | `coinmetrics.eth.fees_total` | ok | 125.27243861594162 | ETH | 2026-11-11T00:00:00Z | 2026-11-12T01:30:22Z |  |
 | `coinmetrics.eth.mvrv` | missing |  | ratio |  | 2026-11-11T01:30:19Z | field absent in response |
-| `deribit.eth.dvol` | ok | 55.03 | percent | 2026-11-12T09:00:00Z | 2026-11-12T09:03:15Z |  |
-| `deribit.eth.funding_rate_8h` | ok | 1.3e-05 | fraction | 2026-11-12T09:03:23Z | 2026-11-12T09:03:15Z |  |
+| `deribit.eth.dvol` | ok | 54.87 | percent | 2026-11-12T10:00:00Z | 2026-11-12T10:03:18Z |  |
+| `deribit.eth.funding_rate_8h` | ok | 1e-05 | fraction | 2026-11-12T10:03:25Z | 2026-11-12T10:03:18Z |  |
 | `deribit.eth.opt.2026-11-06.max_pain` | ok | 2350.0 | USD |  | 2026-11-05T19:58:39Z | stale |
 | `deribit.eth.opt.2026-11-06.oi_call` | ok | 44640.0 | ETH |  | 2026-11-06T00:59:33Z | stale |
 | `deribit.eth.opt.2026-11-06.oi_put` | ok | 56583.0 | ETH |  | 2026-11-06T00:59:33Z | stale |
@@ -78,10 +78,10 @@ Generated from `data/latest`. Do not edit.
 | `deribit.eth.opt.2027-09-24.max_pain` | ok | 2700.0 | USD |  | 2026-11-09T00:22:15Z |  |
 | `deribit.eth.opt.2027-09-24.oi_call` | ok | 23616.0 | ETH |  | 2026-11-12T07:30:18Z |  |
 | `deribit.eth.opt.2027-09-24.oi_put` | ok | 14747.0 | ETH |  | 2026-11-12T07:30:18Z |  |
-| `deribit.eth.perp_mark_price` | ok | 2044.24 | USD | 2026-11-12T09:03:23Z | 2026-11-12T09:03:15Z |  |
-| `okx.eth.funding_rate_8h` | ok | 2.36853926766e-05 | fraction | 2026-11-12T09:03:19Z | 2026-11-12T09:03:15Z |  |
-| `okx.eth.high_24h` | ok | 2104.15 | USDT | 2026-11-12T09:03:22Z | 2026-11-12T09:03:15Z |  |
-| `okx.eth.low_24h` | ok | 2035.71 | USDT | 2026-11-12T09:03:22Z | 2026-11-12T09:03:15Z |  |
-| `okx.eth.open_interest` | ok | 675816.2100000015 | ETH | 2026-11-12T09:03:23Z | 2026-11-12T09:03:15Z |  |
-| `okx.eth.open_interest_usd` | ok | 1382409090.203403 | USD | 2026-11-12T09:03:23Z | 2026-11-12T09:03:15Z |  |
-| `okx.eth.spot_price` | ok | 2046.32 | USDT | 2026-11-12T09:03:22Z | 2026-11-12T09:03:15Z |  |
+| `deribit.eth.perp_mark_price` | ok | 2045.28 | USD | 2026-11-12T10:03:25Z | 2026-11-12T10:03:18Z |  |
+| `okx.eth.funding_rate_8h` | ok | 2.54527078868e-05 | fraction | 2026-11-12T10:03:16Z | 2026-11-12T10:03:18Z |  |
+| `okx.eth.high_24h` | ok | 2104.15 | USDT | 2026-11-12T10:03:23Z | 2026-11-12T10:03:18Z |  |
+| `okx.eth.low_24h` | ok | 2035.71 | USDT | 2026-11-12T10:03:23Z | 2026-11-12T10:03:18Z |  |
+| `okx.eth.open_interest` | ok | 679713.4120000014 | ETH | 2026-11-12T10:03:25Z | 2026-11-12T10:03:18Z |  |
+| `okx.eth.open_interest_usd` | ok | 1390652858.1472828 | USD | 2026-11-12T10:03:25Z | 2026-11-12T10:03:18Z |  |
+| `okx.eth.spot_price` | ok | 2047.32 | USDT | 2026-11-12T10:03:23Z | 2026-11-12T10:03:18Z |  |
