@@ -54,39 +54,39 @@ Generated from `data/latest`. Do not edit.
 | `deribit.btc.opt.2026-11-11.max_pain` | ok | 74500.0 | USD |  | 2026-11-10T20:22:16Z | stale |
 | `deribit.btc.opt.2026-11-11.oi_call` | ok | 1581.1 | BTC |  | 2026-11-11T07:30:16Z | stale |
 | `deribit.btc.opt.2026-11-11.oi_put` | ok | 1248.9 | BTC |  | 2026-11-11T07:30:16Z | stale |
-| `deribit.btc.opt.2026-11-12.max_pain` | ok | 74500.0 | USD |  | 2026-11-09T08:22:16Z |  |
-| `deribit.btc.opt.2026-11-12.oi_call` | ok | 1083.6 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2026-11-12.oi_put` | ok | 1300.1 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2026-11-13.max_pain` | ok | 76500.0 | USD |  | 2026-11-11T00:22:18Z |  |
-| `deribit.btc.opt.2026-11-13.oi_call` | ok | 21170.4 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2026-11-13.oi_put` | ok | 11534.9 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2026-11-14.max_pain` | ok | 73500.0 | USD |  | 2026-11-11T04:22:14Z |  |
-| `deribit.btc.opt.2026-11-14.oi_call` | ok | 481.0 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2026-11-14.oi_put` | ok | 588.6 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2026-11-15.max_pain` | ok | 73000.0 | USD |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2026-11-15.oi_call` | ok | 14.0 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2026-11-15.oi_put` | ok | 1.0 | BTC |  | 2026-11-11T16:22:20Z |  |
+| `deribit.btc.opt.2026-11-12.max_pain` | ok | 74000.0 | USD |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-12.oi_call` | ok | 1430.9 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-12.oi_put` | ok | 1584.1000000000001 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-13.max_pain` | ok | 76000.0 | USD |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-13.oi_call` | ok | 21744.6 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-13.oi_put` | ok | 11341.8 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-14.max_pain` | ok | 74000.0 | USD |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-14.oi_call` | ok | 640.3000000000001 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-14.oi_put` | ok | 701.1 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-15.max_pain` | ok | 74000.0 | USD |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-15.oi_call` | ok | 121.3 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-15.oi_put` | ok | 109.3 | BTC |  | 2026-11-12T00:22:27Z |  |
 | `deribit.btc.opt.2026-11-20.max_pain` | ok | 76000.0 | USD |  | 2026-11-09T12:22:18Z |  |
-| `deribit.btc.opt.2026-11-20.oi_call` | ok | 4335.2 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2026-11-20.oi_put` | ok | 4531.0 | BTC |  | 2026-11-11T16:22:20Z |  |
+| `deribit.btc.opt.2026-11-20.oi_call` | ok | 5396.3 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-20.oi_put` | ok | 5344.1 | BTC |  | 2026-11-12T00:22:27Z |  |
 | `deribit.btc.opt.2026-11-27.max_pain` | ok | 79000.0 | USD |  | 2026-11-09T12:22:18Z |  |
-| `deribit.btc.opt.2026-11-27.oi_call` | ok | 40549.8 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2026-11-27.oi_put` | ok | 39014.4 | BTC |  | 2026-11-11T16:22:20Z |  |
+| `deribit.btc.opt.2026-11-27.oi_call` | ok | 40764.3 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-11-27.oi_put` | ok | 39092.1 | BTC |  | 2026-11-12T00:22:27Z |  |
 | `deribit.btc.opt.2026-12-25.max_pain` | ok | 75000.0 | USD |  | 2026-11-05T19:58:39Z |  |
-| `deribit.btc.opt.2026-12-25.oi_call` | ok | 83851.4 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2026-12-25.oi_put` | ok | 58481.6 | BTC |  | 2026-11-11T16:22:20Z |  |
+| `deribit.btc.opt.2026-12-25.oi_call` | ok | 83892.0 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2026-12-25.oi_put` | ok | 58937.7 | BTC |  | 2026-11-12T00:22:27Z |  |
 | `deribit.btc.opt.2027-01-29.max_pain` | ok | 77000.0 | USD |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2027-01-29.oi_call` | ok | 3376.1 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2027-01-29.oi_put` | ok | 3144.3 | BTC |  | 2026-11-11T16:22:20Z |  |
+| `deribit.btc.opt.2027-01-29.oi_call` | ok | 3496.1 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2027-01-29.oi_put` | ok | 3144.0 | BTC |  | 2026-11-12T00:22:27Z |  |
 | `deribit.btc.opt.2027-03-26.max_pain` | ok | 76000.0 | USD |  | 2026-11-05T19:58:39Z |  |
-| `deribit.btc.opt.2027-03-26.oi_call` | ok | 27975.3 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2027-03-26.oi_put` | ok | 19320.7 | BTC |  | 2026-11-11T16:22:20Z |  |
+| `deribit.btc.opt.2027-03-26.oi_call` | ok | 28105.0 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2027-03-26.oi_put` | ok | 19362.9 | BTC |  | 2026-11-12T00:22:27Z |  |
 | `deribit.btc.opt.2027-06-25.max_pain` | ok | 78000.0 | USD |  | 2026-11-05T19:58:39Z |  |
-| `deribit.btc.opt.2027-06-25.oi_call` | ok | 10560.300000000001 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2027-06-25.oi_put` | ok | 6743.400000000001 | BTC |  | 2026-11-11T16:22:20Z |  |
+| `deribit.btc.opt.2027-06-25.oi_call` | ok | 10569.2 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2027-06-25.oi_put` | ok | 6789.0 | BTC |  | 2026-11-12T00:22:27Z |  |
 | `deribit.btc.opt.2027-09-24.max_pain` | ok | 84000.0 | USD |  | 2026-11-05T19:58:39Z |  |
-| `deribit.btc.opt.2027-09-24.oi_call` | ok | 5051.8 | BTC |  | 2026-11-11T16:22:20Z |  |
-| `deribit.btc.opt.2027-09-24.oi_put` | ok | 3859.3 | BTC |  | 2026-11-11T12:22:15Z |  |
+| `deribit.btc.opt.2027-09-24.oi_call` | ok | 5135.2 | BTC |  | 2026-11-12T00:22:27Z |  |
+| `deribit.btc.opt.2027-09-24.oi_put` | ok | 3864.5 | BTC |  | 2026-11-12T00:22:27Z |  |
 | `deribit.btc.perp_mark_price` | ok | 74049.74 | USD | 2026-11-12T00:03:21Z | 2026-11-12T00:03:17Z |  |
 | `mempool.btc.difficulty` | ok | 148364561003867.4 | number |  | 2026-11-10T22:00:31Z |  |
 | `mempool.btc.fee_fastest` | ok | 2.0 | sat/vB |  | 2026-11-11T01:30:19Z | stale |
