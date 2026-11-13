@@ -4,7 +4,7 @@ from cryptodesk.registry import parse
 
 
 @pytest.mark.parametrize(
-    "metric", ["spot_price", "funding_rate_8h", "oi_call", "depth_1pct_bid", "etf_flow_ibit"]
+    "metric", ["spot_price", "funding_rate_8h", "oi_call_total", "max_pain", "etf_flow_ibit"]
 )
 def test_parse_real_registry_recognizes_metrics(registry, metric):
     assert registry.known(metric)
@@ -17,13 +17,27 @@ def test_registry_rejects_unknown_or_partial_metrics(registry, metric):
     assert not registry.is_snapshot(metric)
 
 
+SNAPSHOT_TABLE = """## Registry
+
+| Metric | Unit | Meaning | Stale after | Type |
+|---|---|---|---|---|
+| `depth_<pct>_<side>` | USD | point-in-time sample | 1 h | snapshot |
+| `spot_price` | USD | last price | 3 h | series |
+"""
+
+
 def test_registry_snapshot_and_staleness(registry):
-    assert registry.is_snapshot("depth_1pct_bid")
-    assert registry.is_snapshot("pool_liquidity_usd")
     assert not registry.is_snapshot("spot_price")
-    assert registry.stale_hours("depth_1pct_bid") == 1
     assert registry.stale_hours("spot_price") == 3
     assert registry.stale_hours("etf_flow_ibit") == 36
+    assert not registry.known("depth_1pct_bid")
+
+
+def test_snapshot_type_is_parsed_from_a_registry_table():
+    snap = parse(SNAPSHOT_TABLE)
+    assert snap.is_snapshot("depth_1pct_bid")
+    assert not snap.is_snapshot("spot_price")
+    assert snap.stale_hours("depth_1pct_bid") == 1
 
 
 @pytest.mark.parametrize(

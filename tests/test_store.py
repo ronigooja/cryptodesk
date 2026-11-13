@@ -57,7 +57,13 @@ def test_changed_fact_appends_exactly_one_history_line(store, fact, changes):
     assert store.load_latest("btc")[fact.id]["value"] == changed.value
 
 
-def test_identical_snapshot_always_appends(store, fact):
+def test_identical_snapshot_always_appends(tmp_path, fact):
+    from cryptodesk.registry import parse
+    from cryptodesk.store import Store
+
+    registry = parse("## Registry\n\n| Metric | Unit | Meaning | Stale after | Type |\n|---|---|---|---|---|\n"
+                     "| `depth_<pct>_<side>` | USD | sample | 1 h | snapshot |\n")
+    store = Store(tmp_path, registry)
     snapshot = replace(fact, id="binance.btc.spot.depth_1pct_bid", metric="depth_1pct_bid")
     store.apply([snapshot], "depth", snapshot.fetched_at)
     run = store.apply([snapshot], "depth", snapshot.fetched_at)
