@@ -90,3 +90,34 @@ def test_check_all_ignores_templates_but_checks_nested_analysis(tmp_path, store)
     assert check_all(store, tmp_path) == []
     (directory / "broken.md").write_text("incomplete")
     assert any("broken.md: disclaimer missing" in error for error in check_all(store, tmp_path))
+
+
+@pytest.mark.parametrize("code", [
+    "`[N:bad] [F:invalid@now]`",
+    "``[N:bad] `[F:invalid@now]``",
+    "```markdown\n[N:bad] [F:invalid@now]\n```",
+    "~~~markdown\n[N:bad] [F:invalid@now]\n~~~",
+    "````\n```\n[N:bad] [F:invalid@now]\n````",
+    "```\n[N:bad] [F:invalid@now]\n",
+])
+def test_citations_ignore_markdown_code(analysis_file, store, code):
+    analysis_file.write_text(analysis_file.read_text() + "\n" + code + "\n")
+    assert check_analysis(analysis_file, store) == []
+
+
+def test_unclosed_news_citation_ignored(analysis_file, store):
+    analysis_file.write_text(analysis_file.read_text() + "\n[N:unfinished")
+    assert check_analysis(analysis_file, store) == []
+
+
+@pytest.mark.parametrize("citation", ["[N:bad]", "[N:]", "[F:invalid@now]"])
+def test_closed_malformed_citation_fails(analysis_file, store, citation):
+    analysis_file.write_text(analysis_file.read_text() + "\n" + citation)
+    assert any("malformed" in error for error in check_analysis(analysis_file, store))
+
+
+def test_citations_after_code_still_checked(analysis_file, store):
+    analysis_file.write_text(analysis_file.read_text() + "\n```\n[N:ignored]\n```\n[N:bad]")
+    errors = check_analysis(analysis_file, store)
+    assert len(errors) == 1
+    assert "malformed news citation bad" in errors[0]
