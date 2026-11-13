@@ -58,4 +58,6 @@ Fields: name, unit, meaning, staleness limit (time since [last confirmation](dat
 
 ## Rules
 
+Historical daily series have their own [definitions and units](data-model.md#daily-series); they are not fact-registry entries.
+
 - When a venue differs in definition (contracts vs coin units, funding interval), use a separate metric name or state the difference in [sources.md](sources.md).

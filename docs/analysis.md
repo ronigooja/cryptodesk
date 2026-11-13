@@ -18,7 +18,7 @@ Required headings, in order:
 
 | Heading | Content |
 |---|---|
-| `## Facts` | Values from fact records only, each cited |
+| `## Facts` | Values from fact records or [daily series](data-model.md#daily-series), each cited |
 | `## Inference` | Interpretation; each item ends with `based on:` and citations |
 | `## Missing` | Needed data that is absent, stale, or not from a fact record |
 | `## What would change this view` | Observable conditions |
@@ -31,9 +31,12 @@ News citations use `[N:<id>]` without an `@` timestamp, for example `[N:coindesk
 
 When scanning analysis citations, the checker ignores inline code spans, fenced code blocks, and unclosed news citation markers; closed malformed news IDs remain errors.
 
+Daily citations use `[D:<series_id>@<YYYY-MM-DD>]`, resolving to a row in [daily storage](data-model.md#daily-series). Ranges use `[D:<series_id>@<YYYY-MM-DD>..<YYYY-MM-DD>]`; both endpoints must have rows, but intervening missing dates remain absent. The checker ignores daily citations inside code, as for facts and news.
+
 ## Rules
 
-- When a number appears, cite a fact. Numbers from memory, chats, or news articles are not facts and go under Missing.
+- When a number appears, cite a fact or daily series. Numbers from memory, chats, or news articles are not facts and go under Missing.
+- When using daily series, cite `[D:...]`, state which source and day definition; never merge two sources.
 - When using news, cite it as [N:<id>], describe it as reported, never as a fact, give the time relation (published_at versus the fact times) and never state causation as fact.
 - When a fact is `missing`, cite it and say so; do not substitute another source silently.
 - When two sources disagree, cite both and state the difference.

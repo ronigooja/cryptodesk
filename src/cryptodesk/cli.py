@@ -1,8 +1,8 @@
 import argparse
 import os
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 
-from . import check, model, news, profiles, registry, store
+from . import check, daily, model, news, profiles, registry, store
 from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, mempool, nyfed, okx, treasury
 from .adapters.base import PROXY_ENV, make_get, make_get_text
 
@@ -18,11 +18,23 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(prog="cryptodesk")
     commands = parser.add_subparsers(dest="command", required=True)
     collect = commands.add_parser("collect")
-    collect.add_argument("group", choices=("market", "options", "macro", "onchain", "flows", "news"))
+    collect.add_argument("group", choices=("market", "options", "macro", "onchain", "flows", "news", "daily"))
+    backfill = commands.add_parser("backfill")
+    backfill.add_argument("--since", type=daily.valid_date, default=daily.START)
+    backfill.add_argument("--series", action="append", choices=tuple(daily.SERIES))
     commands.add_parser("check")
     args = parser.parse_args(argv)
     root = store.find_root()
     db = store.Store(root, registry.load(root))
+    if args.command == "backfill" or (args.command == "collect" and args.group == "daily"):
+        now = datetime.now(UTC)
+        series_ids = (args.series or list(daily.SERIES)) if args.command == "backfill" else list(daily.SERIES)
+        since = args.since if args.command == "backfill" else now.date() - timedelta(days=5)
+        if since >= now.date():
+            parser.error("--since must precede today UTC")
+        run = daily.DailyStore(root).collect(series_ids, make_get_fn(), make_get_text_fn(), since,
+                                             model.iso(now), args.command if args.command == "backfill" else "daily")
+        return 1 if run["missing"] == len(series_ids) else 0
     if args.command == "collect":
         started = model.iso(datetime.now(UTC))
         facts = []

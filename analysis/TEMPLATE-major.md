@@ -8,6 +8,8 @@
 
 ## Facts
 
+<!-- Optional: cite daily rows/ranges with [D:<series_id>@<YYYY-MM-DD>] or [D:<series_id>@<start>..<end>]; state source and day definition (docs/analysis.md). -->
+
 ### Price and derivatives
 - <statement with value> [F:<id>@<fetched_at>]
 

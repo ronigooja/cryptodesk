@@ -21,6 +21,19 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 
 Retired collection scope: [metrics.md](metrics.md#retired).
 
+## Daily backfill endpoints
+
+Definitions, units, and day boundaries are in [Daily series](data-model.md#daily-series). These direct read-only shape checks did not perform a backfill.
+
+| Source | Endpoint / backfill use | Status |
+|---|---|---|
+| Binance | `api.binance.com/api/v3/klines`, `interval=1d`; BTCUSDT and ETHUSDT close | verified locally 2026-11-13; UTC midnight opens; `limit=1000` accepted with a one-day interval; hard maximum not probed |
+| Coinbase Exchange | `api.exchange.coinbase.com/products/<BTC-USD or ETH-USD>/candles`, `granularity=86400`; close | verified locally 2026-11-13; newest first, inclusive end, today's candle partial; oversized request rejected with explicit 300-aggregation limit |
+| Coin Metrics | Community `/v4/timeseries/asset-metrics`, `CapMVRVCur`, `frequency=1d` | BTC and ETH verified locally 2026-11-13; string values; `page_size=10000` accepted for a small interval; hard maximum not probed |
+| Treasury | Daily par yield curve CSV `/<year>/all`, existing date/column format | 2025 and 2026 verified locally 2026-11-13 |
+| NY Fed | `/api/rates/unsecured/effr/search.json`, `startDate` / `endDate` | verified locally 2026-11-13; 6,624 `refRates` returned back to 2000-07-03 in one request; hard maximum unverified |
+| DefiLlama | `stablecoins.llama.fi/stablecoincharts/all`; chart total, not per-asset sum | verified locally 2026-11-13; string Unix seconds, UTC midnight dates including today; exact snapshot cutoff unverified |
+
 ## News feeds
 
 [Metadata only](data-model.md#news-items); terms of use not reviewed. Verified locally means RSS endpoint shape checked, not article claims verified.

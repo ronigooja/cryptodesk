@@ -60,6 +60,27 @@ Raw HTTP responses are not committed. For diagnosis, upload as a failure-only wo
 
 When evaluating storage growth, measure actual size and record the result in [decisions.md](decisions.md); no size estimate is validated.
 
+## Daily series
+
+Latest facts retain one value per ID, not a multi-year observation history. Daily observations therefore live separately in `data/daily/<series_id>.csv`: header `date,value`, finite numeric values, one unique `YYYY-MM-DD` date per row, ascending. IDs match `[a-z0-9_.]+`.
+
+When collecting daily series, add only previously absent dates; never change an existing row. Late values may be inserted in date order. When a source changes an existing value, retain the stored value and record a conflict (series, date, stored and received values) in the run. Missing dates stay absent; null, empty, `.`, and `N/A` values are skipped, never zero or interpolated.
+
+| Series ID | Definition | Unit / day definition |
+|---|---|---|
+| `price_close.binance.btc`, `price_close.binance.eth` | BTCUSDT / ETHUSDT spot daily kline close (index 4) | USDT; UTC 00:00 through next UTC 00:00 |
+| `price_close.coinbase.btc`, `price_close.coinbase.eth` | BTC-USD / ETH-USD daily candle close (index 4) | USD; UTC 00:00 through next UTC 00:00 |
+| `mvrv.coinmetrics.btc`, `mvrv.coinmetrics.eth` | Community `CapMVRVCur`, frequency `1d` | ratio; source UTC observation date |
+| `us2y_yield.treasury`, `us10y_yield.treasury` | Daily par yield curve, `2 Yr` / `10 Yr` columns | percent; source business date, not a UTC candle close |
+| `fed_funds_effective.nyfed` | EFFR `refRates[].percentRate` | percent; source `effectiveDate`, not publication date |
+| `stablecoin_supply_usd.defillama` | Chart `totalCirculatingUSD.peggedUSD` | USD; Unix timestamp converted to UTC date; snapshot cutoff unverified |
+
+When collecting, exclude today UTC and future dates for every series; price candles are incomplete until the next UTC midnight. Binance quotes USDT and Coinbase quotes USD: keep both separate, never average or merge them. The live fact `stablecoin_supply_usd` is a per-asset sum; the daily series is the chart total. They are not interchangeable ([observed difference](sources.md#known-gaps)).
+
+`cryptodesk backfill` starts at 2025-01-01 by default; `--since YYYY-MM-DD` changes the lower bound and repeatable `--series <id>` selects series. Binance pages in 1,000-day windows; Coinbase uses 299-day windows within its 300-candle limit, excluding the inclusive end boundary to avoid duplicates. Coin Metrics follows `next_page_url`; Treasury fetches each required calendar year. `cryptodesk collect daily` rechecks the last five complete UTC dates for late values. Older gaps require another backfill.
+
+Daily run records use group `backfill` or `daily`: `facts` counts accepted rows seen, `changed` added dates, `unchanged` existing dates (including conflicts), `missing` failed series, plus `skipped`, `conflicts`, and series-prefixed `errors`. A failed series does not stop other series; the command fails only when every selected series fails.
+
 ## News items
 
 News is separate from facts. Each record has exactly `id`, `source`, `title`, `published_at`, `url`, and `fetched_at`. Both timestamps use [UTC format](#time); `published_at` comes from the feed, never the fetch time. When a date or HTTPS URL is missing or invalid, skip the item and count it in the run's `skipped` field. A failed feed increments `missing` and contributes a source-prefixed error.

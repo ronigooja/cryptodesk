@@ -3,12 +3,13 @@ import re
 from pathlib import Path
 
 from .model import validate
-from . import news
+from . import daily, news
 from .registry import Registry
 from .store import Store
 
 CITE_RE = re.compile(r"\[F:([^\]@\s]+)@([^\]\s]+)\]")
 NEWS_CITE_RE = re.compile(r"\[N:([^\]]*)\]")
+DAILY_CITE_RE = re.compile(r"\[D:([^\]]*)\]")
 HEADINGS = ["## Facts", "## Inference", "## Missing", "## What would change this view"]
 DISCLAIMER = "Not investment advice."
 
@@ -88,6 +89,36 @@ def check_analysis(path: Path, store: Store) -> list[str]:
             errors.append(f"{path.name}: malformed news citation {nid}")
         elif nid not in known_news:
             errors.append(f"{path.name}: news citation {nid} not found")
+    daily_store = daily.DailyStore(store.root)
+    daily_cache = {}
+    for citation in DAILY_CITE_RE.findall(citation_text):
+        match = re.fullmatch(r"([a-z0-9_.]+)@(\d{4}-\d{2}-\d{2})(?:\.\.(\d{4}-\d{2}-\d{2}))?", citation)
+        try:
+            if not match:
+                raise ValueError("malformed daily citation")
+            series_id, start, end = match.groups()
+            daily.valid_date(start)
+            if end:
+                daily.valid_date(end)
+                if end < start:
+                    raise ValueError("reversed daily range")
+            if series_id not in daily_cache:
+                daily_cache[series_id] = daily_store.load(series_id)
+            if start not in daily_cache[series_id] or (end and end not in daily_cache[series_id]):
+                errors.append(f"{path.name}: daily citation {citation} not found")
+        except ValueError as exc:
+            errors.append(f"{path.name}: malformed daily citation {citation}: {exc}")
+    return errors
+
+
+def check_daily(root: Path) -> list[str]:
+    errors = []
+    db = daily.DailyStore(root)
+    for path in sorted((root / "data" / "daily").glob("*.csv")):
+        try:
+            db.load(path.stem)
+        except (ValueError, OSError) as exc:
+            errors.append(f"{path.name}: {exc}")
     return errors
 
 
@@ -110,7 +141,7 @@ def check_news(root: Path) -> list[str]:
 
 
 def check_all(store: Store, root: Path) -> list[str]:
-    errors = check_facts(store) + check_news(root)
+    errors = check_facts(store) + check_news(root) + check_daily(root)
     adir = root / "analysis"
     if adir.exists():
         for p in sorted(adir.rglob("*.md")):
