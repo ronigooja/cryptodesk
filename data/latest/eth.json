@@ -220,6 +220,32 @@
   "unit": "fraction",
   "value": 4.3e-05
  },
+ "deribit.eth.oi_call_total": {
+  "as_of": null,
+  "checked_at": "2026-11-13T07:30:17Z",
+  "coin": "eth",
+  "fetched_at": "2026-11-13T07:30:17Z",
+  "id": "deribit.eth.oi_call_total",
+  "metric": "oi_call_total",
+  "reason": null,
+  "source": "deribit",
+  "status": "ok",
+  "unit": "ETH",
+  "value": 1044454.0
+ },
+ "deribit.eth.oi_put_total": {
+  "as_of": null,
+  "checked_at": "2026-11-13T07:30:17Z",
+  "coin": "eth",
+  "fetched_at": "2026-11-13T07:30:17Z",
+  "id": "deribit.eth.oi_put_total",
+  "metric": "oi_put_total",
+  "reason": null,
+  "source": "deribit",
+  "status": "ok",
+  "unit": "ETH",
+  "value": 563288.0
+ },
  "deribit.eth.opt.2026-11-13.max_pain": {
   "as_of": null,
   "checked_at": "2026-11-13T04:22:24Z",
@@ -417,7 +443,7 @@
  },
  "deribit.eth.opt.2026-11-27.max_pain": {
   "as_of": null,
-  "checked_at": "2026-11-13T04:22:24Z",
+  "checked_at": "2026-11-13T07:30:17Z",
   "coin": "eth",
   "fetched_at": "2026-11-11T00:22:18Z",
   "id": "deribit.eth.opt.2026-11-27.max_pain",
