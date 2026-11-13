@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from decimal import Decimal
 from typing import Callable
 
 import httpx
@@ -49,15 +50,15 @@ def _make_fetch(timeout: float, parse: Callable, proxy: str | None = None,
     return get
 
 
-def _json(r):
+def _json(r, decimal=False):
     try:
-        return r.json()
+        return r.json(parse_float=Decimal) if decimal else r.json()
     except ValueError:
         raise FetchError("invalid JSON")
 
 
-def make_get(timeout: float = 20.0, proxy: str | None = None) -> Callable:
-    return _make_fetch(timeout, _json, proxy)
+def make_get(timeout: float = 20.0, proxy: str | None = None, decimal: bool = False) -> Callable:
+    return _make_fetch(timeout, lambda r: _json(r, decimal), proxy)
 
 
 def make_get_text(timeout: float = 20.0) -> Callable:

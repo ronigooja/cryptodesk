@@ -1,12 +1,15 @@
 """Daily observations, kept separate from latest-value facts."""
 
 import csv
+import fcntl
 import io
 import json
 import re
+import stat
 from datetime import UTC, date, datetime, timedelta
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
+from uuid import uuid4
 
 from .adapters import coinmetrics, treasury
 from .store import find_root
@@ -34,12 +37,12 @@ def number(value) -> str | None:
     if value is None or str(value).strip() in ("", ".", "N/A"):
         return None
     try:
-        result = Decimal(str(value).strip())
+        result = value if isinstance(value, Decimal) else Decimal(str(value).strip())
     except InvalidOperation:
         raise ValueError("invalid number") from None
     if not result.is_finite():
         raise ValueError("non-finite number")
-    return str(result)
+    return format(result, "f")
 
 
 def _rows(observations, since: date, today: date):
@@ -118,7 +121,11 @@ def fetch(series_id, get, get_text, since, today):
     elif source == "coinmetrics":
         url, params = coinmetrics.URL, {"assets": key, "metrics": "CapMVRVCur", "frequency": "1d",
                                       "start_time": since.isoformat(), "page_size": 10000}
+        visited = set()
         while url:
+            if url in visited or len(visited) >= 50:
+                raise ValueError("pagination loop")
+            visited.add(url)
             data = get(url, params)
             add(parse_coinmetrics(data, key, since, today))
             url, params = data.get("next_page_url"), None
@@ -164,6 +171,16 @@ class DailyStore:
         return rows
 
     def append(self, series_id, rows):
+        path = self.path(series_id)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with (path.parent / ".lock").open("a") as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX)
+            try:
+                return self._append(series_id, rows)
+            finally:
+                fcntl.flock(lock, fcntl.LOCK_UN)
+
+    def _append(self, series_id, rows):
         known = self.load(series_id)
         added = present = 0
         conflicts = []
@@ -183,12 +200,17 @@ class DailyStore:
             path = self.path(series_id)
             path.parent.mkdir(parents=True, exist_ok=True)
             # Late observations require sorted insertion; existing rows remain unchanged.
-            temporary = path.with_suffix(".csv.tmp")
-            with temporary.open("w", newline="") as fh:
-                writer = csv.writer(fh, lineterminator="\n")
-                writer.writerow(["date", "value"])
-                writer.writerows(sorted(known.items()))
-            temporary.replace(path)
+            temporary = path.parent / f".{path.name}.{uuid4().hex}.tmp"
+            try:
+                with temporary.open("x", newline="") as fh:
+                    writer = csv.writer(fh, lineterminator="\n")
+                    writer.writerow(["date", "value"])
+                    writer.writerows(sorted(known.items()))
+                if path.exists():
+                    temporary.chmod(stat.S_IMODE(path.stat().st_mode))
+                temporary.replace(path)
+            finally:
+                temporary.unlink(missing_ok=True)
         return added, present, conflicts
 
     def collect(self, series_ids, get, get_text, since, started, group):

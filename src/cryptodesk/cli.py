@@ -11,6 +11,10 @@ def make_get_fn():
     return make_get(proxy=os.environ.get(PROXY_ENV) or None)
 
 
+def make_daily_get_fn():
+    return make_get(proxy=os.environ.get(PROXY_ENV) or None, decimal=True)
+
+
 make_get_text_fn = make_get_text
 
 
@@ -32,7 +36,7 @@ def main(argv=None) -> int:
         since = args.since if args.command == "backfill" else now.date() - timedelta(days=5)
         if since >= now.date():
             parser.error("--since must precede today UTC")
-        run = daily.DailyStore(root).collect(series_ids, make_get_fn(), make_get_text_fn(), since,
+        run = daily.DailyStore(root).collect(series_ids, make_daily_get_fn(), make_get_text_fn(), since,
                                              model.iso(now), args.command if args.command == "backfill" else "daily")
         return 1 if run["missing"] == len(series_ids) else 0
     if args.command == "collect":
