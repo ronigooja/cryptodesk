@@ -23,6 +23,8 @@ jobs:
           python-version: '3.14'
       - run: pip install -e '.[dev]'
       - run: cryptodesk collect daily
+        env:
+          CRYPTODESK_PROXY: ${{ secrets.CRYPTODESK_PROXY }}
       - run: cryptodesk check
       - name: Commit data
         run: |

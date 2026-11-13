@@ -12,7 +12,7 @@ One workflow per group, using `workflow_dispatch` only. Host cron dispatches thr
 | `onchain` | Coin Metrics (MVRV, active addresses, fees), mempool.space, DefiLlama stablecoin supply | daily | `30 1 * * *` |
 | `flows` | Bitbo BTC ETF flows, CFTC positioning | daily | `10 11 * * *` |
 | `news` | [News metadata feeds](sources.md#news-feeds) | hourly | `13 * * * *` |
-| `daily` | [Daily series](data-model.md#daily-series), last five complete dates | daily after the UTC day closes; not yet scheduled on the host | proposed `40 0 * * *` (00:40 UTC) |
+| `daily` | [Daily series](data-model.md#daily-series), last five complete dates | daily after the UTC day closes | `40 0 * * *` |
 
 CFTC stays for now; a decision on retaining it is pending.
 
