@@ -21,6 +21,20 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 
 Retired collection scope: [metrics.md](metrics.md#retired).
 
+## News feeds
+
+[Metadata only](data-model.md#news-items); terms of use not reviewed. Verified locally means RSS endpoint shape checked, not article claims verified.
+
+| Key | Feed | Status | Note |
+|---|---|---|---|
+| `cointelegraph` | https://cointelegraph.com/rss | verified locally 2026-11-13 | terms of use not reviewed, metadata only |
+| `theblock` | https://www.theblock.co/rss.xml | verified locally 2026-11-13 | terms of use not reviewed, metadata only |
+| `coindesk` | https://www.coindesk.com/arc/outboundfeeds/rss | verified locally 2026-11-13 | terms of use not reviewed, metadata only |
+| `decrypt` | https://decrypt.co/feed | verified locally 2026-11-13 | terms of use not reviewed, metadata only |
+| `fed_press` | https://www.federalreserve.gov/feeds/press_all.xml | verified locally 2026-11-13 | terms of use not reviewed, metadata only |
+| `fed_monetary` | https://www.federalreserve.gov/feeds/press_monetary.xml | verified locally 2026-11-13 | terms of use not reviewed, metadata only |
+| `sec` | https://www.sec.gov/news/pressreleases.rss | verified locally 2026-11-13 | terms of use not reviewed, metadata only |
+
 ## Inactive sources
 
 | Key | Provider | Needs | Scope | Status |
@@ -29,7 +43,6 @@ Retired collection scope: [metrics.md](metrics.md#retired).
 | `fiscaldata` | Treasury FiscalData | none | refunding, auctions | planned |
 | `etf_flows` | Farside and SoSoValue | SoSoValue key | ETF cross-check, ETH ETF flows | blocked: Cloudflare returns 403 to scripts, also through the proxy (2026-11-11) |
 | `edgar` | SEC EDGAR JSON | User-Agent header | filings | planned |
-| `fed_rss` | Federal Reserve RSS | none | press releases | planned |
 | `beacon` | beaconcha.in | API key | ETH staking queues | blocked: key (HTTP 401 on 2026-11-11) |
 
 ## Known gaps

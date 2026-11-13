@@ -60,6 +60,14 @@ Raw HTTP responses are not committed. For diagnosis, upload as a failure-only wo
 
 When evaluating storage growth, measure actual size and record the result in [decisions.md](decisions.md); no size estimate is validated.
 
+## News items
+
+News is separate from facts. Each record has exactly `id`, `source`, `title`, `published_at`, `url`, and `fetched_at`. Both timestamps use [UTC format](#time); `published_at` comes from the feed, never the fetch time. When a date or HTTPS URL is missing or invalid, skip the item and count it in the run's `skipped` field. A failed feed increments `missing` and contributes a source-prefixed error.
+
+The ID is `<source>:<first 12 hex characters of SHA-1(canonical URL)>`. Canonicalization lowercases the scheme/host, removes fragments and `utm_*` query parameters, and preserves other query parameters. Titles collapse whitespace, remove control/format characters, and are capped at 300 characters.
+
+When first seen, append a record once to `data/news/<YYYY-MM>.jsonl`, using the publication month; deduplicate IDs across all months and never edit a stored item. Store metadata only: no body, summary, or description, to avoid redistributing copyrighted article content in this public repository. News numbers are not facts; [analysis rules](analysis.md#rules) apply.
+
 ## Adapter contract
 
 - Input: coin profile (or none for macro) and run start time.

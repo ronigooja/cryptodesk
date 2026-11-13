@@ -27,9 +27,12 @@ Required headings, in order:
 
 `[F:<id>@<fetched_at>]`, where `<fetched_at>` is that of the record in `data/latest/<coin>.json` when the analysis was written. The checker verifies the record exists in `data/latest` or `data/facts`.
 
+News citations use `[N:<id>]` without an `@` timestamp, for example `[N:coindesk:3fa1c2b4d5e6]`, resolving to [news metadata](data-model.md#news-items). An optional `## Catalysts and news` section may appear between Facts and Inference; it contains reported claims, not fact records.
+
 ## Rules
 
 - When a number appears, cite a fact. Numbers from memory, chats, or news articles are not facts and go under Missing.
+- When using news, cite it as [N:<id>], describe it as reported, never as a fact, give the time relation (published_at versus the fact times) and never state causation as fact.
 - When a fact is `missing`, cite it and say so; do not substitute another source silently.
 - When two sources disagree, cite both and state the difference.
 - When a fact's last confirmation exceeds its staleness limit in [metrics.md](metrics.md#registry), mark it stale; use [checked_at](data-model.md#time), not the observation time.

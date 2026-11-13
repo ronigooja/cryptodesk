@@ -18,8 +18,11 @@ def _client(timeout: float, proxy: str | None = None):
     return httpx.Client(timeout=timeout, headers={"User-Agent": "cryptodesk"}, proxy=proxy)
 
 
-def _make_fetch(timeout: float, parse: Callable, proxy: str | None = None) -> Callable:
+def _make_fetch(timeout: float, parse: Callable, proxy: str | None = None,
+                user_agent: str | None = None) -> Callable:
     direct = _client(timeout)
+    if user_agent:
+        direct.headers["User-Agent"] = user_agent
     proxied = None
     if proxy:
         try:
@@ -58,7 +61,7 @@ def make_get(timeout: float = 20.0, proxy: str | None = None) -> Callable:
 
 
 def make_get_text(timeout: float = 20.0) -> Callable:
-    return _make_fetch(timeout, lambda r: r.text)
+    return _make_fetch(timeout, lambda r: r.text, user_agent="Mozilla/5.0 (cryptodesk)")
 
 
 @dataclass

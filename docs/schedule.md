@@ -11,12 +11,13 @@ One workflow per group, using `workflow_dispatch` only. Host cron dispatches thr
 | `macro` | Treasury yields, NY Fed EFFR | weekdays after US close | `45 22 * * 1-5` |
 | `onchain` | Coin Metrics (MVRV, active addresses, fees), mempool.space, DefiLlama stablecoin supply | daily | `30 1 * * *` |
 | `flows` | Bitbo BTC ETF flows, CFTC positioning | daily | `10 11 * * *` |
+| `news` | [News metadata feeds](sources.md#news-feeds) | hourly; not yet scheduled on the host | `13 * * * *` |
 
 CFTC stays for now; a decision on retaining it is pending.
 
 Rules:
 
-- When a group yields zero facts, the run exits non-zero and the workflow fails.
+- When a group yields zero facts (or zero valid news items), the run exits non-zero and the workflow fails.
 - When some facts are missing, the run still succeeds; inspect `data/latest/` for facts and `runs/` for counts and errors.
 - When workflows push data, they share one concurrency group, rebase before pushing, and commit as a bot with message `data: <group> <UTC time>`.
 

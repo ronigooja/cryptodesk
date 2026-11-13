@@ -20,6 +20,10 @@
 ### Macro and calendar
 - <statement with value> [F:<id>@<fetched_at>]
 
+## Catalysts and news
+
+- <optional reported claim, publication time relative to fact times> [N:<id>]
+
 ## Inference
 
 - <interpretation> based on: [F:<id>@<fetched_at>]

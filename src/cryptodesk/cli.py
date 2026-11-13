@@ -2,7 +2,7 @@ import argparse
 import os
 from datetime import UTC, datetime
 
-from . import check, model, profiles, registry, store
+from . import check, model, news, profiles, registry, store
 from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, mempool, nyfed, okx, treasury
 from .adapters.base import PROXY_ENV, make_get, make_get_text
 
@@ -18,7 +18,7 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(prog="cryptodesk")
     commands = parser.add_subparsers(dest="command", required=True)
     collect = commands.add_parser("collect")
-    collect.add_argument("group", choices=("market", "options", "macro", "onchain", "flows"))
+    collect.add_argument("group", choices=("market", "options", "macro", "onchain", "flows", "news"))
     commands.add_parser("check")
     args = parser.parse_args(argv)
     root = store.find_root()
@@ -26,6 +26,12 @@ def main(argv=None) -> int:
     if args.command == "collect":
         started = model.iso(datetime.now(UTC))
         facts = []
+        if args.group == "news":
+            items, errors, skipped = news.collect(make_get_text_fn(), started)
+            run = news.NewsStore(root).apply(items, started, errors, skipped)
+            print(f"collect news: facts={run['facts']} changed={run['changed']} "
+                  f"unchanged={run['unchanged']} missing={run['missing']}")
+            return 0 if items else 1
         if args.group == "macro":
             facts = treasury.collect(make_get_text_fn(), started) + nyfed.collect(make_get_fn(), started)
         elif args.group == "onchain":
