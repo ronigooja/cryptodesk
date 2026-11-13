@@ -2,8 +2,8 @@ import argparse
 import os
 from datetime import UTC, datetime
 
-from . import check, model, profiles, registry, render, store
-from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, mempool, nyfed, okx, treasury
+from . import check, model, profiles, registry, store
+from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, nyfed, okx, treasury
 from .adapters.base import PROXY_ENV, make_get, make_get_text
 
 
@@ -19,7 +19,6 @@ def main(argv=None) -> int:
     commands = parser.add_subparsers(dest="command", required=True)
     collect = commands.add_parser("collect")
     collect.add_argument("group", choices=("market", "options", "macro", "onchain", "flows"))
-    commands.add_parser("render")
     commands.add_parser("check")
     args = parser.parse_args(argv)
     root = store.find_root()
@@ -34,7 +33,6 @@ def main(argv=None) -> int:
             facts = defillama.collect(None, get, started)
             for coin in profiles.list_coins(root):
                 facts.extend(coinmetrics.collect(coin, get, started))
-                facts.extend(mempool.collect(coin, get, started))
         elif args.group == "flows":
             facts = etf.collect(make_get_text_fn(), started)
             get = make_get_fn()
@@ -54,10 +52,6 @@ def main(argv=None) -> int:
         print(f"collect {args.group}: facts={run['facts']} changed={run['changed']} "
               f"unchanged={run['unchanged']} missing={run['missing']}")
         return 0 if facts else 1
-    if args.command == "render":
-        paths = render.render_all(db)
-        print(f"render: files={len(paths)}")
-        return 0
     errors = check.check_all(db, root)
     print(f"check: errors={len(errors)}")
     return 1 if errors else 0

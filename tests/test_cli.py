@@ -44,16 +44,13 @@ def fake_get(url, params):
     pytest.fail(f"unexpected fake endpoint: {url}")
 
 
-def test_market_collect_unchanged_render_check(repo, capsys):
+def test_market_collect_unchanged_check(repo, capsys):
     assert cli.main(["collect", "market"]) == 0
     assert capsys.readouterr().out.strip() == "collect market: facts=36 changed=36 unchanged=0 missing=0"
     histories = {p: p.read_text() for p in (repo / "data" / "facts").rglob("*.jsonl")}
     assert cli.main(["collect", "market"]) == 0
     assert capsys.readouterr().out.strip() == "collect market: facts=36 changed=0 unchanged=36 missing=0"
     assert all(p.read_text() == text for p, text in histories.items())
-    assert cli.main(["render"]) == 0
-    assert (repo / "coins" / "btc" / "notes.md").is_file()
-    assert "binance.btc.spot_price" in (repo / "coins" / "btc" / "notes.md").read_text()
     assert cli.main(["check"]) == 0
 
 
@@ -103,8 +100,6 @@ COINMETRICS = {"data": [{"asset": "btc", "time": "2026-11-09T00:00:00.000000000Z
                          "CapMVRVCur": "1.39", "AdrActCnt": "676220", "FeeTotNtv": "2.68"},
                         {"asset": "eth", "time": "2026-11-09T00:00:00.000000000Z",
                          "CapMVRVCur": "0.97", "AdrActCnt": "807775", "FeeTotNtv": "156.85"}]}
-MEMPOOL_HASH = {"currentHashrate": 9.6e20, "currentDifficulty": 1.48e14}
-MEMPOOL_FEE = {"fastestFee": 3}
 LLAMA = {"peggedAssets": [{"symbol": "USDT", "pegType": "peggedUSD", "circulating": {"peggedUSD": 100.0}},
                           {"symbol": "USDC", "pegType": "peggedUSD", "circulating": {"peggedUSD": 50.0}}]}
 CFTC_ROW = {"report_date_as_yyyy_mm_dd": "2026-11-03T00:00:00.000", "open_interest_all": "100",
@@ -117,10 +112,6 @@ BITBO = ("<h1>Bitcoin ETF Flow (US$m)</h1><table><tr><th>Date</th><th>IBIT</th><
 def fake_get_more(url, params):
     if "coinmetrics" in url:
         return {"data": [r for r in COINMETRICS["data"] if r["asset"] == params["assets"]]}
-    if url.endswith("/mining/hashrate/3d"):
-        return MEMPOOL_HASH
-    if url.endswith("/fees/recommended"):
-        return MEMPOOL_FEE
     if "stablecoins.llama.fi" in url:
         return LLAMA
     if "cftc.gov" in url:
@@ -131,7 +122,7 @@ def fake_get_more(url, params):
 def test_onchain_collect_and_check(repo, monkeypatch, capsys):
     monkeypatch.setattr(cli, "make_get_fn", lambda: fake_get_more)
     assert cli.main(["collect", "onchain"]) == 0
-    assert capsys.readouterr().out.strip() == "collect onchain: facts=12 changed=12 unchanged=0 missing=0"
+    assert capsys.readouterr().out.strip() == "collect onchain: facts=5 changed=5 unchanged=0 missing=0"
     assert cli.main(["check"]) == 0
     latest = json.loads((repo / "data" / "latest" / "macro.json").read_text())
     assert latest["defillama.macro.stablecoin_supply_usd"]["value"] == 150.0

@@ -1,5 +1,7 @@
 import json
 import os
+import re
+from datetime import datetime
 from pathlib import Path
 
 from .model import COMPARED, Fact, iso
@@ -19,6 +21,18 @@ def find_root(start: Path | None = None) -> Path:
 
 def _dump(obj, indent=None) -> str:
     return json.dumps(obj, sort_keys=True, ensure_ascii=False, indent=indent)
+
+
+def prune_expired_options(latest: dict, started: str) -> dict:
+    """When applying a run, drop option IDs older than its UTC date from latest only."""
+    today = datetime.fromisoformat(started).date()
+    kept = {}
+    for fid, record in latest.items():
+        match = re.search(r"\.opt\.(\d{4}-\d{2}-\d{2})\.", fid)
+        if match and datetime.fromisoformat(match.group(1)).date() < today:
+            continue
+        kept[fid] = record
+    return kept
 
 
 class Store:
@@ -55,7 +69,8 @@ class Store:
         for f in facts:
             by_coin.setdefault(f.coin, []).append(f)
         changed = unchanged = 0
-        for coin, items in by_coin.items():
+        for coin in sorted(set(self.coins()) | by_coin.keys()):
+            items = by_coin.get(coin, [])
             latest = self.load_latest(coin)
             appended = []
             for f in items:
@@ -79,7 +94,7 @@ class Store:
                         fh.write(_dump(h) + "\n")
             lp = self.latest_path(coin)
             lp.parent.mkdir(parents=True, exist_ok=True)
-            lp.write_text(_dump(latest, indent=1) + "\n")
+            lp.write_text(_dump(prune_expired_options(latest, started), indent=1) + "\n")
         missing = [f for f in facts if f.status == "missing"]
         errors = sorted({f"{f.source}: {f.reason}" for f in missing})
         run = {

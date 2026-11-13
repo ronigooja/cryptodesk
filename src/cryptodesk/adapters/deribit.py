@@ -1,6 +1,7 @@
+import math
 import re
 from collections import defaultdict
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 
 from ..model import Fact, missing, ms_to_iso, ok
 from .base import Endpoint, FetchError, Spec, run_endpoint
@@ -35,20 +36,31 @@ def group_options(summary: list[dict]) -> dict[str, dict[float, dict[str, float]
         if not m:
             continue
         expiry = datetime.strptime(m.group(1), "%d%b%y").strftime("%Y-%m-%d")
-        by_expiry[expiry][float(m.group(2))][m.group(3)] = float(row["open_interest"])
+        strike, interest = float(m.group(2)), float(row["open_interest"])
+        if not math.isfinite(strike) or not math.isfinite(interest) or interest < 0:
+            raise ValueError("invalid option value")
+        by_expiry[expiry][strike][m.group(3)] = interest
     return by_expiry
 
 
 def option_facts(coin: str, summary: list[dict], fetched_at: str) -> list[Fact]:
+    grouped = group_options([row for row in summary if row["instrument_name"].startswith(coin.upper() + "-")])
+    if not grouped:
+        raise ValueError("no option series")
+    now = datetime.fromisoformat(fetched_at)
+    active = {
+        expiry: strikes for expiry, strikes in sorted(grouped.items())
+        if datetime.fromisoformat(expiry).replace(hour=8, tzinfo=UTC) > now
+    }
     facts = []
-    for expiry, strikes in sorted(group_options(summary).items()):
-        base = f"deribit.{coin}.opt.{expiry}."
-        calls = sum(v.get("C", 0.0) for v in strikes.values())
-        puts = sum(v.get("P", 0.0) for v in strikes.values())
-        unit = coin.upper()
-        facts.append(ok(base + "oi_call", coin, "oi_call", calls, unit, None, fetched_at, "deribit"))
-        facts.append(ok(base + "oi_put", coin, "oi_put", puts, unit, None, fetched_at, "deribit"))
-        facts.append(ok(base + "max_pain", coin, "max_pain", max_pain(strikes), "USD", None, fetched_at, "deribit"))
+    for side, metric in (("C", "oi_call_total"), ("P", "oi_put_total")):
+        total = sum(v.get(side, 0.0) for strikes in active.values() for v in strikes.values())
+        facts.append(ok(f"deribit.{coin}.{metric}", coin, metric, total, coin.upper(), None, fetched_at, "deribit"))
+    for expiry, strikes in active.items():
+        date = datetime.fromisoformat(expiry)
+        if date.weekday() == 4 and (date + timedelta(days=7)).month != date.month:
+            facts.append(ok(f"deribit.{coin}.opt.{expiry}.max_pain", coin, "max_pain", max_pain(strikes), "USD", None, fetched_at, "deribit"))
+            break
     return facts
 
 
@@ -86,4 +98,5 @@ def collect_options(coin: str, profile: dict, get, fetched_at: str) -> list[Fact
         reason = str(e)
     except (KeyError, TypeError, ValueError):
         reason = "field absent in response"
-    return [missing(f"deribit.{coin}.opt.unknown.oi_call", coin, "oi_call", coin.upper(), reason, fetched_at, "deribit")]
+    return [missing(f"deribit.{coin}.{metric}", coin, metric, coin.upper(), reason, fetched_at, "deribit")
+            for metric in ("oi_call_total", "oi_put_total")]

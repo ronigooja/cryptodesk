@@ -86,3 +86,24 @@ def test_empty_store_and_empty_run(store, fact):
     run = store.apply([], "core", fact.fetched_at)
     assert all(run[key] == 0 for key in ("facts", "changed", "unchanged", "missing"))
     assert read_lines(store.root / "runs" / "2026-11.jsonl") == [run]
+
+
+@pytest.mark.parametrize("group", ["market", "options", "onchain", "flows", "macro"])
+def test_every_apply_prunes_expired_options_across_coins_without_touching_history(store, fact, group):
+    expired = replace(fact, id="deribit.btc.opt.2026-11-05.max_pain", source="deribit", metric="max_pain")
+    today = replace(expired, id="deribit.btc.opt.2026-11-06.max_pain")
+    future = replace(expired, id="deribit.btc.opt.2026-11-27.max_pain")
+    unknown = replace(expired, id="deribit.btc.opt.unknown.max_pain")
+    total = replace(expired, id="deribit.btc.oi_call_total", metric="oi_call_total")
+    store.apply([expired, today, future, unknown, total, fact], "options", "2026-11-05T23:59:59Z")
+    history = store.history_path("2026-11", "btc").read_bytes()
+    store.apply([], group, "2026-11-06T00:00:00Z")
+    assert set(store.load_latest("btc")) == {today.id, future.id, unknown.id, total.id, fact.id}
+    assert store.history_path("2026-11", "btc").read_bytes() == history
+
+
+def test_expired_incoming_option_stays_in_history_not_latest(store, fact):
+    expired = replace(fact, id="deribit.btc.opt.2026-11-05.max_pain", source="deribit", metric="max_pain")
+    store.apply([expired], "options", fact.fetched_at)
+    assert store.load_latest("btc") == {}
+    assert list(store.iter_history("btc")) == [expired.to_dict()]

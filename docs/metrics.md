@@ -48,6 +48,8 @@ Fields: name, unit, meaning, staleness limit (value older than this at analysis 
 | `top_ls_account_ratio` | ratio | Top-trader long/short account ratio | 3 h | series |
 | `dvol` | percent | Implied volatility index | 8 h | series |
 | `oi_call`, `oi_put` | base coin | Open interest by expiry and side | 8 h | series |
+| `oi_call_total` | base coin | Total call open interest across non-expired option expiries | 8 h | series |
+| `oi_put_total` | base coin | Total put open interest across non-expired option expiries | 8 h | series |
 | `max_pain` | USD | Strike minimizing holder payout, computed from per-strike open interest | 8 h | series |
 | `etf_flow_total`, `etf_flow_<fund>` | USD | Daily net flow for a US trading day | 36 h | series |
 | `total_supply`, `circulating_supply`, `max_supply` | base coin | Per vendor; vendors differ in definition | 48 h | series |

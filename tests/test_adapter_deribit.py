@@ -108,11 +108,10 @@ def test_group_options_parses_expiry_decimal_strike_and_both_sides():
 def test_option_facts_totals_ids_units_and_no_invented_source_time():
     facts = deribit.option_facts("btc", SUMMARY, FETCHED)
     expected = {
-        "2026-11-06.oi_call": 5.5, "2026-11-06.oi_put": 0, "2026-11-06.max_pain": 90000.5,
-        "2026-11-27.oi_call": 6, "2026-11-27.oi_put": 7, "2026-11-27.max_pain": 90000,
+        "oi_call_total": 6, "oi_put_total": 7, "opt.2026-11-27.max_pain": 90000,
     }
-    assert {f.id: f.value for f in facts} == {f"deribit.btc.opt.{suffix}": value for suffix, value in expected.items()}
-    assert len(facts) == 6
+    assert {f.id: f.value for f in facts} == {f"deribit.btc.{suffix}": value for suffix, value in expected.items()}
+    assert len(facts) == 3
     assert_valid(facts)
     for fact in facts:
         assert fact.status == "ok"
@@ -131,18 +130,72 @@ def test_collect_options_uses_summary_endpoint():
     assert_valid(facts)
 
 
+@pytest.mark.parametrize("fetched,calls,monthly", [
+    ("2026-11-06T07:59:59Z", 16.5, "2026-11-27"),
+    ("2026-11-06T08:00:00Z", 11, "2026-11-27"),
+    ("2026-11-27T08:00:00Z", 3, "2026-12-25"),
+])
+def test_options_include_all_active_expiries_but_only_nearest_monthly(fetched, calls, monthly):
+    summary = SUMMARY + [
+        {"instrument_name": "BTC-13NOV26-90000-C", "open_interest": 2},
+        {"instrument_name": "BTC-25DEC26-95000-C", "open_interest": 3},
+        {"instrument_name": "BTC-25DEC26-95000-P", "open_interest": 4},
+        {"instrument_name": "ETH-25DEC26-3000-C", "open_interest": 999},
+        {"instrument_name": "BTC-1JAN27-95000-C", "open_interest": 2},
+    ]
+    facts = {f.id: f for f in deribit.option_facts("btc", summary, fetched)}
+    assert set(facts) == {"deribit.btc.oi_call_total", "deribit.btc.oi_put_total",
+                          f"deribit.btc.opt.{monthly}.max_pain"}
+    assert facts["deribit.btc.oi_call_total"].value == calls + 2
+    assert facts["deribit.btc.oi_put_total"].value == (4 if monthly == "2026-12-25" else 11)
+
+
+def test_no_active_monthly_does_not_invent_expiry_or_max_pain():
+    facts = deribit.option_facts("btc", [SUMMARY[-2]], FETCHED)
+    assert {f.metric: f.value for f in facts} == {"oi_call_total": 0, "oi_put_total": 0}
+
+
+def test_active_weekly_only_has_totals_without_monthly_max_pain():
+    facts = deribit.option_facts("btc", [{
+        "instrument_name": "BTC-13NOV26-90000-C", "open_interest": 2
+    }], FETCHED)
+    assert {f.metric: f.value for f in facts} == {"oi_call_total": 2, "oi_put_total": 0}
+
+
+def test_eth_option_totals_use_eth_ids_units_and_currency_filter():
+    facts = deribit.option_facts("eth", SUMMARY + [{
+        "instrument_name": "ETH-27NOV26-3000-P", "open_interest": "4.5"
+    }], FETCHED)
+    assert {f.id: f.value for f in facts} == {
+        "deribit.eth.oi_call_total": 0, "deribit.eth.oi_put_total": 4.5,
+        "deribit.eth.opt.2026-11-27.max_pain": 3000,
+    }
+    assert [f.unit for f in facts] == ["ETH", "ETH", "USD"]
+    metrics = registry.parse(Path("docs/metrics.md").read_text())
+    assert all(model.validate(f.to_dict(), metrics) == [] for f in facts)
+
+
+@pytest.mark.parametrize("bad", ["NaN", "Infinity", -1])
+def test_invalid_option_interest_is_missing_not_zero(bad):
+    facts = deribit.collect_options("btc", PROFILE, lambda *_: {"result": [
+        {"instrument_name": "BTC-27NOV26-90000-C", "open_interest": bad}
+    ]}, FETCHED)
+    assert len(facts) == 2
+    assert all(f.status == "missing" and f.value is None for f in facts)
+    assert_valid(facts)
+
+
 @pytest.mark.parametrize("bad", ["http", {}, {"result": None}, {"result": [{}]}, {"result": [{"instrument_name": "BTC-27NOV26-90000-C"}]}, {"result": [{"instrument_name": "BTC-31NOV26-90000-C", "open_interest": 1}]}])
-def test_collect_options_failure_returns_one_valid_missing_fact(bad):
+def test_collect_options_failure_returns_valid_missing_totals(bad):
     def get(url, params):
         if bad == "http":
             raise FetchError("HTTP 451")
         return bad
 
     facts = deribit.collect_options("btc", PROFILE, get, FETCHED)
-    assert len(facts) == 1
-    fact, = facts
-    assert fact.id == "deribit.btc.opt.unknown.oi_call"
-    assert fact.status == "missing"
-    assert fact.value is fact.as_of is None
-    assert fact.reason == ("HTTP 451" if bad == "http" else "field absent in response")
+    assert {f.id for f in facts} == {"deribit.btc.oi_call_total", "deribit.btc.oi_put_total"}
+    for fact in facts:
+        assert fact.status == "missing"
+        assert fact.value is fact.as_of is None
+        assert fact.reason == ("HTTP 451" if bad == "http" else "field absent in response")
     assert_valid(facts)

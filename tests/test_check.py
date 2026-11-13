@@ -69,6 +69,15 @@ def test_check_analysis_resolves_citation_from_history(analysis_file, store, fac
     assert check_analysis(analysis_file, store) == []
 
 
+def test_check_analysis_resolves_pruned_option_citation(analysis_file, store, fact):
+    option = replace(fact, id="deribit.btc.opt.2026-11-06.max_pain", source="deribit", metric="max_pain")
+    store.apply([option], "options", fact.fetched_at)
+    analysis_file.write_text(analysis_file.read_text().replace(fact.id, option.id))
+    store.apply([], "macro", "2026-11-07T00:00:00Z")
+    assert option.id not in store.load_latest("btc")
+    assert check_analysis(analysis_file, store) == []
+
+
 def test_check_analysis_rejects_malformed_citation(analysis_file, store, fact):
     analysis_file.write_text(analysis_file.read_text().replace(fact.id, "invalid"))
     assert any("malformed citation invalid" in error for error in check_analysis(analysis_file, store))

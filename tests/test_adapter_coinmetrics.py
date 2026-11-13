@@ -21,7 +21,7 @@ def validate(facts):
 def test_newest_row_strings_and_units(coin):
     def get(url, params):
         assert url == coinmetrics.URL
-        assert params == {"assets": coin, "metrics": "CapMVRVCur,AdrActCnt,FeeTotNtv",
+        assert params == {"assets": coin, "metrics": "CapMVRVCur",
                           "frequency": "1d", "page_size": 4, "sort": "time", "paging_from": "end"}
         return {"data": [
             {"asset": coin, "time": NEWEST, "CapMVRVCur": "1.25", "AdrActCnt": "123", "FeeTotNtv": "0.5"},
@@ -30,16 +30,17 @@ def test_newest_row_strings_and_units(coin):
         ]}
 
     facts = validate(coinmetrics.collect(coin, get, FETCHED))
-    for metric, expected in {"mvrv": 1.25, "active_addresses": 123.0, "fees_total": 0.5}.items():
+    assert set(facts) == {"mvrv"}
+    for metric, expected in {"mvrv": 1.25}.items():
         fact = facts[metric]
         assert fact.id == f"coinmetrics.{coin}.{metric}"
         assert fact.value == expected and isinstance(fact.value, float)
         assert fact.as_of == "2026-11-09T00:00:00Z"
-        assert fact.unit == {"mvrv": "ratio", "active_addresses": "count", "fees_total": coin.upper()}[metric]
+        assert fact.unit == "ratio"
 
 
 @pytest.mark.parametrize("bad", [None, "N/A", "NaN", "Infinity", {}])
-def test_bad_field_does_not_hide_other_fields_or_use_old_row(bad):
+def test_bad_field_does_not_use_old_row(bad):
     row = {"asset": "btc", "time": NEWEST, "AdrActCnt": "123", "FeeTotNtv": "0"}
     if bad is not None:
         row["CapMVRVCur"] = bad
@@ -48,8 +49,7 @@ def test_bad_field_does_not_hide_other_fields_or_use_old_row(bad):
     assert facts["mvrv"].status == "missing"
     assert facts["mvrv"].reason == "field absent in response"
     assert facts["mvrv"].value is None
-    assert facts["active_addresses"].value == 123
-    assert facts["fees_total"].status == "ok" and facts["fees_total"].value == 0
+    assert set(facts) == {"mvrv"}
 
 
 @pytest.mark.parametrize("data", [{}, {"data": []}, {"data": None}])
