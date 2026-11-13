@@ -29,6 +29,8 @@ Required headings, in order:
 
 News citations use `[N:<id>]` without an `@` timestamp, for example `[N:coindesk:3fa1c2b4d5e6]`, resolving to [news metadata](data-model.md#news-items). An optional `## Catalysts and news` section may appear between Facts and Inference; it contains reported claims, not fact records.
 
+When scanning analysis citations, the checker ignores inline code spans, fenced code blocks, and unclosed news citation markers; closed malformed news IDs remain errors.
+
 ## Rules
 
 - When a number appears, cite a fact. Numbers from memory, chats, or news articles are not facts and go under Missing.

@@ -24,6 +24,11 @@ FEEDS = {
     "sec": "https://www.sec.gov/news/pressreleases.rss",
 }
 FIELDS = {"id", "source", "title", "published_at", "url", "fetched_at"}
+TRACKING_KEYS = {"fbclid", "gclid", "mc_cid", "mc_eid", "ref", "ref_src", "cmpid", "taid"}
+
+
+class FeedError(ValueError):
+    """Feed rejected before XML parsing."""
 
 
 def canonical_url(raw: str) -> str:
@@ -31,8 +36,9 @@ def canonical_url(raw: str) -> str:
     if parts.scheme.lower() != "https" or not parts.hostname or parts.username or parts.password:
         raise ValueError("invalid HTTPS URL")
     query = [(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True)
-             if not k.lower().startswith("utm_")]
-    return urlunsplit(("https", parts.netloc.lower(), parts.path, urlencode(query), ""))
+             if not k.lower().startswith("utm_") and k.lower() not in TRACKING_KEYS]
+    path = parts.path[:-1] if len(parts.path) > 1 and parts.path.endswith("/") else parts.path
+    return urlunsplit(("https", parts.netloc.lower(), path, urlencode(query), ""))
 
 
 def item_id(source: str, url: str) -> str:
@@ -40,7 +46,7 @@ def item_id(source: str, url: str) -> str:
 
 
 def clean_title(title: str) -> str:
-    title = " ".join(title.split())
+    title = " ".join(title[:2000].split())
     return "".join(c for c in title if not unicodedata.category(c).startswith("C"))[:300].rstrip()
 
 
@@ -55,6 +61,10 @@ def publication_time(raw: str) -> str:
 
 
 def parse_feed(text: str, source: str, fetched_at: str) -> tuple[list[dict], int]:
+    if len(text) > 2_000_000:
+        raise FeedError("feed too large")
+    if re.search(r"<!DOCTYPE|<!ENTITY", text, re.IGNORECASE):
+        raise FeedError("unsafe XML")
     root = ET.fromstring(text.lstrip("\ufeff"))
     if root.tag.rsplit("}", 1)[-1] not in ("rss", "RDF"):
         raise ValueError("not RSS")
@@ -82,7 +92,7 @@ def collect(get_text, fetched_at: str) -> tuple[list[dict], list[str], int]:
             items, count = parse_feed(get_text(url, {}), source, fetched_at)
             records.extend(items)
             skipped += count
-        except FetchError as exc:
+        except (FetchError, FeedError) as exc:
             errors.append(f"{source}: {exc}")
         except (ET.ParseError, ValueError, TypeError):
             errors.append(f"{source}: invalid RSS XML")
@@ -125,17 +135,23 @@ class NewsStore:
                     yield json.loads(line)
 
     def apply(self, records: list[dict], started: str, errors: list[str], skipped: int = 0) -> dict:
-        known = {record["id"] for record in self.iter_records()}
+        known = {record["id"]: record["url"] for record in self.iter_records()}
         changed = unchanged = 0
         for record in records:
             if record["id"] in known:
-                unchanged += 1
+                if known[record["id"]] != record["url"]:
+                    skipped += 1
+                    error = f"{record['source']}: id collision"
+                    if error not in errors:
+                        errors.append(error)
+                else:
+                    unchanged += 1
                 continue
             path = self.root / "data" / "news" / f"{record['published_at'][:7]}.jsonl"
             path.parent.mkdir(parents=True, exist_ok=True)
             with path.open("a", encoding="utf-8") as fh:
                 fh.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
-            known.add(record["id"])
+            known[record["id"]] = record["url"]
             changed += 1
         run = {"started": started, "group": "news", "facts": len(records), "changed": changed,
                "unchanged": unchanged, "missing": len(errors), "errors": errors, "skipped": skipped}

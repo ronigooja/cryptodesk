@@ -13,6 +13,25 @@ HEADINGS = ["## Facts", "## Inference", "## Missing", "## What would change this
 DISCLAIMER = "Not investment advice."
 
 
+def _without_code(text: str) -> str:
+    """When scanning citations, exclude fenced blocks and matching backtick spans."""
+    lines = []
+    fence = ""
+    for line in text.splitlines(keepends=True):
+        if fence:
+            if re.fullmatch(r" {0,3}" + re.escape(fence[0]) + "{" + str(len(fence)) + r",}[ \t]*\n?", line):
+                fence = ""
+            lines.append("\n")
+            continue
+        opener = re.match(r" {0,3}(`{3,}|~{3,})(.*)$", line)
+        if opener and (opener[1][0] != "`" or "`" not in opener[2]):
+            fence = opener[1]
+            lines.append("\n")
+        else:
+            lines.append(line)
+    return re.sub(r"(?<!`)(`+)(?!`)[\s\S]*?(?<!`)\1(?!`)", " ", "".join(lines))
+
+
 def check_facts(store: Store) -> list[str]:
     errors = []
     for coin in store.coins():
@@ -47,7 +66,8 @@ def check_analysis(path: Path, store: Store) -> list[str]:
         else:
             pos = i
     cache: dict[str, set] = {}
-    for fid, fetched in CITE_RE.findall(text):
+    citation_text = _without_code(text)
+    for fid, fetched in CITE_RE.findall(citation_text):
         parts = fid.split(".")
         if len(parts) < 3:
             errors.append(f"{path.name}: malformed citation {fid}")
@@ -63,7 +83,7 @@ def check_analysis(path: Path, store: Store) -> list[str]:
                       if isinstance(rec, dict) and isinstance(rec.get("id"), str)}
     except ValueError:
         pass  # Invalid JSON is reported by check_news.
-    for nid in NEWS_CITE_RE.findall(text):
+    for nid in NEWS_CITE_RE.findall(citation_text):
         if not re.fullmatch(r"[a-z][a-z0-9_]*:[0-9a-f]{12}", nid):
             errors.append(f"{path.name}: malformed news citation {nid}")
         elif nid not in known_news:

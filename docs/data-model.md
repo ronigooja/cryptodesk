@@ -64,9 +64,11 @@ When evaluating storage growth, measure actual size and record the result in [de
 
 News is separate from facts. Each record has exactly `id`, `source`, `title`, `published_at`, `url`, and `fetched_at`. Both timestamps use [UTC format](#time); `published_at` comes from the feed, never the fetch time. When a date or HTTPS URL is missing or invalid, skip the item and count it in the run's `skipped` field. A failed feed increments `missing` and contributes a source-prefixed error.
 
-The ID is `<source>:<first 12 hex characters of SHA-1(canonical URL)>`. Canonicalization lowercases the scheme/host, removes fragments and `utm_*` query parameters, and preserves other query parameters. Titles collapse whitespace, remove control/format characters, and are capped at 300 characters.
+The ID is `<source>:<first 12 hex characters of SHA-1(canonical URL)>`; for news URLs, accept HTTPS only, lowercase scheme/host, remove fragments and one trailing path slash except `/`, drop `utm_*`, `fbclid`, `gclid`, `mc_cid`, `mc_eid`, `ref`, `ref_src`, `cmpid`, and `taid` query keys (case-insensitive), and preserve other parameters.
 
-When first seen, append a record once to `data/news/<YYYY-MM>.jsonl`, using the publication month; deduplicate IDs across all months and never edit a stored item. Store metadata only: no body, summary, or description, to avoid redistributing copyrighted article content in this public repository. News numbers are not facts; [analysis rules](analysis.md#rules) apply.
+When processing news feeds, reject text over 2,000,000 characters or containing `<!DOCTYPE` or `<!ENTITY` (case-insensitive) before XML parsing. Titles take only the first 2,000 raw characters, collapse whitespace, remove control/format characters, and are capped at 300 characters.
+
+When first seen, append a record once to `data/news/<YYYY-MM>.jsonl`, using the publication month; deduplicate IDs across all months and never edit a stored item. When an ID matches a different URL, skip the item and report `<source>: id collision` once per run. Store metadata only: no body, summary, or description, to avoid redistributing copyrighted article content in this public repository. News numbers are not facts; [analysis rules](analysis.md#rules) apply.
 
 ## Adapter contract
 

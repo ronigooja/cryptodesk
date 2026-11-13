@@ -164,3 +164,83 @@ def test_cli_zero_valid_items_exits_one(store, monkeypatch, text):
     assert run["facts"] == 0
     assert run["skipped"] == (7 if text == rss(date="") else 0)
     assert run["missing"] == (7 if text == "bad XML" else 0)
+
+
+@pytest.mark.parametrize("text,reason", [
+    ('<!ENTITY title "expanded">' + rss(), "unsafe XML"),
+    ('<!entity title "expanded">' + rss(), "unsafe XML"),
+    ('<!doctype rss>' + rss(), "unsafe XML"),
+    ('<!DOCTYPE lolz [<!ENTITY lol "lol">' + ''.join(
+        f'<!ENTITY lol{i} "' + (f'&lol{i - 1};' if i > 1 else '&lol;') * 10 + '">'
+        for i in range(1, 10)) + ']><rss>&lol9;</rss>', "unsafe XML"),
+    (" " * 2_000_001, "feed too large"),
+])
+def test_unsafe_or_large_feed_never_parsed_or_stored(tmp_path, monkeypatch, text, reason):
+    monkeypatch.setattr(news, "FEEDS", {"sec": "https://example.org/rss"})
+
+    def forbidden_parse(*args, **kwargs):
+        pytest.fail("rejected feed reached XML parser")
+
+    monkeypatch.setattr(news.ET, "fromstring", forbidden_parse)
+    items, errors, skipped = news.collect(lambda *_: text, NOW)
+    assert (items, errors, skipped) == ([], [f"sec: {reason}"], 0)
+    news.NewsStore(tmp_path).apply(items, NOW, errors, skipped)
+    assert not (tmp_path / "data/news").exists()
+
+
+def test_feed_size_limit_inclusive():
+    text = rss()
+    assert len(news.parse_feed(text + " " * (2_000_000 - len(text)), "sec", NOW)[0]) == 1
+
+
+def test_million_character_title_capped_before_sanitizing(monkeypatch):
+    category = news.unicodedata.category
+    inspected = []
+
+    def tracked_category(char):
+        inspected.append(char)
+        return category(char)
+
+    monkeypatch.setattr(news.unicodedata, "category", tracked_category)
+    title = " " * 2000 + "x" * 998_000
+    item = news.parse_feed(rss(title=title), "sec", NOW)[0][0]
+    assert item["title"] == ""
+    assert len(inspected) <= 2000
+
+
+@pytest.mark.parametrize("tracking", ["fbclid", "gclid", "mc_cid", "mc_eid", "ref", "ref_src", "cmpid", "taid"])
+def test_tracking_url_ids(tracking):
+    canonical = news.canonical_url(f"https://example.org/a/?{tracking}=x")
+    assert news.item_id("sec", canonical) == news.item_id("sec", "https://example.org/a")
+
+
+def test_canonical_path_and_query_id_policy():
+    def identity(suffix):
+        return news.item_id("sec", news.canonical_url("https://example.org" + suffix))
+
+    assert identity("/a") == identity("/a/") == identity("/a?fbclid=x")
+    assert identity("/a?utm_source=x&id=7") == identity("/a?id=7")
+    assert identity("/a?id=7") != identity("/a")
+    assert identity("/a//") != identity("/a/")
+    assert news.canonical_url("https://example.org/") == "https://example.org/"
+    with pytest.raises(ValueError):
+        news.canonical_url("http://example.org/a")
+
+
+@pytest.mark.parametrize("stored", [False, True])
+def test_id_collision_reported_once_and_not_written(tmp_path, monkeypatch, stored):
+    class ConstantHash:
+        def hexdigest(self):
+            return "0" * 40
+
+    monkeypatch.setattr(news.hashlib, "sha1", lambda _: ConstantHash())
+    first = record()
+    second = news.parse_feed(rss(url="https://example.org/b"), "coindesk", NOW)[0][0]
+    db = news.NewsStore(tmp_path)
+    if stored:
+        db.apply([first], NOW, [])
+    run = db.apply(([first] if not stored else []) + [second, second], NOW, [])
+    assert run["skipped"] == 2
+    assert run["unchanged"] == 0
+    assert run["errors"] == ["coindesk: id collision"]
+    assert list(db.iter_records()) == [first]
