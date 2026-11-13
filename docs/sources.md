@@ -66,7 +66,7 @@ Definitions, units, and day boundaries are in [Daily series](data-model.md#daily
 | ETH spot ETF flows | No free source usable by script: Farside returns 403, Bitbo's ETH page is a soft 404 (2026-11-11) |
 | Farside ETF flows | No official API; Cloudflare blocks scripts |
 | ETF flow disagreement | Bitbo and Farside disagree on 2026-11-09: total -198.6m vs -201.0m, IBIT -210.5m vs -213.2m (US$m). Cause not found. Only Bitbo is collected |
-| Stablecoin total | Sum of DefiLlama per-asset USD-pegged supply was 292.894B; DefiLlama's chart total was 292.440B (0.155% apart) on 2026-11-11. Cause not found |
+| Stablecoin total | The live fact `stablecoin_supply_usd` sums per-asset USD-pegged supply and was 292.894B on 2026-11-11; the daily series `stablecoin_supply_usd.defillama` uses the chart total, 289.469B for 2026-11-11 (about 1.2% lower), and an earlier comparison on 2026-11-11 found a 0.155% gap (292.894B versus 292.440B). Cause not found; the two are not interchangeable |
 | DefiLlama ETF endpoints | Paid |
 | LTH/STH supply, realized price | No stable free source |
 | CME FedWatch probabilities | No official free API |
