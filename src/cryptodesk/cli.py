@@ -3,7 +3,7 @@ import os
 from datetime import UTC, datetime
 
 from . import check, model, profiles, registry, store
-from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, nyfed, okx, treasury
+from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, mempool, nyfed, okx, treasury
 from .adapters.base import PROXY_ENV, make_get, make_get_text
 
 
@@ -33,6 +33,7 @@ def main(argv=None) -> int:
             facts = defillama.collect(None, get, started)
             for coin in profiles.list_coins(root):
                 facts.extend(coinmetrics.collect(coin, get, started))
+                facts.extend(mempool.collect(coin, get, started))
         elif args.group == "flows":
             facts = etf.collect(make_get_text_fn(), started)
             get = make_get_fn()

@@ -14,11 +14,12 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 | `treasury` | US Treasury daily par yield curve CSV | none | macro | `us2y_yield`, `us10y_yield` (close of day) | verified locally 2026-11-05 |
 | `nyfed` | NY Fed reference rates API | none | macro | `fed_funds_effective` | verified locally 2026-11-05 |
 | `bitbo` | Bitbo ETF flow table (HTML, US$m) | none | btc | `etf_flow_total`, `etf_flow_<fund>` | verified locally 2026-11-11; btc only |
-| `coinmetrics` | Coin Metrics Community | none | btc, eth | `mvrv` | verified locally 2026-11-11 |
+| `coinmetrics` | Coin Metrics Community | none | btc, eth | `mvrv`, `active_addresses`, `fees_total` | verified locally 2026-11-11 |
+| `mempool` | mempool.space | none; rate limited | btc | `hashrate`, `difficulty`, `fee_fastest` | verified locally 2026-11-11 |
 | `defillama` | DefiLlama stablecoins API | none | macro | `stablecoin_supply_usd`, `usdt_supply_usd`, `usdc_supply_usd` | verified locally 2026-11-11 |
 | `cftc` | CFTC Socrata, dataset `gpe5-46if` (futures only) | none | btc, eth | `cot_open_interest`, `cot_asset_mgr_net`, `cot_lev_money_net` | verified locally 2026-11-11; exact CME contract names |
 
-Removed collection scope: [metrics.md](metrics.md#removed).
+Retired collection scope: [metrics.md](metrics.md#retired).
 
 ## Inactive sources
 

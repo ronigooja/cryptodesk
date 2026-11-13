@@ -9,7 +9,7 @@ One workflow per group, using `workflow_dispatch` only. Host cron dispatches thr
 | `market` | Binance, OKX, Deribit ticker and DVOL | hourly | `3 * * * *` |
 | `options` | Deribit [option scope](metrics.md#modules) | every 4 h, plus 07:30 daily | `22 */4 * * *`, `30 7 * * *` |
 | `macro` | Treasury yields, NY Fed EFFR | weekdays after US close | `45 22 * * 1-5` |
-| `onchain` | Coin Metrics MVRV, DefiLlama stablecoin supply | daily | `30 1 * * *` |
+| `onchain` | Coin Metrics (MVRV, active addresses, fees), mempool.space, DefiLlama stablecoin supply | daily | `30 1 * * *` |
 | `flows` | Bitbo BTC ETF flows, CFTC positioning | daily | `10 11 * * *` |
 
 CFTC stays for now; a decision on retaining it is pending.

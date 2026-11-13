@@ -21,6 +21,7 @@
 | 2026-11-06 | Binance proxy support added | Behavior and verified limitation: [sources.md](sources.md#known-gaps) |
 | 2026-11-06 | Dispatch workflows from a host cron through the GitHub API; removed the `schedule` trigger | `schedule` ran about 7 times in 24 h against about 30 expected, with multi-hour delays. GitHub documents delay and dropping under load. |
 | 2026-11-13 | Remove altcoin design, mempool/active-address/fee metrics, generated `notes.md`, and `sources.json` | Unused by the analyses; history remains in git. |
+| 2026-11-13 | Restore active-address, fee, and mempool collection removed earlier the same day; keep CFTC | The removal criterion was weak: one earlier analysis did not use them, while no analysis had enough history to judge them. |
 
 ## Triggers to revisit
 

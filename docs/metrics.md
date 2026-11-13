@@ -14,13 +14,13 @@ BTC and ETH use `class = "major"` in `profile.toml`.
 | `perp` | Perp price, funding, open interest, top-trader long/short ratios; Deribit DVOL in the market group |
 | `options` | Total call/put open interest per currency; max pain for the nearest monthly expiry only |
 | `etf` | BTC daily ETF flows from Bitbo |
-| `onchain` | Coin Metrics MVRV |
+| `onchain` | Coin Metrics MVRV, active addresses, total fees; mempool.space hashrate, difficulty, recommended fee (btc) |
 
 Shared `macro` facts include Treasury yields, EFFR, and DefiLlama stablecoin supply; CFTC positioning runs in [flows](schedule.md#groups). MVRV is collected, not planned.
 
-## Removed
+## Retired
 
-Removed from collection: active addresses, total fees, and mempool.space hashrate, difficulty, and recommended fees; prior records remain in history.
+Only `oi_call` and `oi_put` (open interest by expiry) are retired: no longer collected; stored history still validates.
 
 ## Registry
 
@@ -38,7 +38,7 @@ Fields: name, unit, meaning, staleness limit (time since [last confirmation](dat
 | `top_ls_position_ratio` | ratio | Top-trader long/short position ratio | 3 h | series |
 | `top_ls_account_ratio` | ratio | Top-trader long/short account ratio | 3 h | series |
 | `dvol` | percent | Implied volatility index | 8 h | series |
-| `oi_call`, `oi_put` | base coin | Retired: open interest by expiry and side. Kept so stored history validates; no longer collected | 8 h | series |
+| `oi_call`, `oi_put` | base coin | Retired: open interest by expiry and side; see [Retired](#retired) | 8 h | series |
 | `oi_call_total` | base coin | Total call open interest across non-expired option expiries | 8 h | series |
 | `oi_put_total` | base coin | Total put open interest across non-expired option expiries | 8 h | series |
 | `max_pain` | USD | Strike minimizing holder payout, computed from per-strike open interest; collected only for the nearest monthly expiry | 8 h | series |
@@ -46,11 +46,11 @@ Fields: name, unit, meaning, staleness limit (time since [last confirmation](dat
 | `us10y_yield`, `us2y_yield` | percent | Treasury yields | 48 h | series |
 | `fed_funds_effective` | percent | Effective fed funds rate | 48 h | series |
 | `mvrv` | ratio | Market value to realized value (Coin Metrics `CapMVRVCur`) | 48 h | series |
-| `active_addresses` | count | Retired: daily active addresses (Coin Metrics `AdrActCnt`). Kept so stored history validates; no longer collected | 48 h | series |
-| `fees_total` | base coin | Retired: daily total fees (Coin Metrics `FeeTotNtv`). Kept so stored history validates; no longer collected | 48 h | series |
-| `hashrate` | H/s | Retired: current Bitcoin network hashrate. Kept so stored history validates; no longer collected | 3 h | series |
-| `difficulty` | number | Retired: current Bitcoin mining difficulty. Kept so stored history validates; no longer collected | 48 h | series |
-| `fee_fastest` | sat/vB | Retired: recommended fastest-confirmation fee rate. Kept so stored history validates; no longer collected | 3 h | series |
+| `active_addresses` | count | Daily active addresses (Coin Metrics `AdrActCnt`) | 48 h | series |
+| `fees_total` | base coin | Daily total fees (Coin Metrics `FeeTotNtv`) | 48 h | series |
+| `hashrate` | H/s | Current Bitcoin network hashrate | 3 h | series |
+| `difficulty` | number | Current Bitcoin mining difficulty | 48 h | series |
+| `fee_fastest` | sat/vB | Recommended fastest-confirmation fee rate | 3 h | series |
 | `stablecoin_supply_usd` | USD | Total pegged-USD stablecoin circulating supply (DefiLlama), pseudo-coin `macro` | 48 h | series |
 | `usdt_supply_usd`, `usdc_supply_usd` | USD | Circulating supply of one stablecoin (DefiLlama), pseudo-coin `macro` | 48 h | series |
 | `cot_open_interest` | contracts | CFTC futures open interest for the CME contract | 216 h | series |
