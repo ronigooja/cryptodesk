@@ -222,3 +222,4 @@
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-13T02:03:16Z", "unchanged": 0}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-13T03:03:14Z", "unchanged": 0}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-13T04:03:17Z", "unchanged": 0}
+{"changed": 46, "errors": [], "facts": 72, "group": "options", "missing": 0, "started": "2026-11-13T04:22:24Z", "unchanged": 26}
