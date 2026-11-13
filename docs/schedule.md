@@ -35,4 +35,4 @@ Not verified: standard Linux runners are free for public repos. When the repo go
 
 | Name | Used by |
 |---|---|
-| `CRYPTODESK_PROXY` | `market`; optional proxy configuration, behavior in [Known gaps](sources.md#known-gaps) |
+| `CRYPTODESK_PROXY` | `market`, `daily`; optional proxy configuration, behavior in [Known gaps](sources.md#known-gaps) |
