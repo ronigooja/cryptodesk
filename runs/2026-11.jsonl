@@ -236,3 +236,4 @@
 {"changed": 4, "errors": [], "facts": 6, "group": "options", "missing": 0, "started": "2026-11-13T08:22:16Z", "unchanged": 2}
 {"changed": 0, "conflicts": 0, "errors": ["price_close.binance.btc: HTTP 451", "price_close.binance.eth: HTTP 451"], "facts": 32, "group": "daily", "missing": 2, "skipped": 3697, "started": "2026-11-13T08:30:10Z", "unchanged": 32}
 {"changed": 0, "conflicts": 0, "errors": [], "facts": 42, "group": "daily", "missing": 0, "skipped": 3697, "started": "2026-11-13T08:31:49Z", "unchanged": 42}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-13T09:03:15Z", "unchanged": 0}
