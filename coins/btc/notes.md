@@ -33,7 +33,7 @@ Generated from `data/latest`. Do not edit.
 | `cftc.btc.cot_open_interest` | ok | 17527 | contracts | 2026-11-03T00:00:00Z | 2026-11-10T22:00:49Z |  |
 | `coinmetrics.btc.active_addresses` | ok | 645477.0 | count | 2026-11-11T00:00:00Z | 2026-11-12T01:30:22Z |  |
 | `coinmetrics.btc.fees_total` | ok | 3.16499597 | BTC | 2026-11-11T00:00:00Z | 2026-11-12T01:30:22Z |  |
-| `coinmetrics.btc.mvrv` | missing |  | ratio |  | 2026-11-11T01:30:19Z | field absent in response |
+| `coinmetrics.btc.mvrv` | ok | 1.3697140832346657 | ratio | 2026-11-11T00:00:00Z | 2026-11-13T01:30:18Z |  |
 | `deribit.btc.dvol` | ok | 39.98 | percent | 2026-11-13T01:00:00Z | 2026-11-13T01:03:15Z |  |
 | `deribit.btc.funding_rate_8h` | ok | 4.493e-05 | fraction | 2026-11-13T01:03:19Z | 2026-11-13T01:03:15Z |  |
 | `deribit.btc.opt.2026-11-06.max_pain` | ok | 79000.0 | USD |  | 2026-11-05T19:58:39Z | stale |
@@ -95,8 +95,8 @@ Generated from `data/latest`. Do not edit.
 | `deribit.btc.opt.2027-09-24.oi_put` | ok | 3955.4 | BTC |  | 2026-11-13T00:22:18Z |  |
 | `deribit.btc.perp_mark_price` | ok | 70893.88 | USD | 2026-11-13T01:03:19Z | 2026-11-13T01:03:15Z |  |
 | `mempool.btc.difficulty` | ok | 148364561003867.4 | number |  | 2026-11-10T22:00:31Z |  |
-| `mempool.btc.fee_fastest` | ok | 2.0 | sat/vB |  | 2026-11-11T01:30:19Z | stale |
-| `mempool.btc.hashrate` | ok | 9.554933685951705e+20 | H/s |  | 2026-11-12T01:30:22Z | stale |
+| `mempool.btc.fee_fastest` | ok | 4.0 | sat/vB |  | 2026-11-13T01:30:18Z |  |
+| `mempool.btc.hashrate` | ok | 9.313941234022378e+20 | H/s |  | 2026-11-13T01:30:18Z |  |
 | `okx.btc.funding_rate_8h` | ok | 0.0001 | fraction | 2026-11-13T01:02:08Z | 2026-11-13T01:03:15Z |  |
 | `okx.btc.high_24h` | ok | 74100.0 | USDT | 2026-11-13T01:03:18Z | 2026-11-13T01:03:15Z |  |
 | `okx.btc.low_24h` | ok | 70678.0 | USDT | 2026-11-13T01:03:18Z | 2026-11-13T01:03:15Z |  |
