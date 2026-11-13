@@ -11,10 +11,10 @@
 ### Price and derivatives
 - <statement with value> [F:<id>@<fetched_at>]
 
-### Flows and holders
+### Flows
 - <statement with value> [F:<id>@<fetched_at>]
 
-### On-chain and supply
+### On-chain
 - <statement with value> [F:<id>@<fetched_at>]
 
 ### Macro and calendar
@@ -26,7 +26,7 @@
 
 ## Missing
 
-- <needed data that is absent, stale, or not from a fact record>
+- <data gap>
 
 ## What would change this view
 

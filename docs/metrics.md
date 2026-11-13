@@ -1,39 +1,30 @@
 # Metrics
 
-New metrics must be registered here before any adapter writes them.
+When adding a metric, register it here before any adapter writes it.
 
-## Coin classes
+## Coin profiles
 
-`class` is required in `profile.toml`.
-
-| Class | Meaning | Investigation focus |
-|---|---|---|
-| `major` | BTC, ETH: deep multi-venue markets | Macro, flows, derivatives, on-chain statistics |
-| `alt` | Other coins: thin, concentrated, possibly derivatives-led | Supply structure, unlock events, holders and addresses, depth, derivatives |
-
-Implemented in phase 1: `major` only. `alt` is designed here and built in phase 4 ([roadmap.md](roadmap.md)).
+BTC and ETH use `class = "major"` in `profile.toml`.
 
 ## Modules
 
-| Module | Contents | major | alt |
-|---|---|---|---|
-| `core` | spot price, 24h change, 24h high/low | required | required if a spot market exists, else `n/a` |
-| `perp` | perp price, funding, open interest, top-trader long/short ratios | required | required if a perp exists |
-| `options` | option open interest by expiry, max pain, implied vol index | required | `n/a` unless options exist |
-| `etf` | daily ETF flows, issuer holdings | BTC, ETH | `n/a` |
-| `onchain` | exchange balance, supply, fees, valuation ratios | recommended | recommended |
-| `staking` | staked amount, entry and exit queues | ETH | per chain |
-| `treasury` | treasury-company holdings from filings | recommended | optional |
-| `supply` | total, circulating, max supply per vendor; documented allocation | optional | required |
-| `depth` | near-price order book depth on each venue | optional | required |
-| `dex` | pool liquidity, 24h volume, price, creation time | `n/a` | required if a DEX pool exists |
-| `addresses` | top holders and labeled addresses, each with evidence | `n/a` | required, mostly `blocked` |
+| Module | Collected scope |
+|---|---|
+| `core` | Spot price, 24h change, high/low |
+| `perp` | Perp price, funding, open interest, top-trader long/short ratios; Deribit DVOL in the market group |
+| `options` | Total call/put open interest per currency; max pain for the nearest monthly expiry only |
+| `etf` | BTC daily ETF flows from Bitbo |
+| `onchain` | Coin Metrics MVRV |
 
-Macro (`macro` pseudo-coin) has its own metrics below and is shared by all classes.
+Shared `macro` facts include Treasury yields, EFFR, and DefiLlama stablecoin supply; CFTC positioning runs in [flows](schedule.md#groups). MVRV is collected, not planned.
+
+## Removed
+
+Removed from collection: active addresses, total fees, and mempool.space hashrate, difficulty, and recommended fees; prior records remain in history.
 
 ## Registry
 
-Fields: name, unit, meaning, staleness limit (value older than this at analysis time is marked stale), type.
+Fields: name, unit, meaning, staleness limit (time since [last confirmation](data-model.md#time)), type.
 
 | Metric | Unit | Meaning | Stale after | Type |
 |---|---|---|---|---|
@@ -69,10 +60,6 @@ Fields: name, unit, meaning, staleness limit (value older than this at analysis 
 | `cot_open_interest` | contracts | CFTC futures open interest for the CME contract | 216 h | series |
 | `cot_asset_mgr_net`, `cot_lev_money_net` | contracts | Long minus short for that trader group, CME futures | 216 h | series |
 
-Metrics planned for later phases (payrolls, CPI, exchange balances, MVRV, staking queues, treasury holdings) are added when their phase starts.
-
 ## Rules
 
-- A metric from a venue that differs in definition (contracts vs coin units, funding interval) is a separate metric name, or the difference is stated in [sources.md](sources.md).
-- Documented allocation (team, foundation, liquidity shares from project docs) is an initial plan, not current holdings. Do not label it current.
-- An address label requires evidence (source and basis). A label without evidence is not stored; list the gap under Missing.
+- When a venue differs in definition (contracts vs coin units, funding interval), use a separate metric name or state the difference in [sources.md](sources.md).
