@@ -352,7 +352,7 @@
  },
  "coinmetrics.btc.active_addresses": {
   "as_of": "2026-11-12T00:00:00Z",
-  "checked_at": "2026-11-13T06:58:44Z",
+  "checked_at": "2026-11-14T01:30:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T06:58:44Z",
   "id": "coinmetrics.btc.active_addresses",
@@ -365,7 +365,7 @@
  },
  "coinmetrics.btc.fees_total": {
   "as_of": "2026-11-12T00:00:00Z",
-  "checked_at": "2026-11-13T06:58:44Z",
+  "checked_at": "2026-11-14T01:30:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T06:58:44Z",
   "id": "coinmetrics.btc.fees_total",
@@ -378,7 +378,7 @@
  },
  "coinmetrics.btc.mvrv": {
   "as_of": "2026-11-12T00:00:00Z",
-  "checked_at": "2026-11-13T06:58:44Z",
+  "checked_at": "2026-11-14T01:30:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T06:58:44Z",
   "id": "coinmetrics.btc.mvrv",
@@ -885,7 +885,7 @@
  },
  "mempool.btc.difficulty": {
   "as_of": null,
-  "checked_at": "2026-11-13T06:58:44Z",
+  "checked_at": "2026-11-14T01:30:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-10T22:00:31Z",
   "id": "mempool.btc.difficulty",
@@ -898,29 +898,29 @@
  },
  "mempool.btc.fee_fastest": {
   "as_of": null,
-  "checked_at": "2026-11-13T06:58:44Z",
+  "checked_at": "2026-11-14T01:30:13Z",
   "coin": "btc",
-  "fetched_at": "2026-11-13T06:58:44Z",
+  "fetched_at": "2026-11-14T01:30:13Z",
   "id": "mempool.btc.fee_fastest",
   "metric": "fee_fastest",
   "reason": null,
   "source": "mempool",
   "status": "ok",
   "unit": "sat/vB",
-  "value": 3.0
+  "value": 2.0
  },
  "mempool.btc.hashrate": {
   "as_of": null,
-  "checked_at": "2026-11-13T06:58:44Z",
+  "checked_at": "2026-11-14T01:30:13Z",
   "coin": "btc",
-  "fetched_at": "2026-11-13T06:58:44Z",
+  "fetched_at": "2026-11-14T01:30:13Z",
   "id": "mempool.btc.hashrate",
   "metric": "hashrate",
   "reason": null,
   "source": "mempool",
   "status": "ok",
   "unit": "H/s",
-  "value": 9.26954528932839e+20
+  "value": 9.161580777528324e+20
  },
  "okx.btc.funding_rate_8h": {
   "as_of": "2026-11-14T01:02:04Z",

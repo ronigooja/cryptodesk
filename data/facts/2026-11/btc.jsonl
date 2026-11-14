@@ -3640,3 +3640,5 @@
 {"as_of": "2026-11-14T01:03:20Z", "coin": "btc", "fetched_at": "2026-11-14T01:03:16Z", "id": "deribit.btc.perp_mark_price", "metric": "perp_mark_price", "reason": null, "source": "deribit", "status": "ok", "unit": "USD", "value": 68188.84}
 {"as_of": "2026-11-14T01:03:20Z", "coin": "btc", "fetched_at": "2026-11-14T01:03:16Z", "id": "deribit.btc.funding_rate_8h", "metric": "funding_rate_8h", "reason": null, "source": "deribit", "status": "ok", "unit": "fraction", "value": 3.733e-05}
 {"as_of": "2026-11-14T01:00:00Z", "coin": "btc", "fetched_at": "2026-11-14T01:03:16Z", "id": "deribit.btc.dvol", "metric": "dvol", "reason": null, "source": "deribit", "status": "ok", "unit": "percent", "value": 39.98}
+{"as_of": null, "coin": "btc", "fetched_at": "2026-11-14T01:30:13Z", "id": "mempool.btc.hashrate", "metric": "hashrate", "reason": null, "source": "mempool", "status": "ok", "unit": "H/s", "value": 9.161580777528324e+20}
+{"as_of": null, "coin": "btc", "fetched_at": "2026-11-14T01:30:13Z", "id": "mempool.btc.fee_fastest", "metric": "fee_fastest", "reason": null, "source": "mempool", "status": "ok", "unit": "sat/vB", "value": 2.0}
