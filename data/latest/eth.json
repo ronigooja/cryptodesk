@@ -118,7 +118,7 @@
  },
  "cftc.eth.cot_asset_mgr_net": {
   "as_of": "2026-11-03T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "eth",
   "fetched_at": "2026-11-10T22:00:49Z",
   "id": "cftc.eth.cot_asset_mgr_net",
@@ -131,7 +131,7 @@
  },
  "cftc.eth.cot_lev_money_net": {
   "as_of": "2026-11-03T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "eth",
   "fetched_at": "2026-11-10T22:00:49Z",
   "id": "cftc.eth.cot_lev_money_net",
@@ -144,7 +144,7 @@
  },
  "cftc.eth.cot_open_interest": {
   "as_of": "2026-11-03T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "eth",
   "fetched_at": "2026-11-10T22:00:49Z",
   "id": "cftc.eth.cot_open_interest",

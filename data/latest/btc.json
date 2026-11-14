@@ -118,7 +118,7 @@
  },
  "bitbo.btc.etf_flow_arkb": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_arkb",
@@ -131,7 +131,7 @@
  },
  "bitbo.btc.etf_flow_bita": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_bita",
@@ -144,7 +144,7 @@
  },
  "bitbo.btc.etf_flow_bitb": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_bitb",
@@ -157,7 +157,7 @@
  },
  "bitbo.btc.etf_flow_brrr": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_brrr",
@@ -170,7 +170,7 @@
  },
  "bitbo.btc.etf_flow_btc": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_btc",
@@ -183,7 +183,7 @@
  },
  "bitbo.btc.etf_flow_btco": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_btco",
@@ -196,7 +196,7 @@
  },
  "bitbo.btc.etf_flow_btcw": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_btcw",
@@ -209,7 +209,7 @@
  },
  "bitbo.btc.etf_flow_defi": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_defi",
@@ -222,7 +222,7 @@
  },
  "bitbo.btc.etf_flow_ezbc": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_ezbc",
@@ -235,7 +235,7 @@
  },
  "bitbo.btc.etf_flow_fbtc": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_fbtc",
@@ -248,7 +248,7 @@
  },
  "bitbo.btc.etf_flow_gbtc": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_gbtc",
@@ -261,7 +261,7 @@
  },
  "bitbo.btc.etf_flow_hodl": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_hodl",
@@ -274,7 +274,7 @@
  },
  "bitbo.btc.etf_flow_ibit": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-13T11:10:17Z",
   "id": "bitbo.btc.etf_flow_ibit",
@@ -287,33 +287,33 @@
  },
  "bitbo.btc.etf_flow_msbt": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
-  "fetched_at": "2026-11-13T11:10:17Z",
+  "fetched_at": "2026-11-14T11:10:13Z",
   "id": "bitbo.btc.etf_flow_msbt",
   "metric": "etf_flow_msbt",
   "reason": null,
   "source": "bitbo",
   "status": "ok",
   "unit": "USD",
-  "value": 27200000.0
+  "value": 26400000.0
  },
  "bitbo.btc.etf_flow_total": {
   "as_of": "2026-11-11T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
-  "fetched_at": "2026-11-13T11:10:17Z",
+  "fetched_at": "2026-11-14T11:10:13Z",
   "id": "bitbo.btc.etf_flow_total",
   "metric": "etf_flow_total",
   "reason": null,
   "source": "bitbo",
   "status": "ok",
   "unit": "USD",
-  "value": 26800000.0
+  "value": 26000000.0
  },
  "cftc.btc.cot_asset_mgr_net": {
   "as_of": "2026-11-03T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-10T22:00:49Z",
   "id": "cftc.btc.cot_asset_mgr_net",
@@ -326,7 +326,7 @@
  },
  "cftc.btc.cot_lev_money_net": {
   "as_of": "2026-11-03T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-10T22:00:49Z",
   "id": "cftc.btc.cot_lev_money_net",
@@ -339,7 +339,7 @@
  },
  "cftc.btc.cot_open_interest": {
   "as_of": "2026-11-03T00:00:00Z",
-  "checked_at": "2026-11-13T11:10:17Z",
+  "checked_at": "2026-11-14T11:10:13Z",
   "coin": "btc",
   "fetched_at": "2026-11-10T22:00:49Z",
   "id": "cftc.btc.cot_open_interest",
