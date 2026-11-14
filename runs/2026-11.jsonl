@@ -279,3 +279,4 @@
 {"changed": 0, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-14T01:13:14Z", "unchanged": 175}
 {"changed": 7, "errors": ["coinmetrics: field absent in response"], "facts": 12, "group": "onchain", "missing": 1, "started": "2026-11-14T01:30:13Z", "unchanged": 5}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-14T02:03:19Z", "unchanged": 0}
+{"changed": 0, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-14T02:13:15Z", "unchanged": 175}
