@@ -3996,3 +3996,5 @@
 {"as_of": "2026-11-14T20:03:22Z", "coin": "btc", "fetched_at": "2026-11-14T20:03:17Z", "id": "deribit.btc.perp_mark_price", "metric": "perp_mark_price", "reason": null, "source": "deribit", "status": "ok", "unit": "USD", "value": 65810.38}
 {"as_of": "2026-11-14T20:03:22Z", "coin": "btc", "fetched_at": "2026-11-14T20:03:17Z", "id": "deribit.btc.funding_rate_8h", "metric": "funding_rate_8h", "reason": null, "source": "deribit", "status": "ok", "unit": "fraction", "value": 3.2e-07}
 {"as_of": "2026-11-14T20:00:00Z", "coin": "btc", "fetched_at": "2026-11-14T20:03:17Z", "id": "deribit.btc.dvol", "metric": "dvol", "reason": null, "source": "deribit", "status": "ok", "unit": "percent", "value": 46.38}
+{"as_of": null, "coin": "btc", "fetched_at": "2026-11-14T20:22:16Z", "id": "deribit.btc.oi_call_total", "metric": "oi_call_total", "reason": null, "source": "deribit", "status": "ok", "unit": "BTC", "value": 207350.9}
+{"as_of": null, "coin": "btc", "fetched_at": "2026-11-14T20:22:16Z", "id": "deribit.btc.oi_put_total", "metric": "oi_put_total", "reason": null, "source": "deribit", "status": "ok", "unit": "BTC", "value": 150717.2}
