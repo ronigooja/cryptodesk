@@ -66,7 +66,7 @@ Latest facts retain one value per ID, not a multi-year observation history. Dail
 
 Daily JSON decimals are decoded exactly and stored in fixed-point form with trailing zeros preserved; writers hold an exclusive `data/daily/.lock` across load/merge/replace.
 
-When collecting daily series, add only previously absent dates; never change an existing row. Late values may be inserted in date order. When a source changes an existing value, retain the stored value and record a conflict (series, date, stored and received values) in the run. Missing dates stay absent; null, empty, `.`, and `N/A` values are skipped, never zero or interpolated.
+When collecting daily series, add only previously absent dates; never change an existing row. Late values may be inserted in date order. When a source changes an existing value, keep the stored value and record a conflict (series, date, stored and received values) in the run only if the absolute difference exceeds `1e-9 * max(abs(stored), abs(received))`; smaller or equal differences count as unchanged to tolerate upstream rounding of the newest days. Missing dates stay absent; null, empty, `.`, and `N/A` values are skipped, never zero or interpolated.
 
 | Series ID | Definition | Unit / day definition |
 |---|---|---|

@@ -15,6 +15,7 @@ from .adapters import coinmetrics, treasury
 from .store import find_root
 
 START = date(2025, 1, 1)
+CONFLICT_TOLERANCE = Decimal("1e-9")
 SERIES = {
     **{f"price_close.{source}.{coin}": (source, coin, unit)
        for source, unit in (("binance", "USDT"), ("coinbase", "USD"))
@@ -191,7 +192,9 @@ class DailyStore:
                 raise ValueError("missing daily value")
             if day in known:
                 present += 1
-                if Decimal(known[day]) != Decimal(value):
+                stored, received = Decimal(known[day]), Decimal(value)
+                if (stored != received and
+                        abs(stored - received) > CONFLICT_TOLERANCE * max(abs(stored), abs(received))):
                     conflicts.append(f"{series_id}: conflict {day}: stored={known[day]} received={value}")
             else:
                 known[day] = value

@@ -56,6 +56,52 @@ def test_append_idempotent_conflict_and_late_value(tmp_path):
     assert db.path(sid).read_text() == "date,value\n2025-01-01,0\n2025-01-02,2\n"
 
 
+@pytest.mark.parametrize("stored,received,conflict", [
+    ("287759077927.05", "287759077927", False),
+    ("287759077927", "287759077927.05", False),
+    ("71460.00", "71460.01", True),
+    ("1000000000", "999999999", False),
+    ("999999999", "1000000000", False),
+    ("1000000000", "999999998.999999999", True),
+    ("999999998.999999999", "1000000000", True),
+    ("71460.00", "71460.00", False),
+    ("0", "0.00", False),
+    ("0", "0.000000001", True),
+    ("-1000000000", "-999999999", False),
+    ("-1000000000", "-999999998.999999999", True),
+])
+def test_append_relative_conflict_tolerance(tmp_path, stored, received, conflict):
+    db = daily.DailyStore(tmp_path)
+    sid = "test.series"
+    day = "2025-01-01"
+    assert db.append(sid, [(day, stored)]) == (1, 0, [])
+    original = db.path(sid).read_bytes()
+    added, present, conflicts = db.append(sid, [(day, received)])
+    assert (added, present) == (0, 1)
+    assert conflicts == ([f"{sid}: conflict {day}: stored={stored} received={received}"]
+                         if conflict else [])
+    assert db.path(sid).read_bytes() == original
+    assert db.load(sid)[day] == stored
+
+
+def test_run_ignores_upstream_rounding(tmp_path):
+    db = daily.DailyStore(tmp_path)
+    sid = "stablecoin_supply_usd.defillama"
+    db.append(sid, [("2025-01-01", "287759077927.05")])
+    original = db.path(sid).read_bytes()
+
+    def get(url, params):
+        return [{"date": str(MS // 1000),
+                 "totalCirculatingUSD": {"peggedUSD": 287759077927}}]
+
+    run = db.collect([sid], get, None, SINCE, "2025-01-03T00:40:00Z", "daily")
+    assert run["facts"] == 1
+    assert run["unchanged"] == 1
+    assert run["changed"] == run["conflicts"] == run["missing"] == 0
+    assert run["errors"] == []
+    assert db.path(sid).read_bytes() == original
+
+
 @pytest.mark.parametrize("content", ["wrong,header\n", "date,value\n2025-02-30,1\n", "date,value\n2025-01-01,nan\n",
     "date,value\n2025-01-01,1\n2025-01-01,2\n", "date,value\n2025-01-02,1\n2025-01-01,2\n",
     "date,value\n2025-01-01,.\n", "date,value\n2025-01-01,1,2\n"])
