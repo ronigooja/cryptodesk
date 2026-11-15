@@ -7,7 +7,7 @@ import json
 import re
 import stat
 from datetime import UTC, date, datetime, timedelta
-from decimal import Decimal, InvalidOperation
+from decimal import Context, Decimal, InvalidOperation, localcontext
 from pathlib import Path
 from uuid import uuid4
 
@@ -32,6 +32,17 @@ def valid_date(value: str) -> date:
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
         raise ValueError("invalid date")
     return date.fromisoformat(value)
+
+
+def _differs(stored: str, received: str) -> bool:
+    """True when the values differ by more than CONFLICT_TOLERANCE relative; exact at any digit count."""
+    a, b = Decimal(stored), Decimal(received)
+    if a == b:
+        return False
+    digits = max(len(a.as_tuple().digits) + abs(a.as_tuple().exponent),
+                 len(b.as_tuple().digits) + abs(b.as_tuple().exponent)) * 2 + 40
+    with localcontext(Context(prec=digits)):
+        return abs(a - b) > CONFLICT_TOLERANCE * max(abs(a), abs(b))
 
 
 def number(value) -> str | None:
@@ -192,9 +203,7 @@ class DailyStore:
                 raise ValueError("missing daily value")
             if day in known:
                 present += 1
-                stored, received = Decimal(known[day]), Decimal(value)
-                if (stored != received and
-                        abs(stored - received) > CONFLICT_TOLERANCE * max(abs(stored), abs(received))):
+                if _differs(known[day], value):
                     conflicts.append(f"{series_id}: conflict {day}: stored={known[day]} received={value}")
             else:
                 known[day] = value

@@ -360,3 +360,11 @@ def test_coinmetrics_pagination_loop_isolated(tmp_path, repeat):
     assert run["missing"] == 1
     assert run["changed"] == 1
     assert len(calls) == (2 if repeat else 50)
+
+
+def test_tolerance_is_exact_for_very_long_numbers():
+    from cryptodesk.daily import _differs
+    assert _differs("99999999999999999999999999999", "99999999899999999999999999999")
+    assert _differs("-99999999999999999999999999999", "-99999999899999999999999999999")
+    assert not _differs("99999999999999999999999999999", "99999999999999999999999999998")
+    assert not _differs("287759077927.05", "287759077927")
