@@ -4274,3 +4274,5 @@
 {"as_of": "2026-11-15T11:03:29Z", "coin": "btc", "fetched_at": "2026-11-15T11:03:24Z", "id": "deribit.btc.perp_mark_price", "metric": "perp_mark_price", "reason": null, "source": "deribit", "status": "ok", "unit": "USD", "value": 65506.56}
 {"as_of": "2026-11-15T11:03:29Z", "coin": "btc", "fetched_at": "2026-11-15T11:03:24Z", "id": "deribit.btc.funding_rate_8h", "metric": "funding_rate_8h", "reason": null, "source": "deribit", "status": "ok", "unit": "fraction", "value": 1e-08}
 {"as_of": "2026-11-15T11:00:00Z", "coin": "btc", "fetched_at": "2026-11-15T11:03:24Z", "id": "deribit.btc.dvol", "metric": "dvol", "reason": null, "source": "deribit", "status": "ok", "unit": "percent", "value": 44.75}
+{"as_of": "2026-11-11T00:00:00Z", "coin": "btc", "fetched_at": "2026-11-15T11:10:18Z", "id": "bitbo.btc.etf_flow_msbt", "metric": "etf_flow_msbt", "reason": null, "source": "bitbo", "status": "ok", "unit": "USD", "value": 25700000.0}
+{"as_of": "2026-11-11T00:00:00Z", "coin": "btc", "fetched_at": "2026-11-15T11:10:18Z", "id": "bitbo.btc.etf_flow_total", "metric": "etf_flow_total", "reason": null, "source": "bitbo", "status": "ok", "unit": "USD", "value": 25300000.0}
