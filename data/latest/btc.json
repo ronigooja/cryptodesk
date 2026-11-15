@@ -351,43 +351,43 @@
   "value": 17527
  },
  "coinmetrics.btc.active_addresses": {
-  "as_of": "2026-11-12T00:00:00Z",
-  "checked_at": "2026-11-14T01:30:13Z",
+  "as_of": "2026-11-14T00:00:00Z",
+  "checked_at": "2026-11-15T01:30:17Z",
   "coin": "btc",
-  "fetched_at": "2026-11-13T06:58:44Z",
+  "fetched_at": "2026-11-15T01:30:17Z",
   "id": "coinmetrics.btc.active_addresses",
   "metric": "active_addresses",
   "reason": null,
   "source": "coinmetrics",
   "status": "ok",
   "unit": "count",
-  "value": 675769.0
+  "value": 629103.0
  },
  "coinmetrics.btc.fees_total": {
-  "as_of": "2026-11-12T00:00:00Z",
-  "checked_at": "2026-11-14T01:30:13Z",
+  "as_of": "2026-11-14T00:00:00Z",
+  "checked_at": "2026-11-15T01:30:17Z",
   "coin": "btc",
-  "fetched_at": "2026-11-13T06:58:44Z",
+  "fetched_at": "2026-11-15T01:30:17Z",
   "id": "coinmetrics.btc.fees_total",
   "metric": "fees_total",
   "reason": null,
   "source": "coinmetrics",
   "status": "ok",
   "unit": "BTC",
-  "value": 2.97010265
+  "value": 2.7946071
  },
  "coinmetrics.btc.mvrv": {
-  "as_of": "2026-11-12T00:00:00Z",
-  "checked_at": "2026-11-14T01:30:13Z",
+  "as_of": null,
+  "checked_at": "2026-11-15T01:30:17Z",
   "coin": "btc",
-  "fetched_at": "2026-11-13T06:58:44Z",
+  "fetched_at": "2026-11-15T01:30:17Z",
   "id": "coinmetrics.btc.mvrv",
   "metric": "mvrv",
-  "reason": null,
+  "reason": "field absent in response",
   "source": "coinmetrics",
-  "status": "ok",
+  "status": "missing",
   "unit": "ratio",
-  "value": 1.3241043375033832
+  "value": null
  },
  "deribit.btc.dvol": {
   "as_of": "2026-11-15T01:00:00Z",
@@ -846,42 +846,42 @@
  },
  "mempool.btc.difficulty": {
   "as_of": null,
-  "checked_at": "2026-11-14T01:30:13Z",
+  "checked_at": "2026-11-15T01:30:17Z",
   "coin": "btc",
-  "fetched_at": "2026-11-10T22:00:31Z",
+  "fetched_at": "2026-11-15T01:30:17Z",
   "id": "mempool.btc.difficulty",
   "metric": "difficulty",
   "reason": null,
   "source": "mempool",
   "status": "ok",
   "unit": "number",
-  "value": 148364561003867.4
+  "value": 134823837323272.7
  },
  "mempool.btc.fee_fastest": {
   "as_of": null,
-  "checked_at": "2026-11-14T01:30:13Z",
+  "checked_at": "2026-11-15T01:30:17Z",
   "coin": "btc",
-  "fetched_at": "2026-11-14T01:30:13Z",
+  "fetched_at": "2026-11-15T01:30:17Z",
   "id": "mempool.btc.fee_fastest",
   "metric": "fee_fastest",
   "reason": null,
   "source": "mempool",
   "status": "ok",
   "unit": "sat/vB",
-  "value": 2.0
+  "value": 3.0
  },
  "mempool.btc.hashrate": {
   "as_of": null,
-  "checked_at": "2026-11-14T01:30:13Z",
+  "checked_at": "2026-11-15T01:30:17Z",
   "coin": "btc",
-  "fetched_at": "2026-11-14T01:30:13Z",
+  "fetched_at": "2026-11-15T01:30:17Z",
   "id": "mempool.btc.hashrate",
   "metric": "hashrate",
   "reason": null,
   "source": "mempool",
   "status": "ok",
   "unit": "H/s",
-  "value": 9.161580777528324e+20
+  "value": 9.02945802339258e+20
  },
  "okx.btc.funding_rate_8h": {
   "as_of": "2026-11-15T01:03:07Z",
