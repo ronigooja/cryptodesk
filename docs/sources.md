@@ -67,6 +67,7 @@ Definitions, units, and day boundaries are in [Daily series](data-model.md#daily
 | Farside ETF flows | No official API; Cloudflare blocks scripts |
 | ETF flow disagreement | Bitbo and Farside disagree on 2026-11-09: total -198.6m vs -201.0m, IBIT -210.5m vs -213.2m (US$m). Cause not found. Only Bitbo is collected |
 | Stablecoin total | The live fact `stablecoin_supply_usd` sums per-asset USD-pegged supply and was 292.894B on 2026-11-11; the daily series `stablecoin_supply_usd.defillama` uses the chart total, 289.469B for 2026-11-11 (about 1.2% lower), and an earlier comparison on 2026-11-11 found a 0.155% gap (292.894B versus 292.440B). Cause not found; the two are not interchangeable |
+| Coin Metrics MVRV latest day | The newest daily row often has `CapMVRVCur: null` while other fields are set (ETH 2026-11-15, 2026-11-15 probe). The live fact is then `missing`; the daily series holds the last dated value |
 | DefiLlama ETF endpoints | Paid |
 | LTH/STH supply, realized price | No stable free source |
 | CME FedWatch probabilities | No official free API |
