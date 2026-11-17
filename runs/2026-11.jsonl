@@ -476,3 +476,4 @@
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-17T10:03:16Z", "unchanged": 0}
 {"changed": 6, "errors": ["fed_press: HTTP 404"], "facts": 154, "group": "news", "missing": 1, "skipped": 0, "started": "2026-11-17T10:13:19Z", "unchanged": 148}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-17T11:03:13Z", "unchanged": 0}
+{"changed": 21, "errors": [], "facts": 21, "group": "flows", "missing": 0, "started": "2026-11-17T11:10:23Z", "unchanged": 0}
