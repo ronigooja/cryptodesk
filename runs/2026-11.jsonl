@@ -370,6 +370,62 @@
 {"changed": 2, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-15T14:13:13Z", "unchanged": 173}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-15T15:03:15Z", "unchanged": 0}
 {"changed": 1, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-15T15:13:17Z", "unchanged": 174}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-15T16:03:17Z", "unchanged": 0}
+{"changed": 1, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-15T16:13:23Z", "unchanged": 174}
+{"changed": 4, "errors": [], "facts": 6, "group": "options", "missing": 0, "started": "2026-11-15T16:22:14Z", "unchanged": 2}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-15T17:03:21Z", "unchanged": 0}
+{"changed": 0, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-15T17:13:17Z", "unchanged": 175}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-15T18:03:15Z", "unchanged": 0}
+{"changed": 0, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-15T18:13:20Z", "unchanged": 175}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-15T19:03:21Z", "unchanged": 0}
+{"changed": 0, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-15T19:13:20Z", "unchanged": 175}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-15T20:03:14Z", "unchanged": 0}
+{"changed": 1, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-15T20:13:18Z", "unchanged": 174}
+{"changed": 5, "errors": [], "facts": 6, "group": "options", "missing": 0, "started": "2026-11-15T20:22:14Z", "unchanged": 1}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-15T21:03:18Z", "unchanged": 0}
+{"changed": 1, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-15T21:13:21Z", "unchanged": 174}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-15T22:03:16Z", "unchanged": 0}
+{"changed": 1, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-15T22:13:16Z", "unchanged": 174}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-15T23:03:15Z", "unchanged": 0}
+{"changed": 1, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-15T23:13:20Z", "unchanged": 174}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T00:03:15Z", "unchanged": 0}
+{"changed": 1, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T00:13:19Z", "unchanged": 174}
+{"changed": 4, "errors": [], "facts": 6, "group": "options", "missing": 0, "started": "2026-11-16T00:22:15Z", "unchanged": 2}
+{"changed": 7, "conflicts": 0, "errors": [], "facts": 38, "group": "daily", "missing": 0, "skipped": 3703, "started": "2026-11-16T00:40:16Z", "unchanged": 31}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T01:03:18Z", "unchanged": 0}
+{"changed": 0, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T01:13:15Z", "unchanged": 175}
+{"changed": 9, "errors": ["coinmetrics: field absent in response"], "facts": 12, "group": "onchain", "missing": 2, "started": "2026-11-16T01:30:23Z", "unchanged": 3}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T02:03:20Z", "unchanged": 0}
+{"changed": 0, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T02:13:25Z", "unchanged": 175}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T03:03:17Z", "unchanged": 0}
+{"changed": 1, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T03:13:17Z", "unchanged": 174}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T04:03:15Z", "unchanged": 0}
+{"changed": 0, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T04:13:19Z", "unchanged": 175}
+{"changed": 4, "errors": [], "facts": 6, "group": "options", "missing": 0, "started": "2026-11-16T04:22:14Z", "unchanged": 2}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T05:03:43Z", "unchanged": 0}
+{"changed": 3, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T05:13:13Z", "unchanged": 172}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T06:03:43Z", "unchanged": 0}
+{"changed": 2, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T06:13:16Z", "unchanged": 173}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T07:03:22Z", "unchanged": 0}
+{"changed": 1, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T07:13:15Z", "unchanged": 174}
+{"changed": 4, "errors": [], "facts": 6, "group": "options", "missing": 0, "started": "2026-11-16T07:30:15Z", "unchanged": 2}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T08:03:18Z", "unchanged": 0}
+{"changed": 2, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T08:13:20Z", "unchanged": 173}
+{"changed": 4, "errors": [], "facts": 6, "group": "options", "missing": 0, "started": "2026-11-16T08:22:16Z", "unchanged": 2}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T09:03:19Z", "unchanged": 0}
+{"changed": 6, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T09:13:16Z", "unchanged": 169}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T10:03:14Z", "unchanged": 0}
+{"changed": 5, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T10:13:18Z", "unchanged": 170}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T11:03:18Z", "unchanged": 0}
+{"changed": 15, "errors": [], "facts": 21, "group": "flows", "missing": 0, "started": "2026-11-16T11:10:19Z", "unchanged": 6}
+{"changed": 6, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T11:13:15Z", "unchanged": 169}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T12:03:16Z", "unchanged": 0}
+{"changed": 2, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T12:13:19Z", "unchanged": 173}
+{"changed": 4, "errors": [], "facts": 6, "group": "options", "missing": 0, "started": "2026-11-16T12:22:19Z", "unchanged": 2}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T13:03:21Z", "unchanged": 0}
+{"changed": 5, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T13:13:16Z", "unchanged": 170}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T14:03:14Z", "unchanged": 0}
+{"changed": 5, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T14:13:17Z", "unchanged": 170}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T15:03:19Z", "unchanged": 0}
 {"changed": 50, "errors": [], "facts": 175, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-16T15:13:17Z", "unchanged": 125}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-16T16:03:15Z", "unchanged": 0}
