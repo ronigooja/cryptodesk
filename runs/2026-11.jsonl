@@ -397,3 +397,4 @@
 {"changed": 16, "conflicts": 3, "errors": ["stablecoin_supply_usd.defillama: conflict 2026-11-12: stored=289051874291 received=289066437339", "stablecoin_supply_usd.defillama: conflict 2026-11-13: stored=287759077927.05 received=287773733081", "stablecoin_supply_usd.defillama: conflict 2026-11-14: stored=287038821314.6 received=287053452596"], "facts": 40, "group": "daily", "missing": 0, "skipped": 3704, "started": "2026-11-17T00:40:15Z", "unchanged": 24}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-17T01:03:17Z", "unchanged": 0}
 {"changed": 1, "errors": [], "facts": 174, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-17T01:13:25Z", "unchanged": 173}
+{"changed": 11, "errors": ["coinmetrics: HTTP 526"], "facts": 12, "group": "onchain", "missing": 6, "started": "2026-11-17T01:30:16Z", "unchanged": 1}
