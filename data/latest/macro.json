@@ -39,10 +39,10 @@
   "value": 175236659099.5422
  },
  "nyfed.macro.fed_funds_effective": {
-  "as_of": "2026-11-16T00:00:00Z",
-  "checked_at": "2026-11-17T22:45:24Z",
+  "as_of": "2026-11-17T00:00:00Z",
+  "checked_at": "2026-11-18T22:45:15Z",
   "coin": "macro",
-  "fetched_at": "2026-11-17T22:45:24Z",
+  "fetched_at": "2026-11-18T22:45:15Z",
   "id": "nyfed.macro.fed_funds_effective",
   "metric": "fed_funds_effective",
   "reason": null,
@@ -52,23 +52,23 @@
   "value": 3.88
  },
  "treasury.macro.us10y_yield": {
-  "as_of": "2026-11-17T00:00:00Z",
-  "checked_at": "2026-11-17T22:45:24Z",
+  "as_of": "2026-11-18T00:00:00Z",
+  "checked_at": "2026-11-18T22:45:15Z",
   "coin": "macro",
-  "fetched_at": "2026-11-17T22:45:24Z",
+  "fetched_at": "2026-11-18T22:45:15Z",
   "id": "treasury.macro.us10y_yield",
   "metric": "us10y_yield",
   "reason": null,
   "source": "treasury",
   "status": "ok",
   "unit": "percent",
-  "value": 5.1
+  "value": 5.07
  },
  "treasury.macro.us2y_yield": {
-  "as_of": "2026-11-17T00:00:00Z",
-  "checked_at": "2026-11-17T22:45:24Z",
+  "as_of": "2026-11-18T00:00:00Z",
+  "checked_at": "2026-11-18T22:45:15Z",
   "coin": "macro",
-  "fetched_at": "2026-11-17T22:45:24Z",
+  "fetched_at": "2026-11-18T22:45:15Z",
   "id": "treasury.macro.us2y_yield",
   "metric": "us2y_yield",
   "reason": null,
