@@ -52,7 +52,7 @@ When a value is unavailable, use `missing` with a short reason: `HTTP <code>`, `
 
 | Path | Behavior |
 |---|---|
-| `data/latest/<coin>.json` | Map of fact ID to latest record; refresh `checked_at` even when unchanged. Expired option series are removed on every run. |
+| `data/latest/<coin>.json` | Map of fact ID to latest record; refresh `checked_at` even when unchanged. Expired option series (expiry UTC date before the run date) are removed whenever a run writes facts through the fact store (not by `news` or `daily` runs). Option IDs that are no longer collected are removed by hand; history keeps them. |
 | `data/facts/<YYYY-MM>/<coin>.jsonl` | Append when `status`, `value`, `as_of`, or `reason` differs from latest; no `checked_at`. Never edited, including expired options. |
 | `runs/<YYYY-MM>.jsonl` | One line per run: start time, group, counts (facts, changed, unchanged, missing), error strings. |
 

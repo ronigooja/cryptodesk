@@ -24,6 +24,7 @@
 | 2026-11-13 | Restore active-address, fee, and mempool collection removed earlier the same day; keep CFTC | The removal criterion was weak: one earlier analysis did not use them, while no analysis had enough history to judge them. |
 | 2026-11-13 | Add a news metadata layer (seven RSS feeds, six metadata fields, no article text) and rebuild the event calendar from official pages; no denser collection around events | Short-term analysis needs reported events with times; copyright and a public repo rule out storing text; the user declined event-window collection. |
 | 2026-11-13 | No failure alerting. Failures appear as `missing` facts and in `runs/`; they are found when someone reads the data | User decision. Known consequence: the Binance proxy failure of 2026-11-06 to 2026-11-10 went unnoticed for about 3.5 days. |
+| 2026-11-18 | Removed 46 uncollected per-expiry option records (`oi_call`, `oi_put`, non-nearest `max_pain`) from `data/latest`; history unchanged | Left over from the collector change in `79a8f7a`; stale but unexpired, so analysis could misread them as current. Daily-series conflicts stay as logged: stored values are kept and differences remain in `runs/` (no tolerance change, no revision file) |
 
 ## Triggers to revisit
 
