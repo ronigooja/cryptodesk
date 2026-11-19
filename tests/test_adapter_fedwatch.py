@@ -19,6 +19,13 @@ def test_outcomes_and_missing_cell():
     assert all(not model.validate(f.to_dict(), REG) for f in facts)
 
 
+def test_hidden_row_without_now_to_1week_values_is_skipped():
+    page = PAGE.replace("<tr><td colspan=\"5\">",
+                        "<tr><td>125-150</td><td></td><td></td><td></td><td>0.0%</td></tr><tr><td colspan=\"5\">")
+    assert [f.metric for f in fedwatch.collect(lambda: page, STARTED)] == [
+        f.metric for f in fedwatch.collect(lambda: PAGE, STARTED)]
+
+
 def test_dst_and_invalid_cell():
     page = PAGE.replace("19 Nov 2026", "19 Jun 2026").replace("92.7%", "invalid")
     facts = fedwatch.collect(lambda: page, STARTED)

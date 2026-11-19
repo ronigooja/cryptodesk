@@ -89,6 +89,8 @@ def parse_page(text):
             raise ValueError("invalid range")
         metric = f"fedwatch_probability_{date}b{lower}x{upper}"
         raw = row[1] if len(row) > 1 else ""
+        if not any(row[1:4]):
+            continue
         value = None
         if re.fullmatch(r"\d+(?:\.\d+)?%", raw):
             value = float(raw[:-1])
