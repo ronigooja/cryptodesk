@@ -3,7 +3,7 @@ import os
 from datetime import UTC, datetime, timedelta
 
 from . import check, daily, model, news, profiles, registry, store
-from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, farside, fred, mempool, nyfed, okx, treasury
+from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, farside, fedwatch, fred, mempool, nyfed, okx, treasury
 from .adapters.base import PROXY_ENV, make_get, make_get_text, make_get_text_chrome, make_get_text_default_ua
 
 
@@ -52,7 +52,7 @@ def main(argv=None) -> int:
             return 0 if items else 1
         if args.group == "macro":
             facts = (treasury.collect(make_get_text_fn(), started) + nyfed.collect(make_get_fn(), started)
-                     + fred.collect(make_get_text_default_ua_fn(), started))
+                     + fred.collect(make_get_text_default_ua_fn(), started) + fedwatch.collect(fedwatch.fetch_page, started))
         elif args.group == "onchain":
             get = make_get_fn()
             facts = defillama.collect(None, get, started)

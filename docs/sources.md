@@ -14,6 +14,7 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 | `treasury` | US Treasury daily par yield curve CSV | none | macro | `us2y_yield`, `us10y_yield` (close of day) | verified locally 2026-11-05 |
 | `nyfed` | NY Fed reference rates API | none | macro | `fed_funds_effective` | verified locally 2026-11-05 |
 | `fred` | FRED CSV `fredgraph.csv?id=CPIAUCNS` | none | macro | `cpi_index`, `cpi_yoy_pct` | draft: probed 2026-11-19; api.bls.gov returned Access Denied from this host; blank months (2025-10) are skipped, so `cpi_yoy_pct` for 2026-10 is `missing`; FRED drops connections from custom User-Agents, so the collector uses the httpx default |
+| `fedwatch` | CME China FedWatch / QuikStrike embedded HTML | none; Chrome TLS fingerprint and transient session | macro | `fedwatch_probability_<outcome>`, `fedwatch_status` | draft: embedded view retrieved 5/5 fresh sessions from Japan on 2026-11-19; US runner untested; source may change |
 | `bitbo` | Bitbo ETF flow table (HTML, US$m) | none | btc | `etf_flow_total`, `etf_flow_<fund>` | verified locally 2026-11-11; btc only |
 | `farside` | Farside Ethereum ETF flow table (HTML, US$m, parentheses = negative) | none; Chrome TLS fingerprint | eth | `etf_flow_total`, `etf_flow_<fund>` | draft: parsed locally 2026-11-19; fund columns must sum to the total within 0.1 per fund, else `missing`; `as_of` is the row date, not a verified session cutoff |
 | `coinmetrics` | Coin Metrics Community | none | btc, eth | `mvrv`, `active_addresses`, `fees_total` | verified locally 2026-11-11 |
@@ -22,6 +23,8 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 | `cftc` | CFTC Socrata, dataset `gpe5-46if` (futures only) | none | btc, eth | `cot_open_interest`, `cot_asset_mgr_net`, `cot_lev_money_net` | verified locally 2026-11-11; exact CME contract names |
 
 Retired collection scope: [metrics.md](metrics.md#retired).
+
+FedWatch reads the NOW column for the page's selected meeting, with date and target bounds encoded in each metric. The page's CT timestamp is converted using `America/Chicago` timezone rules, including DST. Unidentifiable meeting, table or timestamp yields a missing `fedwatch_status`; absent or invalid probability cells yield missing outcome facts. Old meeting IDs remain in latest until manually removed.
 
 ## Daily backfill endpoints
 
@@ -76,7 +79,7 @@ Definitions, units, and day boundaries are in [Daily series](data-model.md#daily
 | `fed_press` feed | Returned HTTP 404 on 2026-11-15 and 2026-11-17; HTTP 200 when probed 2026-11-18. Intermittent, cause unknown |
 | DefiLlama ETF endpoints | Paid |
 | LTH/STH supply, realized price | No stable free source |
-| CME FedWatch probabilities | No official free API |
+| CME FedWatch probabilities | No official free API; the draft collector parses the embedded HTML rather than an API |
 | BLS RSS | Returned HTTP 403 on 2026-11-06 |
 | Binance from GitHub-hosted runners | HTTP 451 on all Binance endpoints, observed 2026-11-05 (run 42094550517). When `CRYPTODESK_PROXY` is set, only `binance.com` hosts use it; keep the credential-bearing URL only in environment variables or GitHub Secrets. Unset means direct connection, not `<NAME> not set`; on hosted runners the resulting facts are `missing` with reason `HTTP 451` |
 | GDELT | Returned HTTP 429; not planned |
