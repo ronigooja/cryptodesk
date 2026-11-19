@@ -568,3 +568,4 @@
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-19T00:03:22Z", "unchanged": 0}
 {"changed": 0, "errors": [], "facts": 172, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-19T00:13:17Z", "unchanged": 172}
 {"changed": 4, "errors": [], "facts": 6, "group": "options", "missing": 0, "started": "2026-11-19T00:22:22Z", "unchanged": 2}
+{"changed": 10, "conflicts": 4, "errors": ["mvrv.coinmetrics.btc: conflict 2026-11-14: stored=1.187798073608768902 received=1.187798083024836551", "mvrv.coinmetrics.btc: conflict 2026-11-15: stored=1.214412975685941983 received=1.214412984098962754", "mvrv.coinmetrics.eth: conflict 2026-11-14: stored=0.836879283746973453 received=0.836881755262088965", "stablecoin_supply_usd.defillama: conflict 2026-11-14: stored=287038821314.6 received=287053452596"], "facts": 41, "group": "daily", "missing": 0, "skipped": 3710, "started": "2026-11-19T00:40:16Z", "unchanged": 31}
