@@ -597,3 +597,4 @@
 {"changed": 15, "errors": [], "facts": 21, "group": "flows", "missing": 0, "started": "2026-11-19T11:10:23Z", "unchanged": 6}
 {"changed": 9, "errors": [], "facts": 171, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-19T11:13:18Z", "unchanged": 162}
 {"changed": 12, "errors": [], "facts": 33, "group": "flows", "missing": 0, "started": "2026-11-19T11:24:49Z", "unchanged": 21}
+{"changed": 2, "errors": ["fred: not published"], "facts": 5, "group": "macro", "missing": 1, "started": "2026-11-19T11:26:20Z", "unchanged": 3}
