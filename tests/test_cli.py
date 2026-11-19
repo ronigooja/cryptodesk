@@ -68,8 +68,10 @@ NYFED = {"refRates": [{"effectiveDate": "2026-11-04", "type": "EFFR", "percentRa
 def test_macro_collect(repo, monkeypatch, capsys):
     monkeypatch.setattr(cli, "make_get_text_fn", lambda: lambda url, params: TREASURY)
     monkeypatch.setattr(cli, "make_get_fn", lambda: lambda url, params: NYFED)
+    monkeypatch.setattr(cli, "make_get_text_default_ua_fn",
+                        lambda: lambda url, params: "observation_date,CPIAUCNS\n2025-09-01,324.800\n2026-09-01,336.940\n")
     assert cli.main(["collect", "macro"]) == 0
-    assert capsys.readouterr().out.strip() == "collect macro: facts=3 changed=3 unchanged=0 missing=0"
+    assert capsys.readouterr().out.strip() == "collect macro: facts=5 changed=5 unchanged=0 missing=0"
     assert cli.main(["check"]) == 0
 
 
@@ -79,8 +81,9 @@ def test_macro_failure_is_missing_not_crash(repo, monkeypatch, capsys):
 
     monkeypatch.setattr(cli, "make_get_text_fn", lambda: get)
     monkeypatch.setattr(cli, "make_get_fn", lambda: get)
+    monkeypatch.setattr(cli, "make_get_text_default_ua_fn", lambda: get)
     assert cli.main(["collect", "macro"]) == 0
-    assert "missing=3" in capsys.readouterr().out
+    assert "missing=5" in capsys.readouterr().out
     assert cli.main(["check"]) == 0
 
 

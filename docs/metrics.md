@@ -16,7 +16,7 @@ BTC and ETH use `class = "major"` in `profile.toml`.
 | `etf` | BTC daily ETF flows from Bitbo |
 | `onchain` | Coin Metrics MVRV, active addresses, total fees; mempool.space hashrate, difficulty, recommended fee (btc) |
 
-Shared `macro` facts include Treasury yields, EFFR, and DefiLlama stablecoin supply; CFTC positioning runs in [flows](schedule.md#groups). MVRV is collected, not planned.
+Shared `macro` facts include Treasury yields, EFFR, CPI, and DefiLlama stablecoin supply; CFTC positioning runs in [flows](schedule.md#groups). MVRV is collected, not planned.
 
 ## Retired
 
@@ -45,6 +45,8 @@ Fields: name, unit, meaning, staleness limit (time since [last confirmation](dat
 | `etf_flow_total`, `etf_flow_<fund>` | USD | Daily net flow for a US trading day | 36 h | series |
 | `us10y_yield`, `us2y_yield` | percent | Treasury yields | 48 h | series |
 | `fed_funds_effective` | percent | Effective fed funds rate | 48 h | series |
+| `cpi_index` | index | US CPI-U all items, not seasonally adjusted, 1982-84=100 (FRED `CPIAUCNS`, from BLS); `as_of` is the reference month start | 1080 h | series |
+| `cpi_yoy_pct` | percent | `cpi_index` against the same month a year earlier, computed by the collector, rounded to 3 decimals; `missing` when that month has no value | 1080 h | series |
 | `mvrv` | ratio | Market value to realized value (Coin Metrics `CapMVRVCur`) | 48 h | series |
 | `active_addresses` | count | Daily active addresses (Coin Metrics `AdrActCnt`) | 48 h | series |
 | `fees_total` | base coin | Daily total fees (Coin Metrics `FeeTotNtv`) | 48 h | series |

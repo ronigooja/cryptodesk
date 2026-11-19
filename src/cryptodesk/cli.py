@@ -3,8 +3,8 @@ import os
 from datetime import UTC, datetime, timedelta
 
 from . import check, daily, model, news, profiles, registry, store
-from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, mempool, nyfed, okx, treasury
-from .adapters.base import PROXY_ENV, make_get, make_get_text
+from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, fred, mempool, nyfed, okx, treasury
+from .adapters.base import PROXY_ENV, make_get, make_get_text, make_get_text_default_ua
 
 
 def make_get_fn():
@@ -16,6 +16,7 @@ def make_daily_get_fn():
 
 
 make_get_text_fn = make_get_text
+make_get_text_default_ua_fn = make_get_text_default_ua
 
 
 def main(argv=None) -> int:
@@ -49,7 +50,8 @@ def main(argv=None) -> int:
                   f"unchanged={run['unchanged']} missing={run['missing']}")
             return 0 if items else 1
         if args.group == "macro":
-            facts = treasury.collect(make_get_text_fn(), started) + nyfed.collect(make_get_fn(), started)
+            facts = (treasury.collect(make_get_text_fn(), started) + nyfed.collect(make_get_fn(), started)
+                     + fred.collect(make_get_text_default_ua_fn(), started))
         elif args.group == "onchain":
             get = make_get_fn()
             facts = defillama.collect(None, get, started)

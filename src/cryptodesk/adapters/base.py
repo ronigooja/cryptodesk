@@ -19,6 +19,24 @@ def _client(timeout: float, proxy: str | None = None):
     return httpx.Client(timeout=timeout, headers={"User-Agent": "cryptodesk"}, proxy=proxy)
 
 
+def make_get_text_default_ua(timeout: float = 20.0) -> Callable:
+    """Text fetcher with the httpx default User-Agent; FRED drops connections from other agents."""
+    client = httpx.Client(timeout=timeout)
+
+    def get(url: str, params: dict | None = None):
+        try:
+            r = client.get(url, params=params)
+        except httpx.TimeoutException:
+            raise FetchError("Timeout")
+        except httpx.HTTPError as e:
+            raise FetchError(f"request error {type(e).__name__}")
+        if r.status_code != 200:
+            raise FetchError(f"HTTP {r.status_code}")
+        return r.text
+
+    return get
+
+
 def _make_fetch(timeout: float, parse: Callable, proxy: str | None = None,
                 user_agent: str | None = None) -> Callable:
     direct = _client(timeout)

@@ -13,6 +13,7 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 | `deribit` | Deribit v2 public | none | btc, eth | perp, `dvol`, [options](metrics.md#modules) | verified locally 2026-11-05 |
 | `treasury` | US Treasury daily par yield curve CSV | none | macro | `us2y_yield`, `us10y_yield` (close of day) | verified locally 2026-11-05 |
 | `nyfed` | NY Fed reference rates API | none | macro | `fed_funds_effective` | verified locally 2026-11-05 |
+| `fred` | FRED CSV `fredgraph.csv?id=CPIAUCNS` | none | macro | `cpi_index`, `cpi_yoy_pct` | draft: probed 2026-11-19; api.bls.gov returned Access Denied from this host; blank months (2025-10) are skipped, so `cpi_yoy_pct` for 2026-10 is `missing`; FRED drops connections from custom User-Agents, so the collector uses the httpx default |
 | `bitbo` | Bitbo ETF flow table (HTML, US$m) | none | btc | `etf_flow_total`, `etf_flow_<fund>` | verified locally 2026-11-11; btc only |
 | `coinmetrics` | Coin Metrics Community | none | btc, eth | `mvrv`, `active_addresses`, `fees_total` | verified locally 2026-11-11 |
 | `mempool` | mempool.space | none; rate limited | btc | `hashrate`, `difficulty`, `fee_fastest` | verified locally 2026-11-11 |
