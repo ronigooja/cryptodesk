@@ -3,8 +3,8 @@ import os
 from datetime import UTC, datetime, timedelta
 
 from . import check, daily, model, news, profiles, registry, store
-from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, fred, mempool, nyfed, okx, treasury
-from .adapters.base import PROXY_ENV, make_get, make_get_text, make_get_text_default_ua
+from .adapters import binance, cftc, coinmetrics, defillama, deribit, etf, farside, fred, mempool, nyfed, okx, treasury
+from .adapters.base import PROXY_ENV, make_get, make_get_text, make_get_text_chrome, make_get_text_default_ua
 
 
 def make_get_fn():
@@ -17,6 +17,7 @@ def make_daily_get_fn():
 
 make_get_text_fn = make_get_text
 make_get_text_default_ua_fn = make_get_text_default_ua
+make_get_text_chrome_fn = make_get_text_chrome
 
 
 def main(argv=None) -> int:
@@ -59,7 +60,7 @@ def main(argv=None) -> int:
                 facts.extend(coinmetrics.collect(coin, get, started))
                 facts.extend(mempool.collect(coin, get, started))
         elif args.group == "flows":
-            facts = etf.collect(make_get_text_fn(), started)
+            facts = etf.collect(make_get_text_fn(), started) + farside.collect(make_get_text_chrome_fn(), started)
             get = make_get_fn()
             for coin in profiles.list_coins(root):
                 if coin in cftc.MARKETS:

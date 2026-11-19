@@ -137,13 +137,27 @@ def test_onchain_collect_and_check(repo, monkeypatch, capsys):
     assert latest["defillama.macro.stablecoin_supply_usd"]["value"] == 150.0
 
 
+FARSIDE_HTML = (
+    "<html>Daily Flow (US$m)<table class='etf'>"
+    "<tr><th></th><th>Total</th></tr>"
+    "<tr><td></td><td>ETHA</td><td>FETH</td><td>ETH</td><td></td></tr>"
+    "<tr><td>Fee</td><td>0.25%</td><td>0.25%</td><td>0.15%</td><td></td></tr>"
+    "<tr><td>17 Nov 2026</td><td>(27.6)</td><td>0.0</td><td>0.0</td><td>(27.6)</td></tr>"
+    "<tr><td>18 Nov 2026</td><td>(17.4)</td><td>(7.4)</td><td>(15.0)</td><td>(39.8)</td></tr>"
+    "<tr><td>Total</td><td>1</td><td>2</td><td>3</td><td>6</td></tr></table></html>"
+)
+
+
 def test_flows_collect_and_check(repo, monkeypatch, capsys):
     monkeypatch.setattr(cli, "make_get_fn", lambda: fake_get_more)
     monkeypatch.setattr(cli, "make_get_text_fn", lambda: lambda url, params: BITBO)
+    monkeypatch.setattr(cli, "make_get_text_chrome_fn", lambda: lambda url, params: FARSIDE_HTML)
     assert cli.main(["collect", "flows"]) == 0
     assert "missing=" in capsys.readouterr().out
     assert cli.main(["check"]) == 0
     btc = json.loads((repo / "data" / "latest" / "btc.json").read_text())
     assert btc["bitbo.btc.etf_flow_total"]["value"] == -198.6 * 1_000_000
     assert btc["cftc.btc.cot_lev_money_net"]["value"] == -6
+    eth_latest = json.loads((repo / "data" / "latest" / "eth.json").read_text())
+    assert eth_latest["farside.eth.etf_flow_total"]["value"] == -39.8 * 1_000_000
     assert json.loads((repo / "data" / "latest" / "eth.json").read_text())["cftc.eth.cot_asset_mgr_net"]["value"] == 6

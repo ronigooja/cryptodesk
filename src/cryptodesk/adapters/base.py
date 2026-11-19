@@ -19,6 +19,23 @@ def _client(timeout: float, proxy: str | None = None):
     return httpx.Client(timeout=timeout, headers={"User-Agent": "cryptodesk"}, proxy=proxy)
 
 
+def make_get_text_chrome(timeout: float = 30.0) -> Callable:
+    """Text fetcher with a Chrome TLS fingerprint (curl_cffi); for sites that return 403 to plain clients."""
+    def get(url: str, params: dict | None = None):
+        try:
+            from curl_cffi import requests as cffi
+            r = cffi.get(url, params=params, impersonate="chrome", timeout=timeout)
+        except ImportError:
+            raise FetchError("curl_cffi not installed")
+        except Exception as e:
+            raise FetchError(f"request error {type(e).__name__}")
+        if r.status_code != 200:
+            raise FetchError(f"HTTP {r.status_code}")
+        return r.text
+
+    return get
+
+
 def make_get_text_default_ua(timeout: float = 20.0) -> Callable:
     """Text fetcher with the httpx default User-Agent; FRED drops connections from other agents."""
     client = httpx.Client(timeout=timeout)

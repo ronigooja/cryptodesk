@@ -15,6 +15,7 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 | `nyfed` | NY Fed reference rates API | none | macro | `fed_funds_effective` | verified locally 2026-11-05 |
 | `fred` | FRED CSV `fredgraph.csv?id=CPIAUCNS` | none | macro | `cpi_index`, `cpi_yoy_pct` | draft: probed 2026-11-19; api.bls.gov returned Access Denied from this host; blank months (2025-10) are skipped, so `cpi_yoy_pct` for 2026-10 is `missing`; FRED drops connections from custom User-Agents, so the collector uses the httpx default |
 | `bitbo` | Bitbo ETF flow table (HTML, US$m) | none | btc | `etf_flow_total`, `etf_flow_<fund>` | verified locally 2026-11-11; btc only |
+| `farside` | Farside Ethereum ETF flow table (HTML, US$m, parentheses = negative) | none; Chrome TLS fingerprint | eth | `etf_flow_total`, `etf_flow_<fund>` | draft: parsed locally 2026-11-19; fund columns must sum to the total within 0.1 per fund, else `missing`; `as_of` is the row date, not a verified session cutoff |
 | `coinmetrics` | Coin Metrics Community | none | btc, eth | `mvrv`, `active_addresses`, `fees_total` | verified locally 2026-11-11 |
 | `mempool` | mempool.space | none; rate limited | btc | `hashrate`, `difficulty`, `fee_fastest` | verified locally 2026-11-11 |
 | `defillama` | DefiLlama stablecoins API | none | macro | `stablecoin_supply_usd`, `usdt_supply_usd`, `usdc_supply_usd` | verified locally 2026-11-11 |
@@ -55,7 +56,7 @@ Definitions, units, and day boundaries are in [Daily series](data-model.md#daily
 |---|---|---|---|---|
 | `bls` | BLS API v2 | free key `BLS_API_KEY` | payrolls, unemployment, CPI | blocked: key |
 | `fiscaldata` | Treasury FiscalData | none | refunding, auctions | planned |
-| `etf_flows` | Farside and SoSoValue | SoSoValue key | ETF cross-check, ETH ETF flows | blocked: Cloudflare returns 403 to scripts, also through the proxy (2026-11-11) |
+| `etf_flows` | SoSoValue | SoSoValue key | ETF cross-check | blocked: HTTP 403 to scripts, also with a Chrome fingerprint (2026-11-19) |
 | `edgar` | SEC EDGAR JSON | User-Agent header | filings | planned |
 | `beacon` | beaconcha.in | API key | ETH staking queues | blocked: key (HTTP 401 on 2026-11-11) |
 
@@ -64,8 +65,8 @@ Definitions, units, and day boundaries are in [Daily series](data-model.md#daily
 | Gap | State |
 |---|---|
 | Market-wide liquidations (long and short) | No free complete source |
-| ETH spot ETF flows | No free source usable by script: Farside returns 403, Bitbo's ETH page is a soft 404 (2026-11-11) |
-| Farside ETF flows | No official API; Cloudflare blocks scripts |
+| Farside access | Plain HTTP clients get 403 (2026-11-11); a Chrome TLS fingerprint (`curl_cffi`) returns the page (2026-11-19). It may be blocked again at any time, then ETH ETF facts are `missing`. Bitbo's ETH page is a 404 |
+| Farside BTC ETF flows | Not collected; Bitbo is the BTC source |
 | ETF flow disagreement | Bitbo and Farside disagree on 2026-11-09: total -198.6m vs -201.0m, IBIT -210.5m vs -213.2m (US$m). Cause not found. Only Bitbo is collected |
 | Stablecoin total | The live fact `stablecoin_supply_usd` sums per-asset USD-pegged supply and was 292.894B on 2026-11-11; the daily series `stablecoin_supply_usd.defillama` uses the chart total, 289.469B for 2026-11-11 (about 1.2% lower), and an earlier comparison on 2026-11-11 found a 0.155% gap (292.894B versus 292.440B). Cause not found; the two are not interchangeable |
 | Coin Metrics MVRV latest day | The newest daily row often has `CapMVRVCur: null` while other fields are set (ETH 2026-11-15, 2026-11-15 probe). The live fact is then `missing`; the daily series holds the last dated value |

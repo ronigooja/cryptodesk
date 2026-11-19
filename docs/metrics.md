@@ -13,7 +13,7 @@ BTC and ETH use `class = "major"` in `profile.toml`.
 | `core` | Spot price, 24h change, high/low |
 | `perp` | Perp price, funding, open interest, top-trader long/short ratios; Deribit DVOL in the market group |
 | `options` | Total call/put open interest per currency; max pain for the nearest monthly expiry only |
-| `etf` | BTC daily ETF flows from Bitbo |
+| `etf` | BTC daily ETF flows from Bitbo; ETH daily ETF flows from Farside |
 | `onchain` | Coin Metrics MVRV, active addresses, total fees; mempool.space hashrate, difficulty, recommended fee (btc) |
 
 Shared `macro` facts include Treasury yields, EFFR, CPI, and DefiLlama stablecoin supply; CFTC positioning runs in [flows](schedule.md#groups). MVRV is collected, not planned.
