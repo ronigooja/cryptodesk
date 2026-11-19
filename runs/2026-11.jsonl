@@ -599,3 +599,4 @@
 {"changed": 12, "errors": [], "facts": 33, "group": "flows", "missing": 0, "started": "2026-11-19T11:24:49Z", "unchanged": 21}
 {"changed": 2, "errors": ["fred: not published"], "facts": 5, "group": "macro", "missing": 1, "started": "2026-11-19T11:26:20Z", "unchanged": 3}
 {"changed": 11, "errors": ["fred: not published"], "facts": 16, "group": "macro", "missing": 1, "started": "2026-11-19T11:55:42Z", "unchanged": 5}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-19T12:03:14Z", "unchanged": 0}
