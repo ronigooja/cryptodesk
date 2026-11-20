@@ -633,3 +633,4 @@
 {"changed": 10, "conflicts": 1, "errors": ["mvrv.coinmetrics.btc: conflict 2026-11-15: stored=1.214412975685941983 received=1.214412984098962754"], "facts": 44, "group": "daily", "missing": 0, "skipped": 3711, "started": "2026-11-20T00:40:33Z", "unchanged": 34}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-20T01:03:17Z", "unchanged": 0}
 {"changed": 0, "errors": [], "facts": 172, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-20T01:13:19Z", "unchanged": 172}
+{"changed": 10, "errors": ["coinmetrics: field absent in response"], "facts": 12, "group": "onchain", "missing": 1, "started": "2026-11-20T01:30:18Z", "unchanged": 2}
