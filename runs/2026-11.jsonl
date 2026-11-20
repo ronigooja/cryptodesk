@@ -677,3 +677,4 @@
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-20T19:03:25Z", "unchanged": 0}
 {"changed": 6, "errors": [], "facts": 172, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-20T19:13:25Z", "unchanged": 166}
 {"changed": 36, "errors": ["deribit: HTTP 502"], "facts": 36, "group": "market", "missing": 6, "started": "2026-11-20T20:03:17Z", "unchanged": 0}
+{"changed": 4, "errors": [], "facts": 172, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-20T20:13:27Z", "unchanged": 168}
