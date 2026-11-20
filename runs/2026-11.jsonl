@@ -627,3 +627,4 @@
 {"changed": 14, "errors": ["fred: not published", "nyfed: HTTP 302"], "facts": 16, "group": "macro", "missing": 2, "started": "2026-11-19T22:45:19Z", "unchanged": 2}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-19T23:03:18Z", "unchanged": 0}
 {"changed": 2, "errors": [], "facts": 172, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-19T23:13:16Z", "unchanged": 170}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-20T00:03:20Z", "unchanged": 0}
