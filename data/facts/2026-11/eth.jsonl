@@ -6576,3 +6576,5 @@
 {"as_of": null, "coin": "eth", "fetched_at": "2026-11-20T20:03:17Z", "id": "deribit.eth.perp_mark_price", "metric": "perp_mark_price", "reason": "HTTP 502", "source": "deribit", "status": "missing", "unit": "USD", "value": null}
 {"as_of": null, "coin": "eth", "fetched_at": "2026-11-20T20:03:17Z", "id": "deribit.eth.funding_rate_8h", "metric": "funding_rate_8h", "reason": "HTTP 502", "source": "deribit", "status": "missing", "unit": "fraction", "value": null}
 {"as_of": null, "coin": "eth", "fetched_at": "2026-11-20T20:03:17Z", "id": "deribit.eth.dvol", "metric": "dvol", "reason": "HTTP 502", "source": "deribit", "status": "missing", "unit": "percent", "value": null}
+{"as_of": null, "coin": "eth", "fetched_at": "2026-11-20T20:22:18Z", "id": "deribit.eth.oi_call_total", "metric": "oi_call_total", "reason": "HTTP 503", "source": "deribit", "status": "missing", "unit": "ETH", "value": null}
+{"as_of": null, "coin": "eth", "fetched_at": "2026-11-20T20:22:18Z", "id": "deribit.eth.oi_put_total", "metric": "oi_put_total", "reason": "HTTP 503", "source": "deribit", "status": "missing", "unit": "ETH", "value": null}
