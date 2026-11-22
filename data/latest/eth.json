@@ -1,35 +1,35 @@
 {
  "binance.eth.change_24h_pct": {
-  "as_of": "2026-11-22T06:03:21Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:19Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "binance.eth.change_24h_pct",
   "metric": "change_24h_pct",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "percent",
-  "value": 6.418
+  "value": 1.447
  },
  "binance.eth.funding_rate_8h": {
-  "as_of": "2026-11-22T06:03:21Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:20Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "binance.eth.funding_rate_8h",
   "metric": "funding_rate_8h",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "fraction",
-  "value": -3.86e-06
+  "value": -1.792e-05
  },
  "binance.eth.high_24h": {
-  "as_of": "2026-11-22T06:03:21Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:19Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "binance.eth.high_24h",
   "metric": "high_24h",
   "reason": null,
@@ -39,82 +39,82 @@
   "value": 1716.58
  },
  "binance.eth.low_24h": {
-  "as_of": "2026-11-22T06:03:21Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:19Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "binance.eth.low_24h",
   "metric": "low_24h",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "USDT",
-  "value": 1544.96
+  "value": 1618.0
  },
  "binance.eth.open_interest": {
-  "as_of": "2026-11-22T06:03:16Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:14Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "binance.eth.open_interest",
   "metric": "open_interest",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "ETH",
-  "value": 2324066.68
+  "value": 2324313.096
  },
  "binance.eth.perp_mark_price": {
-  "as_of": "2026-11-22T06:03:21Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:20Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "binance.eth.perp_mark_price",
   "metric": "perp_mark_price",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "USDT",
-  "value": 1659.93589922
+  "value": 1660.21
  },
  "binance.eth.spot_price": {
-  "as_of": "2026-11-22T06:03:21Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:19Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "binance.eth.spot_price",
   "metric": "spot_price",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "USDT",
-  "value": 1660.6
+  "value": 1660.96
  },
  "binance.eth.top_ls_account_ratio": {
-  "as_of": "2026-11-22T06:00:00Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:00:00Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "binance.eth.top_ls_account_ratio",
   "metric": "top_ls_account_ratio",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "ratio",
-  "value": 2.6969
+  "value": 2.7879
  },
  "binance.eth.top_ls_position_ratio": {
-  "as_of": "2026-11-22T06:00:00Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:00:00Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "binance.eth.top_ls_position_ratio",
   "metric": "top_ls_position_ratio",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "ratio",
-  "value": 1.7195
+  "value": 1.7188
  },
  "cftc.eth.cot_asset_mgr_net": {
   "as_of": "2026-11-17T00:00:00Z",
@@ -195,23 +195,23 @@
   "value": null
  },
  "deribit.eth.dvol": {
-  "as_of": "2026-11-22T06:00:00Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:00:00Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "deribit.eth.dvol",
   "metric": "dvol",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "percent",
-  "value": 70.62
+  "value": 70.5
  },
  "deribit.eth.funding_rate_8h": {
-  "as_of": "2026-11-22T06:03:22Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:21Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "deribit.eth.funding_rate_8h",
   "metric": "funding_rate_8h",
   "reason": null,
@@ -260,17 +260,17 @@
   "value": 2200.0
  },
  "deribit.eth.perp_mark_price": {
-  "as_of": "2026-11-22T06:03:22Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:21Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "deribit.eth.perp_mark_price",
   "metric": "perp_mark_price",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "USD",
-  "value": 1656.84
+  "value": 1657.47
  },
  "farside.eth.etf_flow_eth": {
   "as_of": "2026-11-20T00:00:00Z",
@@ -429,23 +429,23 @@
   "value": -13200000.0
  },
  "okx.eth.funding_rate_8h": {
-  "as_of": "2026-11-22T06:02:13Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:02:23Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "okx.eth.funding_rate_8h",
   "metric": "funding_rate_8h",
   "reason": null,
   "source": "okx",
   "status": "ok",
   "unit": "fraction",
-  "value": -3.69745792203e-05
+  "value": -3.96750568124e-05
  },
  "okx.eth.high_24h": {
-  "as_of": "2026-11-22T06:03:22Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:20Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "okx.eth.high_24h",
   "metric": "high_24h",
   "reason": null,
@@ -455,55 +455,55 @@
   "value": 1716.74
  },
  "okx.eth.low_24h": {
-  "as_of": "2026-11-22T06:03:22Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:20Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "okx.eth.low_24h",
   "metric": "low_24h",
   "reason": null,
   "source": "okx",
   "status": "ok",
   "unit": "USDT",
-  "value": 1545.0
+  "value": 1618.08
  },
  "okx.eth.open_interest": {
-  "as_of": "2026-11-22T06:03:22Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:21Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "okx.eth.open_interest",
   "metric": "open_interest",
   "reason": null,
   "source": "okx",
   "status": "ok",
   "unit": "ETH",
-  "value": 671216.219000001
+  "value": 671131.6650000011
  },
  "okx.eth.open_interest_usd": {
-  "as_of": "2026-11-22T06:03:22Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:21Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "okx.eth.open_interest_usd",
   "metric": "open_interest_usd",
   "reason": null,
   "source": "okx",
   "status": "ok",
   "unit": "USD",
-  "value": 1114165226.2424817
+  "value": 1113850379.1339018
  },
  "okx.eth.spot_price": {
-  "as_of": "2026-11-22T06:03:22Z",
-  "checked_at": "2026-11-22T06:03:17Z",
+  "as_of": "2026-11-22T07:03:20Z",
+  "checked_at": "2026-11-22T07:03:15Z",
   "coin": "eth",
-  "fetched_at": "2026-11-22T06:03:17Z",
+  "fetched_at": "2026-11-22T07:03:15Z",
   "id": "okx.eth.spot_price",
   "metric": "spot_price",
   "reason": null,
   "source": "okx",
   "status": "ok",
   "unit": "USDT",
-  "value": 1660.49
+  "value": 1661.07
  }
 }
