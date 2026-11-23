@@ -58,7 +58,7 @@ Definitions, units, and day boundaries are in [Daily series](data-model.md#daily
 
 | Key | Provider | Needs | Scope | Status |
 |---|---|---|---|---|
-| `bitbo` | Bitbo ETF flow table | none | btc ETF flows | retired 2026-11-23 after the 2026-11-19 discrepancy below; stored history remains |
+| `bitbo` | Bitbo ETF flow table | none | btc ETF flows | retired 2026-11-23; see [Known gaps](#known-gaps) |
 | `bls` | BLS API v2 | free key `BLS_API_KEY` | payrolls, unemployment, CPI | blocked: key |
 | `fiscaldata` | Treasury FiscalData | none | refunding, auctions | planned |
 | `etf_flows` | SoSoValue | SoSoValue key | ETF cross-check | blocked: HTTP 403 to scripts, also with a Chrome fingerprint (2026-11-19) |
@@ -71,7 +71,7 @@ Definitions, units, and day boundaries are in [Daily series](data-model.md#daily
 |---|---|
 | Market-wide liquidations (long and short) | No free complete source |
 | Farside access | Plain HTTP clients get 403 (2026-11-11); a Chrome TLS fingerprint (`curl_cffi`) returns the page (2026-11-19). It may be blocked again at any time, then ETF facts are `missing`. Bitbo's ETH page is a 404 |
-| ETF flow disagreement | Bitbo and Farside disagree on 2026-11-09: total -198.6m vs -201.0m, IBIT -210.5m vs -213.2m (US$m). On 2026-11-19 Bitbo reported -17.2m total with IBIT and FBTC zero; Farside reported -582.3m, including IBIT -541.1m and FBTC -45.9m, while Decrypt reported -582.2m. Causes not found; Farside is now the BTC source |
+| ETF flow disagreement | Wrong Bitbo BTC records were deleted and Farside rows backfilled; an incomplete Farside ETH total was also deleted. See the [2026-11-23 decision for IDs and `as_of` dates](decisions.md#etf-history-cleanup). The smaller 2026-11-09 Bitbo–Farside disagreement was retained: total -198.6m vs -201.0m and IBIT -210.5m vs -213.2m (US$m). |
 | Stablecoin total | The live fact `stablecoin_supply_usd` sums per-asset USD-pegged supply and was 292.894B on 2026-11-11; the daily series `stablecoin_supply_usd.defillama` uses the chart total, 289.469B for 2026-11-11 (about 1.2% lower), and an earlier comparison on 2026-11-11 found a 0.155% gap (292.894B versus 292.440B). Cause not found; the two are not interchangeable |
 | Coin Metrics MVRV latest day | The newest daily row often has `CapMVRVCur: null` while other fields are set (ETH 2026-11-15, 2026-11-15 probe). The live fact is then `missing`; the daily series holds the last dated value |
 | History rollback 2026-11-16 | `main` was reset to the 2026-11-15T15:13Z commit, dropping data commits up to 2026-11-16T15:03Z. On 2026-11-17 the dropped lines of `data/facts` and `runs/` were restored from the backup branch with original values and times. Not restored: `data/latest` (newer values exist) and news lines (already re-collected with later `fetched_at`). `daily` re-adds the last 5 complete days, so daily series have no gap |
