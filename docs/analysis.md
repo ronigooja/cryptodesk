@@ -6,7 +6,8 @@ Analyses are written on demand by an agent in a session. There is no scheduled m
 
 - Location: `analysis/`. When the count grows, group by month in subdirectories.
 - Name: `<YYYY-MM-DD>T<HHMM>Z-<scope>.md`, for example `2026-11-06T1400Z-btc-eth.md`.
-- Write-once. A new view is a new file. Fix only broken citations in old files, and note the fix at the end.
+- When a view changes (new data, price move), write a new file and leave the old one unchanged.
+- When a file misreads a field, cites an unreliable source, or has a broken citation, fix it in place and add an [Errata](#errata) section. Do not silently replace text.
 - Template: [TEMPLATE-major.md](../analysis/TEMPLATE-major.md).
 - Language: English.
 
@@ -22,6 +23,10 @@ Required headings, in order:
 | `## Inference` | Interpretation; each item ends with `based on:` and citations |
 | `## Missing` | Needed data that is absent, stale, or not from a fact record |
 | `## What would change this view` | Observable conditions |
+
+## Errata
+
+Optional last section, after `## What would change this view`. One entry per error: date found, the wrong line, the correct reading with its source, and which inferences no longer hold. Keep the wrong sentence visible, marked `[ERRATUM]`, so readers see what changed. The checker does not require this section. Git history keeps the earlier text.
 
 ## Citations
 
