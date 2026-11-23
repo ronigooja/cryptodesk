@@ -313,7 +313,7 @@
  },
  "cftc.btc.cot_asset_mgr_net": {
   "as_of": "2026-11-17T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-21T11:10:16Z",
   "id": "cftc.btc.cot_asset_mgr_net",
@@ -326,7 +326,7 @@
  },
  "cftc.btc.cot_lev_money_net": {
   "as_of": "2026-11-17T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-21T11:10:16Z",
   "id": "cftc.btc.cot_lev_money_net",
@@ -339,7 +339,7 @@
  },
  "cftc.btc.cot_open_interest": {
   "as_of": "2026-11-17T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-21T11:10:16Z",
   "id": "cftc.btc.cot_open_interest",
@@ -469,7 +469,7 @@
  },
  "farside.btc.etf_flow_arkb": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_arkb",
@@ -482,7 +482,7 @@
  },
  "farside.btc.etf_flow_bitb": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_bitb",
@@ -495,7 +495,7 @@
  },
  "farside.btc.etf_flow_brrr": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_brrr",
@@ -508,7 +508,7 @@
  },
  "farside.btc.etf_flow_btc": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_btc",
@@ -521,7 +521,7 @@
  },
  "farside.btc.etf_flow_btco": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_btco",
@@ -534,7 +534,7 @@
  },
  "farside.btc.etf_flow_btcw": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_btcw",
@@ -547,7 +547,7 @@
  },
  "farside.btc.etf_flow_ezbc": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_ezbc",
@@ -560,7 +560,7 @@
  },
  "farside.btc.etf_flow_fbtc": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_fbtc",
@@ -573,7 +573,7 @@
  },
  "farside.btc.etf_flow_gbtc": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_gbtc",
@@ -586,7 +586,7 @@
  },
  "farside.btc.etf_flow_hodl": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_hodl",
@@ -599,7 +599,7 @@
  },
  "farside.btc.etf_flow_ibit": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_ibit",
@@ -612,7 +612,7 @@
  },
  "farside.btc.etf_flow_msbt": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_msbt",
@@ -625,7 +625,7 @@
  },
  "farside.btc.etf_flow_total": {
   "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-23T11:10:20Z",
+  "checked_at": "2026-11-23T11:52:28Z",
   "coin": "btc",
   "fetched_at": "2026-11-23T11:10:20Z",
   "id": "farside.btc.etf_flow_total",
