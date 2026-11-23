@@ -10,7 +10,7 @@ One workflow per group, using `workflow_dispatch` only. Host cron dispatches thr
 | `options` | Deribit [option scope](metrics.md#modules) | every 4 h, plus 07:30 daily | `22 */4 * * *`, `30 7 * * *` |
 | `macro` | Treasury yields, NY Fed EFFR, FRED CPI, CME FedWatch probabilities (one snapshot per run) | weekdays after US close | `45 22 * * 1-5` |
 | `onchain` | Coin Metrics (MVRV, active addresses, fees), mempool.space, DefiLlama stablecoin supply | daily | `30 1 * * *` |
-| `flows` | Bitbo BTC ETF flows, Farside ETH ETF flows, CFTC positioning | daily | `10 11 * * *` |
+| `flows` | Farside BTC and ETH ETF flows, CFTC positioning | daily | `10 11 * * *` |
 | `news` | [News metadata feeds](sources.md#news-feeds) | hourly | `13 * * * *` |
 | `daily` | [Daily series](data-model.md#daily-series), last five complete dates | daily after the UTC day closes | `40 0 * * *` |
 

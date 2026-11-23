@@ -6,7 +6,7 @@ from ..model import Fact, iso, missing, ok
 from .base import FetchError
 from .etf import _Tables
 
-URL = "https://farside.co.uk/eth/"
+URLS = {coin: f"https://farside.co.uk/{coin}/" for coin in ("btc", "eth")}
 SCALE = 1_000_000
 FUND = re.compile(r"[A-Z][A-Z0-9]*")
 
@@ -60,8 +60,8 @@ def _number(raw: str) -> float | None:
     return -value if negative else value
 
 
-def parse_latest(text: str) -> tuple[list[str], list[str], str]:
-    """Newest dated row of the Farside ETH table: (fund tickers + 'total', cells, YYYY-MM-DD).
+def parse_rows(text: str) -> tuple[list[str], tuple[list[str], str] | None]:
+    """Newest fully published row, if any.
 
     Units are US$m; parentheses mean negative. Raises ValueError on an unexpected layout or when the
     funds do not add up to the total within rounding (0.1 per fund).
@@ -75,7 +75,7 @@ def parse_latest(text: str) -> tuple[list[str], list[str], str]:
     if len(tables) != 1:
         raise ValueError("unexpected table")
     funds = None
-    best = None
+    dated = []
     for row in tables[0]:
         if funds is None:
             if len(row) > 3 and row[0] == "" and row[-1] == "" and all(FUND.fullmatch(c) for c in row[1:-1]):
@@ -89,36 +89,34 @@ def parse_latest(text: str) -> tuple[list[str], list[str], str]:
             continue
         if len(row) != len(funds) + 2:
             raise ValueError("unexpected row width")
-        if best is None or date > best[0]:
-            best = (date, row[1:])
-    if funds is None or len(set(funds)) != len(funds) or best is None:
+        dated.append((date, row[1:]))
+    if funds is None or len(set(funds)) != len(funds) or not dated:
         raise ValueError("unexpected header")
-    cells = best[1]
-    parts = [_number(c) for c in cells[:-1]]
-    total = _number(cells[-1])
-    if total is not None and abs(sum(p or 0.0 for p in parts) - total) > 0.1 * len(funds):
-        raise ValueError("funds do not add up to total")
-    return [f"etf_flow_{f.lower()}" for f in funds] + ["etf_flow_total"], cells, best[0].strftime("%Y-%m-%d")
+    metrics = [f"etf_flow_{f.lower()}" for f in funds] + ["etf_flow_total"]
+    for date, cells in sorted(dated, key=lambda item: item[0], reverse=True):
+        values = [_number(c) for c in cells]
+        if any(value is None for value in values):
+            continue
+        if abs(sum(values[:-1]) - values[-1]) > 0.1 * len(funds):
+            raise ValueError("funds do not add up to total")
+        return metrics, (cells, date.strftime("%Y-%m-%d"))
+    return metrics, None
 
 
-def collect(get_text, fetched_at: str) -> list[Fact]:
+def collect(get_text, fetched_at: str, coin: str = "eth") -> list[Fact]:
     reason = None
-    metrics, cells, date = [], [], None
+    metrics, row = [], None
     try:
-        metrics, cells, date = parse_latest(get_text(URL, {}))
+        metrics, row = parse_rows(get_text(URLS[coin], {}))
     except FetchError as exc:
         reason = str(exc) or "request error"
     except (ValueError, TypeError):
         reason = "field absent in response"
+    if not reason and row is None:
+        reason = "not published"
     if reason:
-        return [missing("farside.eth.etf_flow_total", "eth", "etf_flow_total", "USD", reason, fetched_at, "farside")]
+        return [missing(f"farside.{coin}.etf_flow_total", coin, "etf_flow_total", "USD", reason, fetched_at, "farside")]
+    cells, date = row
     as_of = iso(datetime.strptime(date, "%Y-%m-%d").replace(tzinfo=UTC))
-    facts = []
-    for metric, raw in zip(metrics, cells):
-        fid = f"farside.eth.{metric}"
-        value = _number(raw)
-        if value is None:
-            facts.append(missing(fid, "eth", metric, "USD", "not published", fetched_at, "farside"))
-        else:
-            facts.append(ok(fid, "eth", metric, value * SCALE, "USD", as_of, fetched_at, "farside"))
-    return facts
+    return [ok(f"farside.{coin}.{metric}", coin, metric, _number(raw) * SCALE,
+               "USD", as_of, fetched_at, "farside") for metric, raw in zip(metrics, cells)]

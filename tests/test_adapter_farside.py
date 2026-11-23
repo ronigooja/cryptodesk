@@ -32,10 +32,19 @@ def test_newest_row_parentheses_are_negative_and_scaled():
     assert all(not model.validate(x.to_dict(), REG) for x in f.values())
 
 
-def test_empty_cell_is_missing_not_zero():
-    f = facts(page([["18 Nov 2026", "", "2.0", "2.0"]]))
-    assert f["etf_flow_etha"].status == "missing" and f["etf_flow_etha"].value is None
-    assert f["etf_flow_feth"].value == 2.0e6
+@pytest.mark.parametrize("placeholder", ["", "-"])
+def test_incomplete_eth_row_skipped(placeholder):
+    f = facts(page([["17 Nov 2026", "1.0", "2.0", "3.0"],
+                    ["18 Nov 2026", placeholder, "2.0", "2.0"]]))
+    assert f["etf_flow_etha"].value == 1e6
+    assert f["etf_flow_total"].value == 3e6
+    assert all(x.as_of == "2026-11-17T00:00:00Z" for x in f.values())
+
+
+def test_no_complete_row_is_missing_total():
+    result = farside.collect(lambda url, p: page([["18 Nov 2026", "1.0", "-", "1.0"]]), STARTED)
+    assert len(result) == 1 and result[0].id == "farside.eth.etf_flow_total"
+    assert result[0].status == "missing" and result[0].reason == "not published"
 
 
 def test_funds_not_adding_to_total_is_missing():
@@ -55,3 +64,20 @@ def test_fetch_error_is_missing():
 
     f = farside.collect(boom, STARTED)
     assert f[0].status == "missing" and f[0].reason == "HTTP 403"
+
+
+def test_btc_incomplete_newest_selects_previous_complete_row():
+    text = (Path(__file__).parent / "fixtures" / "farside_btc.html").read_text()
+    seen = []
+    def get(url, params):
+        seen.append(url)
+        return text
+    result = farside.collect(get, STARTED, "btc")
+    assert seen == ["https://farside.co.uk/btc/"]
+    assert len(result) == 13
+    previous = {f.metric: f for f in result}
+    assert previous["etf_flow_total"].value == -582.3e6
+    assert previous["etf_flow_total"].as_of == "2026-11-19T00:00:00Z"
+    assert previous["etf_flow_ibit"].value == -541.1e6
+    assert all(f.status == "ok" and f.as_of == "2026-11-19T00:00:00Z" for f in result)
+    assert all(not model.validate(f.to_dict(), REG) for f in result)

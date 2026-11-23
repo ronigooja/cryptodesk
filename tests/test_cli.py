@@ -116,10 +116,6 @@ LLAMA = {"peggedAssets": [{"symbol": "USDT", "pegType": "peggedUSD", "circulatin
 CFTC_ROW = {"report_date_as_yyyy_mm_dd": "2026-11-03T00:00:00.000", "open_interest_all": "100",
             "asset_mgr_positions_long": "10", "asset_mgr_positions_short": "4",
             "lev_money_positions_long": "3", "lev_money_positions_short": "9"}
-BITBO = ("<h1>Bitcoin ETF Flow (US$m)</h1><table><tr><th>Date</th><th>IBIT</th><th>Total</th></tr>"
-         "<tr><td>Nov 09, 2026</td><td>-210.5</td><td>-198.6</td></tr></table>")
-
-
 def fake_get_more(url, params):
     if "coinmetrics" in url:
         return {"data": [r for r in COINMETRICS["data"] if r["asset"] == params["assets"]]}
@@ -156,13 +152,18 @@ FARSIDE_HTML = (
 
 def test_flows_collect_and_check(repo, monkeypatch, capsys):
     monkeypatch.setattr(cli, "make_get_fn", lambda: fake_get_more)
-    monkeypatch.setattr(cli, "make_get_text_fn", lambda: lambda url, params: BITBO)
-    monkeypatch.setattr(cli, "make_get_text_chrome_fn", lambda: lambda url, params: FARSIDE_HTML)
+    btc_html = (Path(__file__).parent / "fixtures" / "farside_btc.html").read_text()
+    monkeypatch.setattr(cli, "make_get_text_chrome_fn", lambda: lambda url, params: btc_html if url.endswith("/btc/") else FARSIDE_HTML)
     assert cli.main(["collect", "flows"]) == 0
     assert "missing=" in capsys.readouterr().out
     assert cli.main(["check"]) == 0
     btc = json.loads((repo / "data" / "latest" / "btc.json").read_text())
-    assert btc["bitbo.btc.etf_flow_total"]["value"] == -198.6 * 1_000_000
+    assert btc["farside.btc.etf_flow_total"]["value"] == -582.3e6
+    assert btc["farside.btc.etf_flow_total"]["as_of"] == "2026-11-19T00:00:00Z"
+    history = repo / "data" / "facts" / btc["farside.btc.etf_flow_total"]["fetched_at"][:7] / "btc.jsonl"
+    before = history.read_text()
+    assert cli.main(["collect", "flows"]) == 0
+    assert history.read_text() == before
     assert btc["cftc.btc.cot_lev_money_net"]["value"] == -6
     eth_latest = json.loads((repo / "data" / "latest" / "eth.json").read_text())
     assert eth_latest["farside.eth.etf_flow_total"]["value"] == -39.8 * 1_000_000
