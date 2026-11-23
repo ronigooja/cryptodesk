@@ -808,3 +808,4 @@
 {"changed": 6, "conflicts": 2, "errors": ["mvrv.coinmetrics.btc: Timeout", "stablecoin_supply_usd.defillama: conflict 2026-11-18: stored=286258486953.43 received=286256784377", "stablecoin_supply_usd.defillama: conflict 2026-11-19: stored=285228939202.55 received=285227236626"], "facts": 37, "group": "daily", "missing": 1, "skipped": 3718, "started": "2026-11-23T00:40:22Z", "unchanged": 31}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-23T01:03:19Z", "unchanged": 0}
 {"changed": 1, "errors": [], "facts": 172, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-23T01:13:19Z", "unchanged": 171}
+{"changed": 9, "errors": ["coinmetrics: field absent in response"], "facts": 12, "group": "onchain", "missing": 1, "started": "2026-11-23T01:30:16Z", "unchanged": 3}
