@@ -834,3 +834,4 @@
 {"changed": 17, "errors": [], "facts": 31, "group": "flows", "missing": 0, "started": "2026-11-23T11:10:20Z", "unchanged": 14}
 {"changed": 2, "errors": [], "facts": 172, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-23T11:13:24Z", "unchanged": 170}
 {"changed": 0, "errors": [], "facts": 31, "group": "flows", "missing": 0, "started": "2026-11-23T11:52:28Z", "unchanged": 31}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-23T12:03:18Z", "unchanged": 0}
