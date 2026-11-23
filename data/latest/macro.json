@@ -39,10 +39,10 @@
   "value": 174529889686.75833
  },
  "fedwatch.macro.fedwatch_probability_20261209b250x275": {
-  "as_of": "2026-11-20T10:31:49Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T10:31:49Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "fedwatch.macro.fedwatch_probability_20261209b250x275",
   "metric": "fedwatch_probability_20261209b250x275",
   "reason": null,
@@ -52,10 +52,10 @@
   "value": 0.0
  },
  "fedwatch.macro.fedwatch_probability_20261209b275x300": {
-  "as_of": "2026-11-20T10:31:49Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T10:31:49Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "fedwatch.macro.fedwatch_probability_20261209b275x300",
   "metric": "fedwatch_probability_20261209b275x300",
   "reason": null,
@@ -65,10 +65,10 @@
   "value": 0.0
  },
  "fedwatch.macro.fedwatch_probability_20261209b300x325": {
-  "as_of": "2026-11-20T10:31:49Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T10:31:49Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "fedwatch.macro.fedwatch_probability_20261209b300x325",
   "metric": "fedwatch_probability_20261209b300x325",
   "reason": null,
@@ -78,10 +78,10 @@
   "value": 0.0
  },
  "fedwatch.macro.fedwatch_probability_20261209b325x350": {
-  "as_of": "2026-11-20T10:31:49Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T10:31:49Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "fedwatch.macro.fedwatch_probability_20261209b325x350",
   "metric": "fedwatch_probability_20261209b325x350",
   "reason": null,
@@ -91,10 +91,10 @@
   "value": 0.0
  },
  "fedwatch.macro.fedwatch_probability_20261209b350x375": {
-  "as_of": "2026-11-20T10:31:49Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T10:31:49Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "fedwatch.macro.fedwatch_probability_20261209b350x375",
   "metric": "fedwatch_probability_20261209b350x375",
   "reason": null,
@@ -104,49 +104,49 @@
   "value": 0.0
  },
  "fedwatch.macro.fedwatch_probability_20261209b375x400": {
-  "as_of": "2026-11-20T10:31:49Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T10:31:49Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "fedwatch.macro.fedwatch_probability_20261209b375x400",
   "metric": "fedwatch_probability_20261209b375x400",
   "reason": null,
   "source": "fedwatch",
   "status": "ok",
   "unit": "percent",
-  "value": 8.6
+  "value": 0.0
  },
  "fedwatch.macro.fedwatch_probability_20261209b400x425": {
-  "as_of": "2026-11-20T10:31:49Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T10:31:49Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "fedwatch.macro.fedwatch_probability_20261209b400x425",
   "metric": "fedwatch_probability_20261209b400x425",
   "reason": null,
   "source": "fedwatch",
   "status": "ok",
   "unit": "percent",
-  "value": 91.4
+  "value": 95.9
  },
  "fedwatch.macro.fedwatch_probability_20261209b425x450": {
-  "as_of": "2026-11-20T10:31:49Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T10:31:49Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "fedwatch.macro.fedwatch_probability_20261209b425x450",
   "metric": "fedwatch_probability_20261209b425x450",
   "reason": null,
   "source": "fedwatch",
   "status": "ok",
   "unit": "percent",
-  "value": 0.0
+  "value": 4.1
  },
  "fedwatch.macro.fedwatch_probability_20261209b450x475": {
-  "as_of": "2026-11-20T10:31:49Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T10:31:49Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "fedwatch.macro.fedwatch_probability_20261209b450x475",
   "metric": "fedwatch_probability_20261209b450x475",
   "reason": null,
@@ -156,10 +156,10 @@
   "value": 0.0
  },
  "fedwatch.macro.fedwatch_probability_20261209b475x500": {
-  "as_of": "2026-11-20T10:31:49Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T10:31:49Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "fedwatch.macro.fedwatch_probability_20261209b475x500",
   "metric": "fedwatch_probability_20261209b475x500",
   "reason": null,
@@ -169,10 +169,10 @@
   "value": 0.0
  },
  "fedwatch.macro.fedwatch_probability_20261209b500x525": {
-  "as_of": "2026-11-20T10:31:49Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T10:31:49Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "fedwatch.macro.fedwatch_probability_20261209b500x525",
   "metric": "fedwatch_probability_20261209b500x525",
   "reason": null,
@@ -183,7 +183,7 @@
  },
  "fred.macro.cpi_index": {
   "as_of": "2026-10-01T00:00:00Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
   "fetched_at": "2026-11-19T11:26:20Z",
   "id": "fred.macro.cpi_index",
@@ -196,7 +196,7 @@
  },
  "fred.macro.cpi_yoy_pct": {
   "as_of": null,
-  "checked_at": "2026-11-20T22:45:23Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
   "fetched_at": "2026-11-19T11:26:20Z",
   "id": "fred.macro.cpi_yoy_pct",
@@ -208,10 +208,10 @@
   "value": null
  },
  "nyfed.macro.fed_funds_effective": {
-  "as_of": "2026-11-19T00:00:00Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-20T00:00:00Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "nyfed.macro.fed_funds_effective",
   "metric": "fed_funds_effective",
   "reason": null,
@@ -221,10 +221,10 @@
   "value": 3.88
  },
  "treasury.macro.us10y_yield": {
-  "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T00:00:00Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "treasury.macro.us10y_yield",
   "metric": "us10y_yield",
   "reason": null,
@@ -234,10 +234,10 @@
   "value": 4.92
  },
  "treasury.macro.us2y_yield": {
-  "as_of": "2026-11-20T00:00:00Z",
-  "checked_at": "2026-11-20T22:45:23Z",
+  "as_of": "2026-11-23T00:00:00Z",
+  "checked_at": "2026-11-23T22:45:21Z",
   "coin": "macro",
-  "fetched_at": "2026-11-20T22:45:23Z",
+  "fetched_at": "2026-11-23T22:45:21Z",
   "id": "treasury.macro.us2y_yield",
   "metric": "us2y_yield",
   "reason": null,
