@@ -54,4 +54,4 @@ On user request, typically after macro releases, FOMC decisions, option expiries
 
 ## Validation
 
-The checker fails when a heading or the disclaimer is missing, a citation does not resolve, or a stored fact violates [data-model.md](data-model.md). It does not judge inference.
+The checker fails when a heading or the disclaimer is missing, a citation does not resolve, a `Supersedes` target is missing, a superseded file is not under `analysis/archive/`, a local markdown link in `README.md`, `AGENTS.md`, `docs/` or `analysis/` is broken, a junk file (`.DS_Store`, `.bak`, `.tmp`, `.swp`) is tracked, or a stored fact violates [data-model.md](data-model.md). It does not judge inference.

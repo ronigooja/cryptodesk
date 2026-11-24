@@ -17,6 +17,7 @@ def repo(tmp_path, monkeypatch):
     metrics = (ROOT / "docs" / "metrics.md").read_text().split("\n## Registry\n", 1)[1].split("\n## ", 1)[0]
     table = "\n".join(line for line in metrics.splitlines() if line.startswith("|"))
     (tmp_path / "docs" / "metrics.md").write_text(f"## Registry\n\n{table}\n")
+    (tmp_path / "docs" / "sources.md").write_text("# Sources\n\n### FedWatch\n")
     (tmp_path / "AGENTS.md").write_text("# Test repository\n")
     shutil.copytree(ROOT / "coins", tmp_path / "coins")
     monkeypatch.setenv("CRYPTODESK_ROOT", str(tmp_path))

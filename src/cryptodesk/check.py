@@ -190,7 +190,8 @@ def check_tracked_junk(root: Path) -> list[str]:
 
 def check_doc_links(root: Path) -> list[str]:
     errors = []
-    paths = [root / "README.md", root / "AGENTS.md", *sorted((root / "docs").rglob("*.md"))]
+    paths = [root / "README.md", root / "AGENTS.md", *sorted((root / "docs").rglob("*.md")),
+             *sorted((root / "analysis").rglob("*.md"))]
     for path in paths:
         if not path.is_file():
             continue
