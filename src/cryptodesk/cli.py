@@ -80,6 +80,8 @@ def main(argv=None) -> int:
               f"unchanged={run['unchanged']} missing={run['missing']}")
         return 0 if facts else 1
     errors = check.check_all(db, root)
+    for error in errors:
+        print(error)
     print(f"check: errors={len(errors)}")
     return 1 if errors else 0
 

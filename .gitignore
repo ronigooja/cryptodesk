@@ -4,3 +4,5 @@ __pycache__/
 .venv/
 index.sqlite
 data/daily/.lock
+.DS_Store
+/data/daily/.*.csv.*.tmp

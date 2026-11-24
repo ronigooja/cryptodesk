@@ -1,4 +1,6 @@
 import json
+import shutil
+import subprocess
 from dataclasses import replace
 
 import pytest
@@ -83,13 +85,89 @@ def test_check_analysis_rejects_malformed_citation(analysis_file, store, fact):
     assert any("malformed citation invalid" in error for error in check_analysis(analysis_file, store))
 
 
-def test_check_all_ignores_templates_but_checks_nested_analysis(tmp_path, store):
-    directory = tmp_path / "analysis" / "2026-11"
+def test_check_all_ignores_templates_but_checks_archived_analysis(tmp_path, store):
+    directory = tmp_path / "analysis" / "archive"
     directory.mkdir(parents=True)
     (directory / "TEMPLATE-major.md").write_text("placeholder")
     assert check_all(store, tmp_path) == []
     (directory / "broken.md").write_text("incomplete")
     assert any("broken.md: disclaimer missing" in error for error in check_all(store, tmp_path))
+
+
+@pytest.mark.parametrize("from_archive", [False, True])
+def test_superseded_analysis_must_be_archived(analysis_file, store, from_archive):
+    directory = analysis_file.parent
+    archive = directory / "archive"
+    archive.mkdir()
+    successor = (archive if from_archive else directory) / "successor.md"
+    successor.write_text(analysis_file.read_text().replace("Supersedes: none", f"- Supersedes: {analysis_file.name}"))
+    assert check_all(store, store.root) == [
+        f"{successor.relative_to(store.root)}:5: superseded file analysis/{analysis_file.name} "
+        "must be moved to analysis/archive/"
+    ]
+
+    archived = analysis_file.rename(archive / analysis_file.name)
+    assert check_all(store, store.root) == []
+    archived.write_text(archived.read_text().replace("@2026-11-06T10:01:00Z]", "@2026-11-06T09:01:00Z]"))
+    assert any(archived.name in error and "citation" in error for error in check_all(store, store.root))
+
+
+@pytest.mark.parametrize("from_archive", [False, True])
+def test_supersedes_target_must_exist(analysis_file, store, from_archive):
+    if from_archive:
+        archive = analysis_file.parent / "archive"
+        archive.mkdir()
+        analysis_file = analysis_file.rename(archive / analysis_file.name)
+    analysis_file.write_text(analysis_file.read_text().replace("Supersedes: none", "Supersedes: missing.md"))
+    assert check_all(store, store.root) == [
+        f"{analysis_file.relative_to(store.root)}:5: Supersedes target 'missing.md' not found in "
+        "analysis/ or analysis/archive/"
+    ]
+
+
+def test_check_only_rejects_tracked_junk(tmp_path, store, monkeypatch):
+    if not shutil.which("git"):
+        pytest.skip("git unavailable")
+    tracked = [".DS_Store", "data/has space.bak", "data/file.swp", "data/temp.tmp"]
+    (tmp_path / "data").mkdir()
+    for relative in [*tracked, "data/untracked.tmp", "data/kept.md"]:
+        (tmp_path / relative).touch()
+    assert check_all(store, tmp_path) == []
+
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True, capture_output=True)
+    subprocess.run(["git", "add", "-f", "--", *tracked, "data/kept.md"],
+                   cwd=tmp_path, check=True, capture_output=True)
+    assert set(check_all(store, tmp_path)) == {f"{path}: junk file is tracked by git" for path in tracked}
+
+    monkeypatch.setenv("PATH", str(tmp_path / "no-bin"))
+    assert check_all(store, tmp_path) == []
+
+
+def test_check_doc_links_resolve_relative_paths_and_ignore_code(tmp_path, store):
+    nested = tmp_path / "docs" / "nested"
+    nested.mkdir(parents=True)
+    (nested / "with space.md").touch()
+    (nested / "with(parens).md").touch()
+    (tmp_path / "README.md").write_text(
+        '[dir](docs/nested/) [path](docs/nested/with%20space.md#section "Title")\n'
+        '[anchor](#local) [external](https://example.org/missing) [mail](mailto:user@example.org)\n'
+        '`[example](missing.md)`\n'
+        '```markdown\n[example](missing.md)\n```\n'
+        '``multiline\n[example](missing.md)``\n'
+        '[missing](missing.md#section)\n'
+    )
+    (tmp_path / "AGENTS.md").write_text('[`code label`](README.md) [missing](not-found.md)\n')
+    (nested / "guide.md").write_text(
+        '[root](../../README.md) [literal spaces](<with space.md>) [parens](with(parens).md)\n'
+        '[missing][ref]\n'
+        '[ref]: missing-target.md\n'
+    )
+    (tmp_path / "outside.md").write_text('[not in scope](missing.md)\n')
+    assert check_all(store, tmp_path) == [
+        "README.md:9: broken local link 'missing.md#section'",
+        "AGENTS.md:1: broken local link 'not-found.md'",
+        "docs/nested/guide.md:3: broken local link 'missing-target.md'",
+    ]
 
 
 @pytest.mark.parametrize("code", [

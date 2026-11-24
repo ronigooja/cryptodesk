@@ -14,8 +14,10 @@ STAMP = 1793966400000
 @pytest.fixture
 def repo(tmp_path, monkeypatch):
     (tmp_path / "docs").mkdir()
-    shutil.copy(ROOT / "docs" / "metrics.md", tmp_path / "docs" / "metrics.md")
-    shutil.copy(ROOT / "AGENTS.md", tmp_path / "AGENTS.md")
+    metrics = (ROOT / "docs" / "metrics.md").read_text().split("\n## Registry\n", 1)[1].split("\n## ", 1)[0]
+    table = "\n".join(line for line in metrics.splitlines() if line.startswith("|"))
+    (tmp_path / "docs" / "metrics.md").write_text(f"## Registry\n\n{table}\n")
+    (tmp_path / "AGENTS.md").write_text("# Test repository\n")
     shutil.copytree(ROOT / "coins", tmp_path / "coins")
     monkeypatch.setenv("CRYPTODESK_ROOT", str(tmp_path))
     monkeypatch.setattr(cli, "make_get_fn", lambda: fake_get)
@@ -100,9 +102,9 @@ def test_zero_facts_fails(repo, monkeypatch, capsys):
 
 
 def test_check_errors_fail(repo, monkeypatch, capsys):
-    monkeypatch.setattr(cli.check, "check_all", lambda *args: ["invalid fact"])
+    monkeypatch.setattr(cli.check, "check_all", lambda *args: ["invalid fact", "invalid analysis"])
     assert cli.main(["check"]) == 1
-    assert capsys.readouterr().out.strip() == "check: errors=1"
+    assert capsys.readouterr().out.splitlines() == ["invalid fact", "invalid analysis", "check: errors=2"]
 
 
 COINMETRICS = {"data": [{"asset": "btc", "time": "2026-11-09T00:00:00.000000000Z",
