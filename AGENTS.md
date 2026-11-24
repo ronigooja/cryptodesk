@@ -6,11 +6,13 @@ Public repo (may later become private or move). Collects BTC, ETH, and macro fac
 
 | Need | Read |
 |---|---|
-| Layers, directory layout, adding a source | [README.md](README.md#architecture) |
+| Layers, directory layout | [README.md](README.md#architecture) |
 | Fact schema, IDs, states, time, storage | [docs/data-model.md](docs/data-model.md) |
 | Modules, metric registry | [docs/metrics.md](docs/metrics.md) |
 | Source registry, status, blockers | [docs/sources.md](docs/sources.md) |
 | Update cadence, workflow groups | [docs/schedule.md](docs/schedule.md) |
+| Change or add a source/metric/schedule | [Checklist](README.md#collection-change-checklist); update [metrics.md](docs/metrics.md#registry), [sources.md](docs/sources.md), and [schedule.md](docs/schedule.md#groups) as applicable |
+| Debug a failed or missing collection | [docs/schedule.md → Failures](docs/schedule.md#failures) |
 | Analysis format, citations, rules | [docs/analysis.md](docs/analysis.md) |
 | Event calendar (unlocks, expiries, releases) | [docs/events/](docs/events/) |
 | Dated research snapshots | [docs/research/](docs/research/) |

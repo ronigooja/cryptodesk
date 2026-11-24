@@ -14,13 +14,21 @@ One workflow per group, using `workflow_dispatch` only. Host cron dispatches thr
 | `news` | [News metadata feeds](sources.md#news-feeds) | hourly | `13 * * * *` |
 | `daily` | [Daily series](data-model.md#daily-series), last five complete dates | daily after the UTC day closes | `40 0 * * *` |
 
-CFTC stays for now; a decision on retaining it is pending.
-
 Rules:
 
 - When a fact group yields zero facts (or news yields zero valid items), the run exits non-zero and the workflow fails. For daily series, only failure of every selected series fails the command; empty successful responses are allowed.
-- When some facts are missing, the run still succeeds; inspect `data/latest/` for facts and `runs/` for counts and errors.
+- When some facts are missing, the run still succeeds; see [Failures](#failures).
 - When workflows push data, they share one concurrency group, rebase before pushing, and commit as a bot with message `data: <group> <UTC time>`.
+
+## Failures
+
+When a collection fails or is missing:
+
+1. Read the last relevant lines in `runs/<YYYY-MM>.jsonl`; check `group`, `missing`, and `errors`.
+2. For fact groups, inspect `status` and `reason` in `data/latest/<coin>.json` (use `macro` for shared facts).
+3. Find the GitHub run with `gh run list --workflow <group>.yml`; inspect it with `gh run view <run-id>` and failed steps with `gh run view <run-id> --log-failed`.
+4. Read the source adapter in [`src/cryptodesk/adapters/`](../src/cryptodesk/adapters/), or the collector in [`daily.py`](../src/cryptodesk/daily.py) or [`news.py`](../src/cryptodesk/news.py).
+5. Expect fact collection failures as `missing` facts, not alerts: [failure handling decision](decisions.md#failure-alerting).
 
 ## Actions
 

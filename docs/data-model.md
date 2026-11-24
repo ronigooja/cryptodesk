@@ -77,7 +77,7 @@ When collecting daily series, add only previously absent dates; never change an 
 | `fed_funds_effective.nyfed` | EFFR `refRates[].percentRate` | percent; source `effectiveDate`, not publication date |
 | `stablecoin_supply_usd.defillama` | Chart `totalCirculatingUSD.peggedUSD` | USD; Unix timestamp converted to UTC date; snapshot cutoff unverified |
 
-When collecting, exclude today UTC and future dates for every series; price candles are incomplete until the next UTC midnight. Binance quotes USDT and Coinbase quotes USD: keep both separate, never average or merge them. The live fact `stablecoin_supply_usd` is a per-asset sum; the daily series is the chart total. They are not interchangeable ([observed difference](sources.md#known-gaps)).
+When collecting, exclude today UTC and future dates for every series; price candles are incomplete until the next UTC midnight. Binance quotes USDT and Coinbase quotes USD: keep both separate, never average or merge them. Do not substitute the [live stablecoin fact](sources.md#known-gaps) for the chart total or vice versa.
 
 `cryptodesk backfill` starts at 2025-01-01 by default; `--since YYYY-MM-DD` changes the lower bound and repeatable `--series <id>` selects series. Binance pages in 1,000-day windows; Coinbase uses 299-day windows within its 300-candle limit, excluding the inclusive end boundary to avoid duplicates. Coin Metrics follows `next_page_url`; Treasury fetches each required calendar year. `cryptodesk collect daily` rechecks the last five complete UTC dates for late values. Older gaps require another backfill.
 

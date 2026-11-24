@@ -13,9 +13,9 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 | `deribit` | Deribit v2 public | none | btc, eth | perp, `dvol`, [options](metrics.md#modules) | verified locally 2026-11-05 |
 | `treasury` | US Treasury daily par yield curve CSV | none | macro | `us2y_yield`, `us10y_yield` (close of day) | verified locally 2026-11-05 |
 | `nyfed` | NY Fed reference rates API | none | macro | `fed_funds_effective` | verified locally 2026-11-05 |
-| `fred` | FRED CSV `fredgraph.csv?id=CPIAUCNS` | none | macro | `cpi_index`, `cpi_yoy_pct` | draft: probed 2026-11-19; api.bls.gov returned Access Denied from this host; blank months (2025-10) are skipped, so `cpi_yoy_pct` for 2026-10 is `missing`; FRED drops connections from custom User-Agents, so the collector uses the httpx default |
-| `fedwatch` | CME China FedWatch / QuikStrike embedded HTML | none; Chrome TLS fingerprint and transient session | macro | `fedwatch_probability_<outcome>`, `fedwatch_status` | draft: embedded view retrieved 5/5 fresh sessions from Japan on 2026-11-19; US runner untested; source may change |
-| `farside` | Farside Bitcoin and Ethereum ETF flow tables (HTML, US$m, parentheses = negative) | none; Chrome TLS fingerprint | btc, eth | `etf_flow_total`, `etf_flow_<fund>` | draft: ETH parsed locally 2026-11-19, BTC 2026-11-23; fund columns must sum to the total within 0.1 per fund, else `missing`; `as_of` is the row date, not a verified session cutoff |
+| `fred` | FRED CSV `fredgraph.csv?id=CPIAUCNS` | httpx default User-Agent; custom User-Agents caused disconnects | macro | `cpi_index`, `cpi_yoy_pct` | verified 2026-11-24 against the FRED CSV: 2026-10 index 337.511; YoY `missing` because 2025-10 is blank |
+| `fedwatch` | CME China FedWatch / QuikStrike embedded HTML | none; Chrome TLS fingerprint and transient session | macro | `fedwatch_probability_<outcome>`, `fedwatch_status` | verified 2026-11-23; cross-checked against Cointelegraph and Decrypt reports |
+| `farside` | Farside Bitcoin and Ethereum ETF flow tables (HTML, US$m, parentheses = negative) | none; [access caveat](#known-gaps) | btc, eth | `etf_flow_total`, `etf_flow_<fund>` | BTC and ETH verified 2026-11-23; cross-checked against Decrypt and CoinGlass/SoSoValue reports |
 | `coinmetrics` | Coin Metrics Community | none | btc, eth | `mvrv`, `active_addresses`, `fees_total` | verified locally 2026-11-11 |
 | `mempool` | mempool.space | none; rate limited | btc | `hashrate`, `difficulty`, `fee_fastest` | verified locally 2026-11-11 |
 | `defillama` | DefiLlama stablecoins API | none | macro | `stablecoin_supply_usd`, `usdt_supply_usd`, `usdc_supply_usd` | verified locally 2026-11-11 |
@@ -23,9 +23,13 @@ Status: `planned`, `draft` (code written, never run), `verified` (run and compar
 
 Retired collection scope: [metrics.md](metrics.md#retired).
 
-For both BTC and ETH, Farside collection skips rows with an unpublished fund or total and collects only the newest fully published row, using that row's date; if none exists, the total is `missing` with reason `not published`. Previously, ETH could collect a total when a fund such as ETHA was unpublished.
+For both BTC and ETH, Farside collects only the newest fully published row. If none exists, the total is `missing` with reason `not published`; if the fund sum differs from the total by more than 0.1 US$m per fund, it is `missing` with reason `field absent in response`. `as_of` is the row date, not a verified session cutoff.
 
-FedWatch reads the NOW column for the page's selected meeting, with date and target bounds encoded in each metric. The page's CT timestamp is converted using `America/Chicago` timezone rules, including DST. Unidentifiable meeting, table or timestamp yields a missing `fedwatch_status`; absent or invalid probability cells yield missing outcome facts. Old meeting IDs remain in latest until manually removed.
+### FedWatch
+
+Each bucket is the NOW probability for the page's selected meeting and an absolute target range in basis points. The outcome ID is `YYYYMMDDb<lower>x<upper>`. The page marks the current range `(Current)`; the adapter discards that marker. When interpreting a bucket, compare it with the target range in force at the snapshot: the same range is a hold, above is a hike, and below is a cut. The [2026-10-28 FOMC statement](https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm) gives 3.75–4.00% (375–400 bp).
+
+The page's CT timestamp is converted using `America/Chicago` timezone rules, including DST. An unidentifiable meeting, table or timestamp yields a missing `fedwatch_status`; rows with all probability cells blank are skipped, and other absent or invalid NOW values yield missing outcome facts. Old meeting IDs remain in latest until manually removed.
 
 ## Daily backfill endpoints
 
@@ -58,7 +62,7 @@ Definitions, units, and day boundaries are in [Daily series](data-model.md#daily
 
 | Key | Provider | Needs | Scope | Status |
 |---|---|---|---|---|
-| `bitbo` | Bitbo ETF flow table | none | btc ETF flows | retired 2026-11-23; see [Known gaps](#known-gaps) |
+| `bitbo` | Bitbo ETF flow table | none | btc ETF flows | retired 2026-11-23; see [decision](decisions.md#etf-history-cleanup) |
 | `bls` | BLS API v2 | free key `BLS_API_KEY` | payrolls, unemployment, CPI | blocked: key |
 | `fiscaldata` | Treasury FiscalData | none | refunding, auctions | planned |
 | `etf_flows` | SoSoValue | SoSoValue key | ETF cross-check | blocked: HTTP 403 to scripts, also with a Chrome fingerprint (2026-11-19) |
@@ -67,23 +71,18 @@ Definitions, units, and day boundaries are in [Daily series](data-model.md#daily
 
 ## Known gaps
 
-| Gap | State |
+Past incidents and dated probes: [2026-11-24 incident log](research/2026-11-24-incident-log.md).
+
+| Gap | State and action (last confirmed) |
 |---|---|
-| Market-wide liquidations (long and short) | No free complete source |
-| Farside access | Plain HTTP clients get 403 (2026-11-11); a Chrome TLS fingerprint (`curl_cffi`) returns the page (2026-11-19). It may be blocked again at any time, then ETF facts are `missing`. Bitbo's ETH page is a 404 |
-| ETF flow disagreement | Wrong Bitbo BTC records were deleted and Farside rows backfilled; an incomplete Farside ETH total was also deleted. See the [2026-11-23 decision for IDs and `as_of` dates](decisions.md#etf-history-cleanup). The smaller 2026-11-09 Bitbo–Farside disagreement was retained: total -198.6m vs -201.0m and IBIT -210.5m vs -213.2m (US$m). |
-| Stablecoin total | The live fact `stablecoin_supply_usd` sums per-asset USD-pegged supply and was 292.894B on 2026-11-11; the daily series `stablecoin_supply_usd.defillama` uses the chart total, 289.469B for 2026-11-11 (about 1.2% lower), and an earlier comparison on 2026-11-11 found a 0.155% gap (292.894B versus 292.440B). Cause not found; the two are not interchangeable |
-| Coin Metrics MVRV latest day | The newest daily row often has `CapMVRVCur: null` while other fields are set (ETH 2026-11-15, 2026-11-15 probe). The live fact is then `missing`; the daily series holds the last dated value |
-| History rollback 2026-11-16 | `main` was reset to the 2026-11-15T15:13Z commit, dropping data commits up to 2026-11-16T15:03Z. On 2026-11-17 the dropped lines of `data/facts` and `runs/` were restored from the backup branch with original values and times. Not restored: `data/latest` (newer values exist) and news lines (already re-collected with later `fetched_at`). `daily` re-adds the last 5 complete days, so daily series have no gap |
-| Binance gaps | No `market` run recorded 2026-11-01 to 2026-11-05T18:00Z, plus scattered hours on 11-05 and 11-06; collection history starts 2026-11-05T19:30Z. All Binance facts `missing` at 11-05 19:30Z (HTTP 451), 11-06 15:53Z to 11-08 12:03Z (ConnectError), 11-08 13:03Z to 11-10 08:03Z (ProxyError), 11-15 04:03Z to 07:03Z (ConnectError). Repeated unchanged `missing` facts are not appended |
-| Source revisions | Past daily values are revised upstream: DefiLlama stablecoin total (2026-11-12 to 11-14, about 5e-5) and Coin Metrics MVRV (about 1e-8; ETH 2026-11-14 about 3e-6). Stored daily values are kept and the difference appears as a conflict in `runs/`. Bitbo's 2026-11-13 total changed from -369.9m to -373.5m between fetches |
-| `fed_press` feed | Returned HTTP 404 on 2026-11-15 and 2026-11-17; HTTP 200 when probed 2026-11-18. Intermittent, cause unknown |
-| DefiLlama ETF endpoints | Paid |
-| LTH/STH supply, realized price | No stable free source |
-| CME FedWatch probabilities | No official free API; the draft collector parses the embedded HTML rather than an API |
-| BLS RSS | Returned HTTP 403 on 2026-11-06 |
-| Binance from GitHub-hosted runners | HTTP 451 on all Binance endpoints, observed 2026-11-05 (run 42094550517). When `CRYPTODESK_PROXY` is set, only `binance.com` hosts use it; keep the credential-bearing URL only in environment variables or GitHub Secrets. Unset means direct connection, not `<NAME> not set`; on hosted runners the resulting facts are `missing` with reason `HTTP 451` |
-| GDELT | Returned HTTP 429; not planned |
+| Market-wide liquidations (long and short); LTH/STH supply and realized price | No complete free liquidation source or stable free holder source was identified in the original inventory (2026-11-06); none is registered (2026-11-24). Do not present partial or reported figures as collected market-wide facts. |
+| Farside access | Plain HTTP returned 403 on 2026-11-11. Use the `curl_cffi` Chrome TLS fingerprint (successful collection 2026-11-23); if access fails, ETF facts are `missing`. |
+| Stablecoin total | The live `stablecoin_supply_usd` sums per-asset USD-pegged supply; the [daily series](data-model.md#daily-series) uses the chart total. Do not substitute one for the other (adapters checked 2026-11-24). |
+| Coin Metrics MVRV latest day | If the newest daily row has null MVRV, the live fact is `missing` even when other fields are present (missing observed 2026-11-24). Use the last dated daily value only as historical data. |
+| Source revisions | Upstream values can change (DefiLlama conflicts recorded 2026-11-24). When reconciling daily values, keep the stored row and follow the [conflict rule](data-model.md#daily-series). |
+| DefiLlama ETF endpoints | Listed in the [Pro API](https://api-docs.defillama.com/llms-pro.txt), not the free API (2026-11-24). Use Farside for collection. |
+| CME FedWatch probabilities | No free API is configured; the [adapter](#fedwatch) uses the embedded HTML. When debugging collection, check the embedded view rather than assuming a JSON API (adapter checked 2026-11-24). |
+| Binance from GitHub-hosted runners | Direct access returned HTTP 451 on all Binance endpoints (2026-11-05, run 42094550517), yielding `missing` facts. Set `CRYPTODESK_PROXY` in the environment or GitHub Secrets for runners; only `binance.com` hosts use it, and unset means a direct connection, not a missing-secret error (routing checked 2026-11-24). |
 
 ## Cross-source checks
 

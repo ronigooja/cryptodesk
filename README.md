@@ -18,12 +18,14 @@ Host cron dispatches [workflow groups](docs/schedule.md) through the GitHub API.
 | `src/`, `tests/`, `.github/workflows/` | Collectors, store, checker, CLI, tests, workflows |
 | `coins/<coin>/profile.toml` | Source symbols, `major` class, enabled [modules](docs/metrics.md#modules) |
 | `data/`, `runs/` | [Fact storage and run logs](docs/data-model.md#storage); kept separate from code |
-| `analysis/` | [Template and write-once analyses](docs/analysis.md) |
+| `analysis/` | [Template, current analyses, and archive](docs/analysis.md#files) |
 | `docs/events/<YYYY-MM>.md` | Monthly event calendar |
 | `docs/research/<date>-<topic>.md` | Write-once research snapshots |
 
 `<coin>` is a lowercase ticker; `macro` is the shared pseudo-coin. Data and code share one repository; migration triggers are in [decisions](docs/decisions.md#triggers-to-revisit).
 
-When adding a source, register its metrics in [metrics.md](docs/metrics.md), implement the [adapter contract](docs/data-model.md#adapter-contract), and update [sources.md](docs/sources.md) and [schedule.md](docs/schedule.md).
-
 Non-goals: real-time streaming, order execution, backtesting.
+
+### Collection change checklist
+
+When adding or changing collection, update the applicable definitions in the same change: the [metric registry](docs/metrics.md#registry), [source registry](docs/sources.md), and [schedule groups](docs/schedule.md#groups). When adding or changing an adapter, follow the [adapter contract](docs/data-model.md#adapter-contract).

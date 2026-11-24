@@ -1,5 +1,7 @@
 # Decisions
 
+When a row is superseded, mark it; do not delete it.
+
 | Date | Decision | Reason |
 |---|---|---|
 | 2026-11-06 | Repo name `cryptodesk`; GitHub account is the local `gh` login; local path `~/Terminal/cryptodesk` | User choice |
@@ -20,14 +22,14 @@
 | 2026-11-06 | Documentation first, then implementation; the assistant states its plan and waits for "go" before changes | User instruction after an unrequested early implementation, which was deleted |
 | 2026-11-06 | Binance proxy support added | Behavior and verified limitation: [sources.md](sources.md#known-gaps) |
 | 2026-11-06 | Dispatch workflows from a host cron through the GitHub API; removed the `schedule` trigger | `schedule` ran about 7 times in 24 h against about 30 expected, with multi-hour delays. GitHub documents delay and dropping under load. |
-| 2026-11-13 | Remove altcoin design, mempool/active-address/fee metrics, generated `notes.md`, and `sources.json` | Unused by the analyses; history remains in git. |
-| 2026-11-13 | Restore active-address, fee, and mempool collection removed earlier the same day; keep CFTC | The removal criterion was weak: one earlier analysis did not use them, while no analysis had enough history to judge them. |
+| 2026-11-13 | Remove altcoin design, mempool/active-address/fee metrics, generated `notes.md`, and `sources.json` | Unused by the analyses; history remains in git. Superseded by the [2026-11-13 restore row](#restore-collection) for mempool, active-address, and fee metrics only. |
+| 2026-11-13 | <a id="restore-collection"></a>Restore active-address, fee, and mempool collection removed earlier the same day; keep CFTC | The removal criterion was weak: one earlier analysis did not use them, while no analysis had enough history to judge them. |
 | 2026-11-13 | Add a news metadata layer (seven RSS feeds, six metadata fields, no article text) and rebuild the event calendar from official pages; no denser collection around events | Short-term analysis needs reported events with times; copyright and a public repo rule out storing text; the user declined event-window collection. |
-| 2026-11-13 | No failure alerting. Failures appear as `missing` facts and in `runs/`; they are found when someone reads the data | User decision. Known consequence: the Binance proxy failure of 2026-11-06 to 2026-11-10 went unnoticed for about 3.5 days. |
+| 2026-11-13 | <a id="failure-alerting"></a>No failure alerting. Failures appear as `missing` facts and in `runs/`; they are found when someone reads the data | User decision after the [Binance proxy outage](research/2026-11-24-incident-log.md#binance-collection-gaps). |
 | 2026-11-18 | Removed 46 uncollected per-expiry option records (`oi_call`, `oi_put`, non-nearest `max_pain`) from `data/latest`; history unchanged | Left over from the collector change in `79a8f7a`; stale but unexpired, so analysis could misread them as current. Daily-series conflicts stay as logged: stored values are kept and differences remain in `runs/` (no tolerance change, no revision file) |
-| 2026-11-23 | Analysis files with a misread field or unreliable source are corrected in place, with no errata section; a changed view is still a new file | Write-once kept misreads in the repo: three files treated FedWatch 400-425 (a 25-bp hike versus the 3.75-4.00% target) as a hold, and cited a Bitbo BTC ETF total that missed about 565m of outflows. Marked errata were tried first and dropped because the wrong text stayed readable. User decision |
-| 2026-11-23 | BTC spot ETF flows come from Farside instead of Bitbo | Bitbo's 2026-11-19 total was -17.2m with IBIT and FBTC at 0; Farside showed -582.3m and Decrypt reported -582.2m. Details: [sources.md](sources.md#known-gaps). User decision |
-| 2026-11-23 | <a id="etf-history-cleanup"></a>Deleted 104 `bitbo.btc.etf_flow_*` history records with `as_of` at 00:00:00Z on 2026-11-11, 11-13, 11-16, 11-18, and 11-19; deleted all 15 Bitbo BTC ETF keys from latest (`as_of` 2026-11-19T00:00:00Z). Backfilled complete `farside.btc.etf_flow_*` rows for those five dates (`fetched_at` 2026-11-23T12:06:54Z). Deleted the incomplete `farside.eth.etf_flow_total` record (`as_of` 2026-11-20T00:00:00Z, value −13.2m USD); kept the later corrected record. | The owner found material Bitbo errors against Farside, corroborated by SoSoValue and Decrypt reports. Substituting Farside data under Bitbo IDs would misstate the source. Run counts in `runs/` no longer reproduce from history. |
+| 2026-11-23 | Adopt the [in-place correction rule](analysis.md#files) | Write-once kept misreads in the repo: three files read a FedWatch hike bucket as a hold and cited a Bitbo BTC ETF total that missed about 565m of outflows. Marked errata were tried first and dropped because the wrong text stayed readable. User decision |
+| 2026-11-23 | BTC spot ETF flows come from Farside instead of Bitbo | User decision after a [material discrepancy](research/2026-11-24-incident-log.md#etf-discrepancy-and-cleanup). |
+| 2026-11-23 | <a id="etf-history-cleanup"></a>Deleted wrong Bitbo BTC ETF records and one incomplete Farside ETH total; backfilled complete Farside BTC rows. See the [incident record](research/2026-11-24-incident-log.md#etf-discrepancy-and-cleanup) for IDs and times. | Substituting Farside data under Bitbo IDs would misstate the source. |
 
 ## Triggers to revisit
 

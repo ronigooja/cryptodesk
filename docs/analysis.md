@@ -4,7 +4,7 @@ Analyses are written on demand by an agent in a session. There is no scheduled m
 
 ## Files
 
-- Location: `analysis/`. When the count grows, group by month in subdirectories.
+- When a file names an existing `Supersedes` target, the owner session moves the target to `analysis/archive/`; the top level of `analysis/` holds only analyses no later file supersedes and `TEMPLATE-major.md`.
 - Name: `<YYYY-MM-DD>T<HHMM>Z-<scope>.md`, for example `2026-11-06T1400Z-btc-eth.md`.
 - When a view changes (new data, price move), write a new file and leave the old one unchanged.
 - When a file misreads a field, cites an unreliable source, or has a broken citation, correct it in place so the file reads as correct. Do not keep the wrong text or add an errata section; git history keeps the earlier version. Re-derive any inference that rested on the error.
