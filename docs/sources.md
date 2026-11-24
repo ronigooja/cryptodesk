@@ -31,6 +31,12 @@ Each bucket is the NOW probability for the page's selected meeting and an absolu
 
 The page's CT timestamp is converted using `America/Chicago` timezone rules, including DST. An unidentifiable meeting, table or timestamp yields a missing `fedwatch_status`; rows with all probability cells blank are skipped, and other absent or invalid NOW values yield missing outcome facts. Old meeting IDs remain in latest until manually removed.
 
+## On-demand reads
+
+| Source | Endpoints / use | Status |
+|---|---|---|
+| Binance | `api.binance.com/api/v3/klines` and `fapi.binance.com/fapi/v1/klines`; [event study](event-study.md) | verified locally 2026-11-24 |
+
 ## Daily backfill endpoints
 
 Definitions, units, and day boundaries are in [Daily series](data-model.md#daily-series). These direct read-only shape checks did not perform a backfill.

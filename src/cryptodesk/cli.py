@@ -29,7 +29,21 @@ def main(argv=None) -> int:
     backfill.add_argument("--since", type=daily.valid_date, default=daily.START)
     backfill.add_argument("--series", action="append", choices=tuple(daily.SERIES))
     commands.add_parser("check")
+    event_study = commands.add_parser("event-study")
+    event_study.add_argument("--at", required=True)
+    event_study.add_argument("--before", type=int, default=60)
+    event_study.add_argument("--after", type=int, default=30)
+    event_study.add_argument("--baseline-days", type=int, default=7)
     args = parser.parse_args(argv)
+    if args.command == "event-study":
+        from . import eventstudy
+        try:
+            at = eventstudy.parse_at(args.at)
+            if min(args.before, args.after, args.baseline_days) < 1:
+                raise ValueError("--before, --after and --baseline-days must be positive")
+        except ValueError as exc:
+            parser.error(str(exc))
+        return eventstudy.run(make_get_fn(), at, args.before, args.after, args.baseline_days)
     root = store.find_root()
     db = store.Store(root, registry.load(root))
     if args.command == "backfill" or (args.command == "collect" and args.group == "daily"):
