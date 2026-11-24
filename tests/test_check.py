@@ -8,6 +8,13 @@ import pytest
 from cryptodesk.check import check_all, check_analysis, check_facts
 
 
+def test_check_all_includes_forecast_errors(tmp_path, store):
+    directory = tmp_path / "data" / "forecasts"
+    directory.mkdir(parents=True)
+    (directory / "2025-01.jsonl").write_text("not json\n")
+    assert check_all(store, tmp_path) == ["data/forecasts/2025-01.jsonl:1: invalid forecast JSON"]
+
+
 @pytest.fixture
 def analysis_file(tmp_path, store, fact):
     store.apply([fact], "core", fact.fetched_at)

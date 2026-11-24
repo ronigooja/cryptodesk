@@ -2,7 +2,7 @@ import argparse
 import os
 from datetime import UTC, datetime, timedelta
 
-from . import check, daily, model, news, profiles, registry, store
+from . import check, daily, forecast, model, news, profiles, registry, store
 from .adapters import binance, cftc, coinmetrics, defillama, deribit, farside, fedwatch, fred, mempool, nyfed, okx, treasury
 from .adapters.base import PROXY_ENV, make_get, make_get_text, make_get_text_chrome, make_get_text_default_ua
 
@@ -34,6 +34,7 @@ def main(argv=None) -> int:
     event_study.add_argument("--before", type=int, default=60)
     event_study.add_argument("--after", type=int, default=30)
     event_study.add_argument("--baseline-days", type=int, default=7)
+    forecast.configure(commands)
     args = parser.parse_args(argv)
     if args.command == "event-study":
         from . import eventstudy
@@ -45,6 +46,8 @@ def main(argv=None) -> int:
             parser.error(str(exc))
         return eventstudy.run(make_get_fn(), at, args.before, args.after, args.baseline_days)
     root = store.find_root()
+    if args.command == "forecast":
+        return forecast.run(args, root, parser)
     db = store.Store(root, registry.load(root))
     if args.command == "backfill" or (args.command == "collect" and args.group == "daily"):
         now = datetime.now(UTC)

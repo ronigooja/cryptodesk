@@ -5,7 +5,7 @@ from pathlib import Path
 from urllib.parse import unquote
 
 from .model import validate
-from . import daily, news
+from . import daily, forecast, news
 from .store import Store
 
 CITE_RE = re.compile(r"\[F:([^\]@\s]+)@([^\]\s]+)\]")
@@ -209,6 +209,28 @@ def check_doc_links(root: Path) -> list[str]:
     return errors
 
 
+def check_forecasts(root: Path) -> list[str]:
+    errors, known = [], set()
+    for path in sorted((root / "data" / "forecasts").glob("*.jsonl")):
+        for number, line in enumerate(path.read_text().splitlines(), 1):
+            location = f"{path.relative_to(root)}:{number}"
+            try:
+                record = json.loads(line)
+            except ValueError:
+                errors.append(f"{location}: invalid forecast JSON")
+                continue
+            errors.extend(f"{location}: {error}" for error in forecast.validate(record, root))
+            if isinstance(record, dict):
+                fid, made = record.get("id"), record.get("made_at")
+                if isinstance(fid, str):
+                    if fid in known:
+                        errors.append(f"{location}: duplicate forecast id")
+                    known.add(fid)
+                if isinstance(made, str) and path.stem != made[:7]:
+                    errors.append(f"{location}: file month does not match made_at")
+    return errors
+
+
 def check_all(store: Store, root: Path) -> list[str]:
-    return (check_facts(store) + check_news(root) + check_daily(root) + check_analysis_files(store, root)
+    return (check_facts(store) + check_news(root) + check_daily(root) + check_forecasts(root) + check_analysis_files(store, root)
             + check_tracked_junk(root) + check_doc_links(root))
