@@ -29,7 +29,8 @@ Public repo (may later become private or move). Collects BTC, ETH, and macro fac
 - When writing analysis, follow [docs/analysis.md](docs/analysis.md), including its citation and guidance limits.
 - When handling credentials, read them from environment variables or GitHub Secrets only; never write them to files, logs, commits, or error text. The repo is public.
 - When writing any file, do not include positions, balances, cost basis, or personal plans. The repo is public.
-- When a research result is recorded, put it in `docs/research/` with its date and keep it unchanged afterward; update [sources.md](docs/sources.md) for current state.
+- When recording a measurement of an external source, put it in `docs/research/` with its date and keep its measured values unchanged; update [sources.md](docs/sources.md) for current state.
+- When a record is our own account of what happened (incident log, calendar checks), keep only what still explains stored data and edit or delete it when it does not.
 - Before committing code, run the checker and tests once they exist.
 - When the work is complete, commit only the files you changed to the default branch.
 - When the user has not said to proceed, state understanding and plan first; do not create or change files.

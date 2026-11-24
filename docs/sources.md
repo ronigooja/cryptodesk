@@ -1,6 +1,6 @@
 # Sources
 
-Sole source registry; current state only. Dated [research](research/) remains write-once history. Terms of use and redistribution limits are not tracked, by user decision.
+Sole source registry; current state only. Dated measurements in [research](research/) keep their measured values. Terms of use and redistribution limits are not tracked, by user decision.
 
 Status: `planned`, `draft` (code written, never run), `verified` (run and compared with the source), `blocked` (needs something from the user). Historical `planned`/`blocked` entries below do not imply a current implementation commitment; see [roadmap](roadmap.md).
 

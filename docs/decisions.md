@@ -30,6 +30,7 @@ When a row is superseded, mark it; do not delete it.
 | 2026-11-23 | Adopt the [in-place correction rule](analysis.md#files) | Write-once kept misreads in the repo: three files read a FedWatch hike bucket as a hold and cited a Bitbo BTC ETF total that missed about 565m of outflows. Marked errata were tried first and dropped because the wrong text stayed readable. User decision |
 | 2026-11-23 | BTC spot ETF flows come from Farside instead of Bitbo | User decision after a [material discrepancy](research/2026-11-24-incident-log.md#etf-discrepancy-and-cleanup). |
 | 2026-11-23 | <a id="etf-history-cleanup"></a>Deleted wrong Bitbo BTC ETF records and one incomplete Farside ETH total; backfilled complete Farside BTC rows. See the [incident record](research/2026-11-24-incident-log.md#etf-discrepancy-and-cleanup) for IDs and times. | Substituting Farside data under Bitbo IDs would misstate the source. |
+| 2026-11-24 | Research files that hold external measurements keep their values; our own incident and calendar records are edited or trimmed when they no longer explain stored data | A write-once incident log keeps closed one-off probes next to live caveats; user decision after reviewing the log |
 
 ## Triggers to revisit
 

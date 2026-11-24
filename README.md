@@ -20,7 +20,7 @@ Host cron dispatches [workflow groups](docs/schedule.md) through the GitHub API.
 | `data/`, `runs/` | [Fact storage and run logs](docs/data-model.md#storage); kept separate from code |
 | `analysis/` | [Template, current analyses, and archive](docs/analysis.md#files) |
 | `docs/events/<YYYY-MM>.md` | Monthly event calendar |
-| `docs/research/<date>-<topic>.md` | Write-once research snapshots |
+| `docs/research/<date>-<topic>.md` | Dated measurements of external sources; incident log |
 
 `<coin>` is a lowercase ticker; `macro` is the shared pseudo-coin. Data and code share one repository; migration triggers are in [decisions](docs/decisions.md#triggers-to-revisit).
 
