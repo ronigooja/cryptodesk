@@ -866,3 +866,4 @@
 {"changed": 1, "errors": [], "facts": 172, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-24T00:13:19Z", "unchanged": 171}
 {"changed": 5, "errors": [], "facts": 6, "group": "options", "missing": 0, "started": "2026-11-24T00:22:13Z", "unchanged": 1}
 {"changed": 11, "conflicts": 4, "errors": ["stablecoin_supply_usd.defillama: conflict 2026-11-19: stored=285228939202.55 received=285227236626", "stablecoin_supply_usd.defillama: conflict 2026-11-20: stored=283440823803.77 received=283431758483", "stablecoin_supply_usd.defillama: conflict 2026-11-21: stored=282511685366.14 received=282502620045", "stablecoin_supply_usd.defillama: conflict 2026-11-22: stored=282495001551.88 received=282485936231"], "facts": 41, "group": "daily", "missing": 0, "skipped": 3721, "started": "2026-11-24T00:40:19Z", "unchanged": 30}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-24T01:03:18Z", "unchanged": 0}
