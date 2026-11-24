@@ -31,6 +31,10 @@ When a row is superseded, mark it; do not delete it.
 | 2026-11-23 | BTC spot ETF flows come from Farside instead of Bitbo | User decision after a [material discrepancy](research/2026-11-24-incident-log.md#etf-discrepancy-and-cleanup). |
 | 2026-11-23 | <a id="etf-history-cleanup"></a>Deleted wrong Bitbo BTC ETF records and one incomplete Farside ETH total; backfilled complete Farside BTC rows. See the [incident record](research/2026-11-24-incident-log.md#etf-discrepancy-and-cleanup) for IDs and times. | Substituting Farside data under Bitbo IDs would misstate the source. |
 | 2026-11-24 | Research files that hold external measurements keep their values; our own incident and calendar records are edited or trimmed when they no longer explain stored data | A write-once incident log keeps closed one-off probes next to live caveats; user decision after reviewing the log |
+| 2026-11-24 | Add an optional `Pending external events` section to the analysis template | The [Nvidia replay](research/2026-11-24-huang-event-replay.md) found no clue to the timing of the reinstatement; the analysis should list unresolved events and what they would invalidate, without probabilities. User decision |
+| 2026-11-24 | Add the on-demand [event study](event-study.md) | Post-event reviews need spot and perpetual minute bars with control days; it writes nothing and is not scheduled. User decision |
+| 2026-11-24 | Add the [forecast register](forecasts.md) | The 2026-11-20 and 2026-11-23 short-term calls could not be scored; only daily-series statements are registered, with no backfill. User decision |
+| 2026-11-24 | Do not collect NVDA or index futures | The replay found no pre-event clue in them, and they are outside BTC and ETH scope. User decision |
 
 ## Triggers to revisit
 

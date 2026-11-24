@@ -26,6 +26,12 @@
 
 - <optional reported claim, publication time relative to fact times> [N:<id>]
 
+## Pending external events
+
+<!-- Optional section between Catalysts and news and Inference; see docs/analysis.md. -->
+
+- <unresolved yes/no event>: last evidence read <YYYY-MM-DD HH:MM UTC> [N:<id>]; conditions below it would invalidate: <observable condition>
+
 ## Inference
 
 - <interpretation> based on: [F:<id>@<fetched_at>]

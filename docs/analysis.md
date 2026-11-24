@@ -30,6 +30,10 @@ Required headings, in order:
 
 News citations use `[N:<id>]` without an `@` timestamp, for example `[N:coindesk:3fa1c2b4d5e6]`, resolving to [news metadata](data-model.md#news-items). An optional `## Catalysts and news` section may appear between Facts and Inference; it contains reported claims, not fact records.
 
+## Pending external events
+
+An optional `## Pending external events` section may appear after `## Catalysts and news` and before `## Inference`. When a decision, ruling, release or vote that could move BTC or ETH is unresolved at writing time, list one item per event: what is unresolved, the time of the last evidence read with its `[N:<id>]` citation, and the observable conditions that the event would invalidate. Do not state a probability for the event. Reason: a [replay of the 2026-11-23 Nvidia event](research/2026-11-24-huang-event-replay.md) found no timing clue, so the analysis should say which conditions a surprise would invalidate, not predict the surprise.
+
 When scanning analysis citations, the checker ignores inline code spans, fenced code blocks, and unclosed news citation markers; closed malformed news IDs remain errors.
 
 Daily citations use `[D:<series_id>@<YYYY-MM-DD>]`, resolving to a row in [daily storage](data-model.md#daily-series). Ranges use `[D:<series_id>@<YYYY-MM-DD>..<YYYY-MM-DD>]`; both endpoints must have rows, but intervening missing dates remain absent. The checker ignores daily citations inside code, as for facts and news.
@@ -45,6 +49,7 @@ Daily citations use `[D:<series_id>@<YYYY-MM-DD>]`, resolving to a row in [daily
 - When writing a time, give UTC and UTC+8.
 - When quoting a scheduled release, take the time from [events/](events/).
 - When a prior analysis is overturned, name it in `Supersedes`.
+- When an analysis states a short-term judgment that a stored daily series can resolve, register it with the [forecast register](forecasts.md) so it can be scored; use the [event study](event-study.md) for post-event reviews.
 - When stating a lean (bullish, bearish, neutral), put it under Inference with its conditions, never under Facts.
 - When writing analysis, do not give position size, leverage, entry, or stop levels; describe observable conditions only.
 

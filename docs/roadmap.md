@@ -2,7 +2,7 @@
 
 Open items only. See [schedule](schedule.md#groups) for current workflow groups.
 
-- View log: record dated conclusions, their reasons and invalidation conditions; review them against later prices.
+- Forecast register: judgments are recorded only when the analyst chooses; review the score after 20 resolved forecasts ([forecasts.md](forecasts.md)).
 - Decide whether to retain CFTC collection.
 
 Altcoins are out of scope until requested.

@@ -19,7 +19,9 @@ Host cron dispatches [workflow groups](docs/schedule.md) through the GitHub API.
 | `coins/<coin>/profile.toml` | Source symbols, `major` class, enabled [modules](docs/metrics.md#modules) |
 | `data/`, `runs/` | [Fact storage and run logs](docs/data-model.md#storage); kept separate from code |
 | `analysis/` | [Template, current analyses, and archive](docs/analysis.md#files) |
+| `data/forecasts/` | [Forecast register](docs/forecasts.md); judgments recorded for later scoring |
 | `docs/events/<YYYY-MM>.md` | Monthly event calendar |
+| `cryptodesk event-study` | [On-demand post-event minute-bar read](docs/event-study.md); writes nothing |
 | `docs/research/<date>-<topic>.md` | Dated measurements of external sources; incident log |
 
 `<coin>` is a lowercase ticker; `macro` is the shared pseudo-coin. Data and code share one repository; migration triggers are in [decisions](docs/decisions.md#triggers-to-revisit).
