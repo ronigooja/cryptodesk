@@ -1,120 +1,120 @@
 {
  "binance.btc.change_24h_pct": {
-  "as_of": "2026-11-25T02:03:22Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:20Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "binance.btc.change_24h_pct",
   "metric": "change_24h_pct",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "percent",
-  "value": -2.585
+  "value": -1.739
  },
  "binance.btc.funding_rate_8h": {
-  "as_of": "2026-11-25T02:03:23Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:20Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "binance.btc.funding_rate_8h",
   "metric": "funding_rate_8h",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "fraction",
-  "value": 6.068e-05
+  "value": 9.405e-05
  },
  "binance.btc.high_24h": {
-  "as_of": "2026-11-25T02:03:22Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:20Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "binance.btc.high_24h",
   "metric": "high_24h",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "USDT",
-  "value": 61063.92
+  "value": 60768.56
  },
  "binance.btc.low_24h": {
-  "as_of": "2026-11-25T02:03:22Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:20Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "binance.btc.low_24h",
   "metric": "low_24h",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "USDT",
-  "value": 59078.73
+  "value": 58952.48
  },
  "binance.btc.open_interest": {
-  "as_of": "2026-11-25T02:03:18Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:19Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "binance.btc.open_interest",
   "metric": "open_interest",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "BTC",
-  "value": 96400.511
+  "value": 96733.481
  },
  "binance.btc.perp_mark_price": {
-  "as_of": "2026-11-25T02:03:23Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:20Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "binance.btc.perp_mark_price",
   "metric": "perp_mark_price",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "USDT",
-  "value": 59228.0
+  "value": 59059.1
  },
  "binance.btc.spot_price": {
-  "as_of": "2026-11-25T02:03:22Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:20Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "binance.btc.spot_price",
   "metric": "spot_price",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "USDT",
-  "value": 59251.83
+  "value": 59097.34
  },
  "binance.btc.top_ls_account_ratio": {
-  "as_of": "2026-11-25T02:00:00Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:00:00Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "binance.btc.top_ls_account_ratio",
   "metric": "top_ls_account_ratio",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "ratio",
-  "value": 3.1017
+  "value": 3.0048
  },
  "binance.btc.top_ls_position_ratio": {
-  "as_of": "2026-11-25T02:00:00Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:00:00Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "binance.btc.top_ls_position_ratio",
   "metric": "top_ls_position_ratio",
   "reason": null,
   "source": "binance",
   "status": "ok",
   "unit": "ratio",
-  "value": 1.9286
+  "value": 1.913
  },
  "cftc.btc.cot_asset_mgr_net": {
   "as_of": "2026-11-17T00:00:00Z",
@@ -195,23 +195,23 @@
   "value": null
  },
  "deribit.btc.dvol": {
-  "as_of": "2026-11-25T02:00:00Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:00:00Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "deribit.btc.dvol",
   "metric": "dvol",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "percent",
-  "value": 53.61
+  "value": 53.52
  },
  "deribit.btc.funding_rate_8h": {
-  "as_of": "2026-11-25T02:03:25Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:22Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "deribit.btc.funding_rate_8h",
   "metric": "funding_rate_8h",
   "reason": null,
@@ -260,17 +260,17 @@
   "value": 72000.0
  },
  "deribit.btc.perp_mark_price": {
-  "as_of": "2026-11-25T02:03:25Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:22Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "deribit.btc.perp_mark_price",
   "metric": "perp_mark_price",
   "reason": null,
   "source": "deribit",
   "status": "ok",
   "unit": "USD",
-  "value": 59161.07
+  "value": 59012.45
  },
  "farside.btc.etf_flow_arkb": {
   "as_of": "2026-11-23T00:00:00Z",
@@ -481,81 +481,81 @@
   "value": 1.042184031963893e+21
  },
  "okx.btc.funding_rate_8h": {
-  "as_of": "2026-11-25T02:02:29Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:02Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "okx.btc.funding_rate_8h",
   "metric": "funding_rate_8h",
   "reason": null,
   "source": "okx",
   "status": "ok",
   "unit": "fraction",
-  "value": 3.81144756021e-05
+  "value": 3.27258376748e-05
  },
  "okx.btc.high_24h": {
-  "as_of": "2026-11-25T02:03:24Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:21Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "okx.btc.high_24h",
   "metric": "high_24h",
   "reason": null,
   "source": "okx",
   "status": "ok",
   "unit": "USDT",
-  "value": 61071.7
+  "value": 60769.2
  },
  "okx.btc.low_24h": {
-  "as_of": "2026-11-25T02:03:24Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:21Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "okx.btc.low_24h",
   "metric": "low_24h",
   "reason": null,
   "source": "okx",
   "status": "ok",
   "unit": "USDT",
-  "value": 59084.9
+  "value": 58952.0
  },
  "okx.btc.open_interest": {
-  "as_of": "2026-11-25T02:03:24Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:22Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "okx.btc.open_interest",
   "metric": "open_interest",
   "reason": null,
   "source": "okx",
   "status": "ok",
   "unit": "BTC",
-  "value": 30880.526900000095
+  "value": 30915.772800000097
  },
  "okx.btc.open_interest_usd": {
-  "as_of": "2026-11-25T02:03:24Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:22Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "okx.btc.open_interest_usd",
   "metric": "open_interest_usd",
   "reason": null,
   "source": "okx",
   "status": "ok",
   "unit": "USD",
-  "value": 1828602752.5942657
+  "value": 1825873175.2588859
  },
  "okx.btc.spot_price": {
-  "as_of": "2026-11-25T02:03:24Z",
-  "checked_at": "2026-11-25T02:03:21Z",
+  "as_of": "2026-11-25T03:03:21Z",
+  "checked_at": "2026-11-25T03:03:19Z",
   "coin": "btc",
-  "fetched_at": "2026-11-25T02:03:21Z",
+  "fetched_at": "2026-11-25T03:03:19Z",
   "id": "okx.btc.spot_price",
   "metric": "spot_price",
   "reason": null,
   "source": "okx",
   "status": "ok",
   "unit": "USDT",
-  "value": 59250.1
+  "value": 59100.4
  }
 }
