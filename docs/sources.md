@@ -64,6 +64,8 @@ Definitions, units, and day boundaries are in [Daily series](data-model.md#daily
 | `fed_monetary` | https://www.federalreserve.gov/feeds/press_monetary.xml | verified locally 2026-11-13 | terms of use not reviewed, metadata only |
 | `sec` | https://www.sec.gov/news/pressreleases.rss | verified locally 2026-11-13 | terms of use not reviewed, metadata only |
 
+Probed and not registered (2026-11-25): BLS RSS (`bls.gov/feed/empsit.rss`, `bls_latest.rss`) returned HTTP 403 to a plain request with a browser user agent; GDELT DOC API returned HTTP 429 on the first request.
+
 ## Inactive sources
 
 | Key | Provider | Needs | Scope | Status |
@@ -84,7 +86,7 @@ Past incidents and dated probes: [2026-11-24 incident log](research/2026-11-24-i
 | Market-wide liquidations (long and short); LTH/STH supply and realized price | No complete free liquidation source or stable free holder source was identified in the original inventory (2026-11-06); none is registered (2026-11-24). Do not present partial or reported figures as collected market-wide facts. |
 | Farside access | Plain HTTP returned 403 on 2026-11-11. Use the `curl_cffi` Chrome TLS fingerprint (successful collection 2026-11-23); if access fails, ETF facts are `missing`. |
 | Stablecoin total | The live `stablecoin_supply_usd` sums per-asset USD-pegged supply; the [daily series](data-model.md#daily-series) uses the chart total. Do not substitute one for the other (adapters checked 2026-11-24). |
-| Coin Metrics MVRV latest day | If the newest daily row has null MVRV, the live fact is `missing` even when other fields are present (missing observed 2026-11-24). Use the last dated daily value only as historical data. |
+| Coin Metrics MVRV latest day | The `onchain` run at 01:30Z often gets a newest daily row without `CapMVRVCur` while other fields are present; the live fact is then `missing` (`field absent in response`; BTC had 6 `missing` of 12 stored days from 2026-11-10 to 2026-11-24, one of them HTTP 526). Re-querying later the same day returned the value (2026-11-25 15:49Z). The [daily series](data-model.md#daily-series) fills the date on a later run, so cite the daily series, not the live fact, for MVRV (checked 2026-11-25). No collector change decided. |
 | Source revisions | Upstream values can change (DefiLlama conflicts recorded 2026-11-24). When reconciling daily values, keep the stored row and follow the [conflict rule](data-model.md#daily-series). |
 | DefiLlama ETF endpoints | Listed in the [Pro API](https://api-docs.defillama.com/llms-pro.txt), not the free API (2026-11-24). Use Farside for collection. |
 | CME FedWatch probabilities | No free API is configured; the [adapter](#fedwatch) uses the embedded HTML. When debugging collection, check the embedded view rather than assuming a JSON API (adapter checked 2026-11-24). |
