@@ -978,3 +978,4 @@
 {"changed": 5, "errors": [], "facts": 173, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-25T22:13:19Z", "unchanged": 168}
 {"changed": 14, "errors": ["fred: not published"], "facts": 16, "group": "macro", "missing": 1, "started": "2026-11-25T22:45:26Z", "unchanged": 2}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-25T23:03:18Z", "unchanged": 0}
+{"changed": 2, "errors": [], "facts": 173, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-25T23:13:21Z", "unchanged": 171}
