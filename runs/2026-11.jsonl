@@ -940,3 +940,4 @@
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-25T06:03:24Z", "unchanged": 0}
 {"changed": 2, "errors": [], "facts": 173, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-25T06:13:25Z", "unchanged": 171}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-25T07:03:18Z", "unchanged": 0}
+{"changed": 3, "errors": [], "facts": 173, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-25T07:13:20Z", "unchanged": 170}
