@@ -1,0 +1,4 @@
+{"analysis": "2026-11-25T0330Z-btc-eth.md", "date": "2026-12-09", "id": "fc:531dc8e2e6c0", "made_at": "2026-11-25T08:05:57Z", "op": "lt", "p": 0.55, "series": "price_close.binance.btc", "threshold": "59097.34"}
+{"analysis": "2026-11-25T0330Z-btc-eth.md", "date": "2026-12-09", "id": "fc:27b65285e09b", "made_at": "2026-11-25T08:05:57Z", "op": "lt", "p": 0.53, "series": "price_close.binance.eth", "threshold": "1651.69"}
+{"analysis": "2026-11-25T0330Z-btc-eth.md", "date": "2026-12-25", "id": "fc:e1ee8ec6fa3b", "made_at": "2026-11-25T08:05:58Z", "op": "lt", "p": 0.57, "series": "price_close.binance.btc", "threshold": "59097.34"}
+{"analysis": "2026-11-25T0330Z-btc-eth.md", "date": "2026-12-25", "id": "fc:02bf64abbb5a", "made_at": "2026-11-25T08:05:58Z", "op": "lt", "p": 0.55, "series": "price_close.binance.eth", "threshold": "1651.69"}
