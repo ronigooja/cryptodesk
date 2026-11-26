@@ -29,7 +29,7 @@ For both BTC and ETH, Farside collects only the newest fully published row. If n
 
 Each bucket is the NOW probability for the page's selected meeting and an absolute target range in basis points. The outcome ID is `YYYYMMDDb<lower>x<upper>`. The page marks the current range `(Current)`; the adapter discards that marker. When interpreting a bucket, compare it with the target range in force at the snapshot: the same range is a hold, above is a hike, and below is a cut. The [2026-10-28 FOMC statement](https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm) gives 3.75–4.00% (375–400 bp).
 
-The page's CT timestamp is converted using `America/Chicago` timezone rules, including DST. An unidentifiable meeting, table or timestamp yields a missing `fedwatch_status`; rows with all probability cells blank are skipped, and other absent or invalid NOW values yield missing outcome facts. Old meeting IDs remain in latest until manually removed.
+The page's CT timestamp is a 12-hour clock without AM or PM (00:23 CT prints as 12:23, 16:31 CT as 04:31; observed 2026-11-26 against fetch times). The adapter takes the latest reading not after the fetch time, converts it using `America/Chicago` timezone rules, including DST, and treats data 12 hours or older, or later than the fetch time by more than 5 minutes, as an unidentifiable timestamp. Data times stored before 2026-11-26 were corrected the same way ([incident log](research/2026-11-24-incident-log.md)). An unidentifiable meeting, table or timestamp yields a missing `fedwatch_status`; rows with all probability cells blank are skipped, and other absent or invalid NOW values yield missing outcome facts. Old meeting IDs remain in latest until manually removed.
 
 ## On-demand reads
 

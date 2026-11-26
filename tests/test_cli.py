@@ -1,6 +1,8 @@
 import json
 import shutil
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import pytest
 
@@ -69,7 +71,10 @@ NYFED = {"refRates": [{"effectiveDate": "2026-11-04", "type": "EFFR", "percentRa
 
 
 def test_macro_collect(repo, monkeypatch, capsys):
-    monkeypatch.setattr(cli.fedwatch, "fetch_page", lambda: (ROOT / "tests/fixtures/fedwatch.html").read_text())
+    page = (ROOT / "tests/fixtures/fedwatch.html").read_text()
+    chicago = (datetime.now(UTC) - timedelta(minutes=10)).astimezone(ZoneInfo("America/Chicago"))
+    page = page.replace("19 Nov 2026 05:35:27", f"{chicago.day} {chicago:%b %Y} {chicago.hour % 12:02d}:{chicago:%M:%S}")
+    monkeypatch.setattr(cli.fedwatch, "fetch_page", lambda: page)
     monkeypatch.setattr(cli, "make_get_text_fn", lambda: lambda url, params: TREASURY)
     monkeypatch.setattr(cli, "make_get_fn", lambda: lambda url, params: NYFED)
     monkeypatch.setattr(cli, "make_get_text_default_ua_fn",

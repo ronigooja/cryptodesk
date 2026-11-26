@@ -1,6 +1,6 @@
 import math
 import re
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit
 from zoneinfo import ZoneInfo
@@ -54,7 +54,21 @@ def fetch_page():
         raise FetchError(f"request error {type(exc).__name__}")
 
 
-def parse_page(text):
+CT = ZoneInfo("America/Chicago")
+
+
+def resolve_time(wall, reference):
+    """The page prints a 12-hour clock without AM or PM (00:23 CT shows as 12:23, 16:31 CT as 04:31).
+    Take the latest reading not after `reference` (UTC datetime); data 12 hours or older is ambiguous."""
+    hours = [wall.hour] if wall.hour == 0 or wall.hour > 12 else [wall.hour % 12, wall.hour % 12 + 12]
+    candidates = [wall.replace(hour=h, tzinfo=CT).astimezone(timezone.utc) for h in hours]
+    allowed = [c for c in candidates if c <= reference + timedelta(minutes=5)]
+    if not allowed or (len(candidates) == 2 and reference - max(allowed) >= timedelta(hours=12)):
+        raise ValueError("time ambiguous")
+    return max(allowed)
+
+
+def parse_page(text, reference):
     meeting = re.findall(r"Target Rate Probabilities for (\d{1,2} [A-Za-z]{3} \d{4}) Fed Meeting", text)
     if len(set(meeting)) != 1:
         raise ValueError("meeting absent")
@@ -75,8 +89,7 @@ def parse_page(text):
              for row in rows for cell in row if "Data as of" in cell]
     if len(times) != 1 or times[0] is None:
         raise ValueError("time absent")
-    timestamp = datetime.strptime(times[0].group(1), "%d %b %Y %H:%M:%S").replace(tzinfo=ZoneInfo("America/Chicago"))
-    as_of = iso(timestamp)
+    as_of = iso(resolve_time(datetime.strptime(times[0].group(1), "%d %b %Y %H:%M:%S"), reference))
     result = []
     for row in rows[2:]:
         if not row:
@@ -104,7 +117,7 @@ def parse_page(text):
 
 def collect(fetch, fetched_at):
     try:
-        values, as_of = parse_page(fetch())
+        values, as_of = parse_page(fetch(), datetime.fromisoformat(fetched_at.replace("Z", "+00:00")))
     except FetchError as exc:
         return [missing("fedwatch.macro.fedwatch_status", "macro", "fedwatch_status", "number", str(exc), fetched_at, "fedwatch")]
     except (ValueError, TypeError, IndexError):
