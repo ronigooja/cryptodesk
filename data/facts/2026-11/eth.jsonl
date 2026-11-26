@@ -9226,3 +9226,5 @@
 {"as_of": "2026-11-26T16:03:27Z", "coin": "eth", "fetched_at": "2026-11-26T16:03:21Z", "id": "deribit.eth.perp_mark_price", "metric": "perp_mark_price", "reason": null, "source": "deribit", "status": "ok", "unit": "USD", "value": 1694.37}
 {"as_of": "2026-11-26T16:03:27Z", "coin": "eth", "fetched_at": "2026-11-26T16:03:21Z", "id": "deribit.eth.funding_rate_8h", "metric": "funding_rate_8h", "reason": null, "source": "deribit", "status": "ok", "unit": "fraction", "value": 0.0}
 {"as_of": "2026-11-26T16:00:00Z", "coin": "eth", "fetched_at": "2026-11-26T16:03:21Z", "id": "deribit.eth.dvol", "metric": "dvol", "reason": null, "source": "deribit", "status": "ok", "unit": "percent", "value": 65.56}
+{"as_of": null, "coin": "eth", "fetched_at": "2026-11-26T16:22:21Z", "id": "deribit.eth.oi_call_total", "metric": "oi_call_total", "reason": null, "source": "deribit", "status": "ok", "unit": "ETH", "value": 1207806.0}
+{"as_of": null, "coin": "eth", "fetched_at": "2026-11-26T16:22:21Z", "id": "deribit.eth.oi_put_total", "metric": "oi_put_total", "reason": null, "source": "deribit", "status": "ok", "unit": "ETH", "value": 665715.0}
