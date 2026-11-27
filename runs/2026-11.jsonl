@@ -1065,3 +1065,4 @@
 {"changed": 36, "errors": ["deribit: HTTP 503"], "facts": 36, "group": "market", "missing": 6, "started": "2026-11-27T09:03:20Z", "unchanged": 0}
 {"changed": 1, "errors": [], "facts": 170, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-27T09:13:19Z", "unchanged": 169}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-27T10:03:20Z", "unchanged": 0}
+{"changed": 2, "errors": [], "facts": 169, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-27T10:13:27Z", "unchanged": 167}
