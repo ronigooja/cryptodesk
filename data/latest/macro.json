@@ -1,42 +1,42 @@
 {
  "defillama.macro.stablecoin_supply_usd": {
   "as_of": null,
-  "checked_at": "2026-11-26T01:30:21Z",
+  "checked_at": "2026-11-27T01:30:20Z",
   "coin": "macro",
-  "fetched_at": "2026-11-26T01:30:21Z",
+  "fetched_at": "2026-11-27T01:30:20Z",
   "id": "defillama.macro.stablecoin_supply_usd",
   "metric": "stablecoin_supply_usd",
   "reason": null,
   "source": "defillama",
   "status": "ok",
   "unit": "USD",
-  "value": 284015711166.1528
+  "value": 283665490924.1276
  },
  "defillama.macro.usdc_supply_usd": {
   "as_of": null,
-  "checked_at": "2026-11-26T01:30:21Z",
+  "checked_at": "2026-11-27T01:30:20Z",
   "coin": "macro",
-  "fetched_at": "2026-11-26T01:30:21Z",
+  "fetched_at": "2026-11-27T01:30:20Z",
   "id": "defillama.macro.usdc_supply_usd",
   "metric": "usdc_supply_usd",
   "reason": null,
   "source": "defillama",
   "status": "ok",
   "unit": "USD",
-  "value": 69373604401.21068
+  "value": 69202235985.79514
  },
  "defillama.macro.usdt_supply_usd": {
   "as_of": null,
-  "checked_at": "2026-11-26T01:30:21Z",
+  "checked_at": "2026-11-27T01:30:20Z",
   "coin": "macro",
-  "fetched_at": "2026-11-26T01:30:21Z",
+  "fetched_at": "2026-11-27T01:30:20Z",
   "id": "defillama.macro.usdt_supply_usd",
   "metric": "usdt_supply_usd",
   "reason": null,
   "source": "defillama",
   "status": "ok",
   "unit": "USD",
-  "value": 173705764109.28043
+  "value": 173547952765.5522
  },
  "fedwatch.macro.fedwatch_probability_20261209b250x275": {
   "as_of": "2026-11-26T22:32:26Z",

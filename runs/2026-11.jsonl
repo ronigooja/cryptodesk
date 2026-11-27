@@ -1044,3 +1044,4 @@
 {"changed": 7, "conflicts": 1, "errors": ["stablecoin_supply_usd.defillama: conflict 2026-11-22: stored=282495001551.88 received=282485936231"], "facts": 41, "group": "daily", "missing": 0, "skipped": 3728, "started": "2026-11-27T00:40:26Z", "unchanged": 34}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-27T01:03:20Z", "unchanged": 0}
 {"changed": 1, "errors": [], "facts": 170, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-27T01:13:17Z", "unchanged": 169}
+{"changed": 9, "errors": ["coinmetrics: field absent in response"], "facts": 12, "group": "onchain", "missing": 2, "started": "2026-11-27T01:30:20Z", "unchanged": 3}
