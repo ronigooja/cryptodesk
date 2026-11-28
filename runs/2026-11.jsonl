@@ -1097,3 +1097,4 @@
 {"changed": 14, "errors": ["fred: not published"], "facts": 16, "group": "macro", "missing": 1, "started": "2026-11-27T22:45:15Z", "unchanged": 2}
 {"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-27T23:03:14Z", "unchanged": 0}
 {"changed": 0, "errors": [], "facts": 170, "group": "news", "missing": 0, "skipped": 0, "started": "2026-11-27T23:13:22Z", "unchanged": 170}
+{"changed": 36, "errors": [], "facts": 36, "group": "market", "missing": 0, "started": "2026-11-28T00:03:26Z", "unchanged": 0}
